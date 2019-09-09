@@ -1,0 +1,8 @@
+<suite name="softwaretestingmaterial">
+	<test name="testngTest">
+		<classes>
+			 <class name="ODIN_VALIDATOR_APITEST.Test2" /> 
+		
+		</classes>
+	</test>
+</suite>
