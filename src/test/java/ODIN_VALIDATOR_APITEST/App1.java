@@ -21,19 +21,10 @@ public class App1 {
 	
 	final static Logger logger = Logger.getLogger(App1.class);
 	
-@BeforeClass
-public void xxx() {
-	System.out.println("Inceput clasa 1");
-}
 
-@AfterClass
-public void yyy() {
-	System.out.println("Terminat clasa 1");
-}
 	@BeforeMethod
 
 	public void startTest() {
-		System.out.println(" begin ");
 		logger.info("autentification......");
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		RestAssured.useRelaxedHTTPSValidation();
@@ -42,7 +33,7 @@ public void yyy() {
 
 	@Test (priority=1)
 	public void test1() throws Exception {
-		logger.info("test for check response status 200");
+		logger.info("test for check response ==>http status 200<==");
 		Response result = (Response)RestAssured.given().
 				contentType("text/plain").				
 				body(ReadBody.bodyRead("test_1.xml")).
@@ -53,7 +44,7 @@ public void yyy() {
 
 	@Test (priority=2)
 	public void test2() throws Exception {	
-		logger.info("test for  check contain messageType");
+		logger.info("test for  check ==>contain tag messageType<==");
 		String respond = obtainResponse("test_1.xml");		
 		String check = "<messageType>OK</messageType>";		  
 		assertTrue(respond.contains(check));
@@ -62,7 +53,7 @@ public void yyy() {
 
 	@Test(priority=3)
 	public void test3() throws Exception {
-		logger.info("test for check contain status");
+		logger.info("test for check ==> contain tag status <==");
 		String check = "<statuscode>0</statuscode>";
 		String respond = obtainResponse("test_1.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check)), 2);  
@@ -71,13 +62,13 @@ public void yyy() {
 	
 	@Test (priority=4)
 	public void test4() throws Exception {	
-		logger.info("test for compare xml structure and content");
+		logger.info("test for ==>compare xml structure and content<==");
 		XmlComparator.read_xml_expected("test_1.xml" ,"expected_1.xml");				
 	}
 	
 	@Test(priority=5)
 	public void test5() throws Exception {
-		logger.info("test for validate <elementName>");
+		logger.info("test for ==>validate <elementName> <==");
 		String check_statuscode = "<statuscode>-2</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String respond = obtainResponse("test_2.xml");		 
@@ -88,7 +79,7 @@ public void yyy() {
 	
 	@Test(priority=6)
 	public void test6() throws Exception {
-		logger.info("test for validate the xml structure");
+		logger.info("test for ==>validate the xml structure<==");
 		String check_statuscode = "<statuscode>-2</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String respond = obtainResponse("test_3.xml");		
@@ -98,8 +89,7 @@ public void yyy() {
 			
 	@Test(priority=7)
 	public void test7() throws Exception {
-		logger.info("test for validate minimum value accepted");
-		System.out.println("validate minimum value accepted ");
+		logger.info("test for ==>validate minimum value accepted<==");
 		String check_statuscode = "<statuscode>0</statuscode>";
 		String check_messageType = "<messageType>OK</messageType>";
 		String respond = obtainResponse("test_4.xml");		 
@@ -109,8 +99,7 @@ public void yyy() {
 	
 	@Test(priority=8)
 	public void test8() throws Exception {
-		logger.info("test for validate maximum value accepted ");
-		System.out.println("validate maximum value accepted ");
+		logger.info("test for ==>validate maximum value accepted<==");
 		String check_statuscode = "<statuscode>0</statuscode>";
 		String check_messageType = "<messageType>OK</messageType>";
 		String respond = obtainResponse("test_5.xml");		 
@@ -120,8 +109,7 @@ public void yyy() {
 	
 	@Test(priority=9)
 	public void test9() throws Exception {
-		logger.info("test for validate maximum value +1 not accepted");
-		System.out.println("validate maximum value +1 not accepted ");
+		logger.info("test for ==>validate maximum value +1 not accepted<==");
 		String check_statuscode = "<statuscode>-1</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String check_brokenRule= "<brokenRule>maxValue</brokenRule>";
@@ -133,8 +121,7 @@ public void yyy() {
 	
 	@Test(priority=10)
 	public void test10() throws Exception {
-		logger.info("test for validate minimum value -1 not accepted ");
-		System.out.println("validate minimum value -1 not accepted ");
+		logger.info("test for ==>validate minimum value -1 not accepted<==");
 		String check_statuscode = "<statuscode>-1</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String check_brokenRule= "<brokenRule>minValue</brokenRule>";
@@ -145,8 +132,7 @@ public void yyy() {
 	}
 	@Test(priority=11)
 	public void test11() throws Exception {
-		logger.info("test for validate variable");
-		System.out.println("variable validation ");
+		logger.info("test for ==>validate variable<==");
 		String check_statuscode = "<statuscode>-2</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String respond = obtainResponse("test_8.xml");		 
@@ -156,8 +142,7 @@ public void yyy() {
 	
 	@Test(priority=12)
 	public void test12() throws Exception {
-		logger.info("test for digit validation");
-		System.out.println("digit validation ");
+		logger.info("test for ==>digit validation<==");
 		String check_statuscode = "<statuscode>-2</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String check_brokenRule= "<brokenRule>digits</brokenRule>";
@@ -170,8 +155,7 @@ public void yyy() {
 
 	@Test(priority=13)
 	public void test13() throws Exception {
-		logger.info("test for validate min occur ");
-		System.out.println("validate min occur ");
+		logger.info("test for ==>validate min occur<==");
 		String check_statuscode = "<statuscode>-2</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String check_brokenRule= "<brokenRule>minOccurs</brokenRule>";
@@ -183,8 +167,7 @@ public void yyy() {
 	
 	@Test(priority=14)
 	public void test14() throws Exception {
-		logger.info("test for validate max occur ");
-		System.out.println("validate max occur ");
+		logger.info("test for ==>validate max occur<==");
 		String check_statuscode = "<statuscode>-1</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String check_brokenRule= "<brokenRule>maxOccurs</brokenRule>";
@@ -193,10 +176,12 @@ public void yyy() {
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 2);
 		assertEquals((StringUtils.countMatches(respond, check_brokenRule)), 2);
 	}	
+	
  // validate the atribute
+	
 	@Test(priority=15)
 	public void test15() throws Exception {
-		System.out.println("digit min occur atribute");
+		logger.info("test for ==> digit min occur atribute <==");
 		String check_statuscode = "<statuscode>0</statuscode>";
 		String check_messageType = "<messageType>OK</messageType>";
 		String respond = obtainResponse("test_12.xml");		 
@@ -206,7 +191,7 @@ public void yyy() {
 	
 	@Test(priority=16)
 	public void test16() throws Exception {
-		System.out.println("digit max occur atribute");
+		logger.info("test for ==> digit max occur atribute <==");
 		String check_statuscode = "<statuscode>0</statuscode>";
 		String check_messageType = "<messageType>OK</messageType>";
 		String respond = obtainResponse("test_13.xml");		 
@@ -216,7 +201,7 @@ public void yyy() {
 	
 	@Test(priority=17)
 	public void test17() throws Exception {
-		System.out.println("digit max occur+1 atribute");
+		logger.info("test for ==> digit max occur+1 atribute <==");
 		String check_statuscode = "<statuscode>-2</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String check_brokenRule= "<brokenRule>minOccurs</brokenRule>";
@@ -228,7 +213,7 @@ public void yyy() {
 	
 	@Test(priority=18)
 	public void test18() throws Exception {
-		System.out.println("validate  minLength atribute");
+		logger.info("test for ==> validate  minLength atribute <==");
 		String check_statuscode = "<statuscode>0</statuscode>";
 		String check_messageType = "<messageType>OK</messageType>";
 		String respond = obtainResponse("test_15.xml");		 
@@ -238,7 +223,7 @@ public void yyy() {
 	
 	@Test(priority=19)
 	public void test19() throws Exception {
-		System.out.println("validate  maxLength atribute");
+		logger.info("test for ==> validate  maxLength atribute <==");
 		String check_statuscode = "<statuscode>0</statuscode>";
 		String check_messageType = "<messageType>OK</messageType>";
 		String respond = obtainResponse("test_16.xml");		 
@@ -248,7 +233,7 @@ public void yyy() {
 	
 	@Test(priority=20)
 	public void test20() throws Exception {
-		System.out.println("validate  minLength-1 atribute");
+		logger.info("test for ==> validate  minLength-1 atribute <==");
 		String check_statuscode = "<statuscode>-2</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String check_brokenRule= "<brokenRule>minLength</brokenRule>";
@@ -260,7 +245,7 @@ public void yyy() {
 	
 	@Test(priority=21)
 	public void test21() throws Exception {
-		System.out.println("validate  maxLength+1 atribute");
+		logger.info("test for ==> validate  maxLength+1 atribute <==");
 		String check_statuscode = "<statuscode>-1</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String check_brokenRule= "<brokenRule>maxLength</brokenRule>";
@@ -272,7 +257,7 @@ public void yyy() {
 	
 	@Test(priority=22)
 	public void test22() throws Exception {
-		System.out.println("validate  string atribute");
+		logger.info("test for ==>validate  string atribute<==");
 		String check_statuscode = "<statuscode>0</statuscode>";
 		String check_messageType = "<messageType>OK</messageType>";
 		String respond = obtainResponse("test_19.xml");		 
