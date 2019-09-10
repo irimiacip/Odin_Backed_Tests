@@ -19,7 +19,7 @@ import io.restassured.response.Response;
 
 public class App1 {
 	
-	final static Logger logger = Logger.getLogger(App1.class.getName());
+	final static Logger logger = Logger.getLogger(App1.class);
 	
 @BeforeClass
 public void xxx() {
