@@ -267,7 +267,6 @@ public class App1 {
 	
 	@AfterMethod
 	public void endTest() {
-		System.out.println("end");
 		logger.info("logout....");
 	}
 
