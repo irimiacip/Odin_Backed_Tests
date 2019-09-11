@@ -2,7 +2,7 @@ package ODIN_VALIDATOR_APITEST;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-
+import static ODIN_VALIDATOR_APITEST.Consts.*;
 public  class ActualResults {
 
 	
@@ -12,7 +12,7 @@ public  class ActualResults {
 		Response result = (Response)RestAssured.given().
 				contentType("text/plain").				
 				body(ReadBody.bodyRead(body_1)).
-				put(Consts.link + Consts.proces + Consts.version);		
+				put(LINK + PROCESS + VERSION);		
 		 String response = result.asString();
 		return response;		    		
 	}

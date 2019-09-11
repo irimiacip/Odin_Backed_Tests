@@ -1,17 +1,20 @@
 package ODIN_VALIDATOR_APITEST;
 
 import static ODIN_VALIDATOR_APITEST.ActualResults.obtainResponse;
+import static ODIN_VALIDATOR_APITEST.Consts.FILEPATH_VALIDATOR;
+import static ODIN_VALIDATOR_APITEST.Consts.LINK;
+import static ODIN_VALIDATOR_APITEST.Consts.PROCESS;
+import static ODIN_VALIDATOR_APITEST.Consts.VERSION;
 import static io.restassured.specification.ProxySpecification.host;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -36,8 +39,8 @@ public class App1 {
 		logger.info("test for check response ==>http status 200<==");
 		Response result = (Response)RestAssured.given().
 				contentType("text/plain").				
-				body(ReadBody.bodyRead("test_1.xml")).
-				put(Consts.link + Consts.proces + Consts.version).
+				body(ReadBody.getBodyFromFilepath(FILEPATH_VALIDATOR, "test_1.xml")).
+				put(LINK + PROCESS + VERSION).
 				then().
 				statusCode(200).contentType("application/xml").extract().response();
 	}

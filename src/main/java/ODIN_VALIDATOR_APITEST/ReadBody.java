@@ -4,9 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class ReadBody {
-	
-	public static String filePath = "src/main/resources/validator/files/";
-	
+		
 	 public static String readFileAsString(String fileName)throws Exception 
 	  { 
 	    String body = ""; 
@@ -14,8 +12,15 @@ public class ReadBody {
 	    return body; 
 	  } 
 	 
-	 public static String bodyRead(String filename) throws Exception {
-		 String body = readFileAsString(filePath+filename); 
+	 public static String getBodyFromFilepath(String path, String filename) throws Exception {
+		 String body = readFileAsString(path + filename); 
 		 return body; 
 	 }
+	 
+	 public static String bodyRead(String filename) throws Exception {
+		 String body = readFileAsString(filename); 
+		 return body; 
+	 }
+	 
+
 }
