@@ -5,6 +5,7 @@ import static ODIN_VALIDATOR_APITEST.Consts.FILEPATH_VALIDATOR;
 import static ODIN_VALIDATOR_APITEST.Consts.LINK;
 import static ODIN_VALIDATOR_APITEST.Consts.PROCESS;
 import static ODIN_VALIDATOR_APITEST.Consts.VERSION;
+import static ODIN_VALIDATOR_APITEST.Consts.PATH_EXPECTED_VALIDATOR;
 import static io.restassured.specification.ProxySpecification.host;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -48,7 +49,7 @@ public class App1 {
 	@Test (priority=2)
 	public void test2() throws Exception {	
 		logger.info("test for  check ==>contain tag messageType<==");
-		String respond = obtainResponse("test_1.xml");		
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_1.xml");		
 		String check = "<messageType>OK</messageType>";		  
 		assertTrue(respond.contains(check));
 	}
@@ -58,7 +59,7 @@ public class App1 {
 	public void test3() throws Exception {
 		logger.info("test for check ==> contain tag status <==");
 		String check = "<statuscode>0</statuscode>";
-		String respond = obtainResponse("test_1.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_1.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check)), 2);  
 	}
 
@@ -66,7 +67,7 @@ public class App1 {
 	@Test (priority=4)
 	public void test4() throws Exception {	
 		logger.info("test for ==>compare xml structure and content<==");
-		XmlComparator.read_xml_expected("test_1.xml" ,"expected_1.xml");				
+		XmlComparator.read_xml_expected(1, FILEPATH_VALIDATOR, "test_1.xml" , PATH_EXPECTED_VALIDATOR, "expected_1.xml");				
 	}
 	
 	@Test(priority=5)
@@ -74,7 +75,7 @@ public class App1 {
 		logger.info("test for ==>validate <elementName> <==");
 		String check_statuscode = "<statuscode>-2</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
-		String respond = obtainResponse("test_2.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_2.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 2);  
 	}
@@ -85,7 +86,7 @@ public class App1 {
 		logger.info("test for ==>validate the xml structure<==");
 		String check_statuscode = "<statuscode>-2</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
-		String respond = obtainResponse("test_3.xml");		
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_3.xml");		
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2); 
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 2); 
 	}
@@ -95,7 +96,7 @@ public class App1 {
 		logger.info("test for ==>validate minimum value accepted<==");
 		String check_statuscode = "<statuscode>0</statuscode>";
 		String check_messageType = "<messageType>OK</messageType>";
-		String respond = obtainResponse("test_4.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_4.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 1);		
 	}
@@ -105,7 +106,7 @@ public class App1 {
 		logger.info("test for ==>validate maximum value accepted<==");
 		String check_statuscode = "<statuscode>0</statuscode>";
 		String check_messageType = "<messageType>OK</messageType>";
-		String respond = obtainResponse("test_5.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_5.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 1);		
 	}
@@ -116,7 +117,7 @@ public class App1 {
 		String check_statuscode = "<statuscode>-1</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String check_brokenRule= "<brokenRule>maxValue</brokenRule>";
-		String respond = obtainResponse("test_6.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_6.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 1);
 		assertEquals((StringUtils.countMatches(respond, check_brokenRule)), 1);
@@ -128,7 +129,7 @@ public class App1 {
 		String check_statuscode = "<statuscode>-1</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String check_brokenRule= "<brokenRule>minValue</brokenRule>";
-		String respond = obtainResponse("test_7.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_7.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 1);
 		assertEquals((StringUtils.countMatches(respond, check_brokenRule)), 1);
@@ -138,7 +139,7 @@ public class App1 {
 		logger.info("test for ==>validate variable<==");
 		String check_statuscode = "<statuscode>-2</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
-		String respond = obtainResponse("test_8.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_8.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 2);
 	}
@@ -149,7 +150,7 @@ public class App1 {
 		String check_statuscode = "<statuscode>-2</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String check_brokenRule= "<brokenRule>digits</brokenRule>";
-		String respond = obtainResponse("test_9.xml");	
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_9.xml");	
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 2);
 		assertEquals((StringUtils.countMatches(respond, check_brokenRule)), 1);
@@ -162,7 +163,7 @@ public class App1 {
 		String check_statuscode = "<statuscode>-2</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String check_brokenRule= "<brokenRule>minOccurs</brokenRule>";
-		String respond = obtainResponse("test_10.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_10.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 2);
 		assertEquals((StringUtils.countMatches(respond, check_brokenRule)), 1);
@@ -174,7 +175,7 @@ public class App1 {
 		String check_statuscode = "<statuscode>-1</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String check_brokenRule= "<brokenRule>maxOccurs</brokenRule>";
-		String respond = obtainResponse("test_11.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_11.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 2);
 		assertEquals((StringUtils.countMatches(respond, check_brokenRule)), 2);
@@ -187,7 +188,7 @@ public class App1 {
 		logger.info("test for ==> digit min occur atribute <==");
 		String check_statuscode = "<statuscode>0</statuscode>";
 		String check_messageType = "<messageType>OK</messageType>";
-		String respond = obtainResponse("test_12.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_12.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 1);
 	}	
@@ -197,7 +198,7 @@ public class App1 {
 		logger.info("test for ==> digit max occur atribute <==");
 		String check_statuscode = "<statuscode>0</statuscode>";
 		String check_messageType = "<messageType>OK</messageType>";
-		String respond = obtainResponse("test_13.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_13.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 1);
 	}
@@ -208,7 +209,7 @@ public class App1 {
 		String check_statuscode = "<statuscode>-2</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String check_brokenRule= "<brokenRule>minOccurs</brokenRule>";
-		String respond = obtainResponse("test_14.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_14.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 2);
 		assertEquals((StringUtils.countMatches(respond, check_brokenRule)), 1);
@@ -219,7 +220,7 @@ public class App1 {
 		logger.info("test for ==> validate  minLength atribute <==");
 		String check_statuscode = "<statuscode>0</statuscode>";
 		String check_messageType = "<messageType>OK</messageType>";
-		String respond = obtainResponse("test_15.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_15.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 1);
 	}
@@ -229,7 +230,7 @@ public class App1 {
 		logger.info("test for ==> validate  maxLength atribute <==");
 		String check_statuscode = "<statuscode>0</statuscode>";
 		String check_messageType = "<messageType>OK</messageType>";
-		String respond = obtainResponse("test_16.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_16.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 1);
 	}
@@ -240,7 +241,7 @@ public class App1 {
 		String check_statuscode = "<statuscode>-2</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String check_brokenRule= "<brokenRule>minLength</brokenRule>";
-		String respond = obtainResponse("test_17.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_17.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 2);
 		assertEquals((StringUtils.countMatches(respond, check_brokenRule)), 1);
@@ -252,7 +253,7 @@ public class App1 {
 		String check_statuscode = "<statuscode>-1</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
 		String check_brokenRule= "<brokenRule>maxLength</brokenRule>";
-		String respond = obtainResponse("test_18.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_18.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 1);
 		assertEquals((StringUtils.countMatches(respond, check_brokenRule)), 1);
@@ -263,7 +264,7 @@ public class App1 {
 		logger.info("test for ==>validate  string atribute<==");
 		String check_statuscode = "<statuscode>0</statuscode>";
 		String check_messageType = "<messageType>OK</messageType>";
-		String respond = obtainResponse("test_19.xml");		 
+		String respond = obtainResponse(FILEPATH_VALIDATOR, "test_19.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 1);
 	}

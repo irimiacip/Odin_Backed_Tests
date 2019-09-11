@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import static ODIN_VALIDATOR_APITEST.Consts.*;
 import ODIN_VALIDATOR_APITEST.Consts;
 import ODIN_VALIDATOR_APITEST.ReadBody;
+import ODIN_VALIDATOR_APITEST.XmlComparator;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -32,14 +33,21 @@ final static Logger logger = Logger.getLogger(App1.class);
 	}
 	
 	@Test (priority=1)
-	public void test1() throws Exception {
+	public void test1() throws Exception {	
+		logger.info("test for ==>compare xml structure and content<==");
+		XmlComparator.read_xml_expected(2, FILEPATH_REQUEST_PROCESSOR, "test_1.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_1.xml");				
+	}
+	
+	@Test (priority=2)
+	public void test2() throws Exception {
 		logger.info("test for check response ==>http status 200<==");
 		Response result = (Response)RestAssured.given().
 				contentType("text/plain").				
-				body(ReadBody.getBodyFromFilepath(FILEPATH_PROCESS, "test_1.xml")).
+				body(ReadBody.getBodyFromFilepath(FILEPATH_REQUEST_PROCESSOR, "test_1.xml")).
 				put(LINK_PROCESSOR + PROCESS + VERSION_PROCESSOR + COUNTRY_TENANT).				
 				then().
 				statusCode(200).contentType("application/xml").extract().response();
-		System.out.println(result.toString());
 	}
+	
+
 }
