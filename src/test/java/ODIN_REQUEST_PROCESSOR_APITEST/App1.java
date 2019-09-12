@@ -48,6 +48,5 @@ final static Logger logger = Logger.getLogger(App1.class);
 				then().
 				statusCode(200).contentType("application/xml").extract().response();
 	}
-	
 
 }
