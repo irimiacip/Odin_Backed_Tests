@@ -19,7 +19,7 @@ public class XmlComparator {
 	
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-	public static void read_xml_expected(int microservice, String path, String actualXml , String path_expected, String expectedXml) throws SAXException, IOException, Exception {
+	public static void read_xml_expected(int microservice, int version, String path, String actualXml , String path_expected, String expectedXml , String day) throws SAXException, IOException, Exception {
 
 		FileInputStream fis1 = new FileInputStream(path_expected+ expectedXml);		 
 		 BufferedReader expected = new BufferedReader(new InputStreamReader(fis1));
@@ -33,10 +33,23 @@ public class XmlComparator {
 		 
 		 switch (microservice) {
 		 case 1:
-			 List differences_validator = compareXML(ActualResults.obtainResponse(path, actualXml), strExpected); 
-             // System.out.println("differences_validator");
-              printDifferences(differences_validator);
-              break;
+			    if(version == 1) {
+					 List differences_validator = compareXML(ActualResults.obtainResponse_validator_v1(path, actualXml), strExpected); 
+		             // System.out.println("differences_validator");
+		              printDifferences(differences_validator);
+		              break;
+			    }else if( version == 2) {
+					 List differences_validator = compareXML(ActualResults.obtainResponse_validator_v2(path, actualXml), strExpected); 
+		             // System.out.println("differences_validator");
+		              printDifferences(differences_validator);
+		              break;
+			    }else {
+			    	 List differences_validator = compareXML(ActualResults.obtainResponse_validator_v3(path, actualXml, day), strExpected); 
+		             // System.out.println("differences_validator");
+		              printDifferences(differences_validator);
+		              break;
+			    }
+
 		 case 2:
 			 List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml), strExpected); 
              //System.out.println("differences_request_procesor");

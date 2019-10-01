@@ -35,7 +35,7 @@ final static Logger logger = Logger.getLogger(App1.class);
 	@Test (priority=1)
 	public void test1() throws Exception {	
 		logger.info("test for ==>compare xml structure and content<==");
-		XmlComparator.read_xml_expected(2, FILEPATH_REQUEST_PROCESSOR, "test_1.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_1.xml");				
+		XmlComparator.read_xml_expected(2, 1,FILEPATH_REQUEST_PROCESSOR, "test_1.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_1.xml","null");				
 	}
 	
 	@Test (priority=2)
@@ -48,5 +48,6 @@ final static Logger logger = Logger.getLogger(App1.class);
 				then().
 				statusCode(200).contentType("application/xml").extract().response();
 	}
+    
 
 }

@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ODIN_REQUEST_PROCESSOR_APITEST.App1">
+      <class name="ODIN_VALIDATOR_APITEST.App1">
         <methods>
-          <include name="endTest"/>
           <include name="startTest"/>
-          <include name="test2"/>
+          <include name="test32"/>
+          <include name="endTest"/>
         </methods>
-      </class> <!-- ODIN_REQUEST_PROCESSOR_APITEST.App1 -->
+      </class> <!-- ODIN_VALIDATOR_APITEST.App1 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

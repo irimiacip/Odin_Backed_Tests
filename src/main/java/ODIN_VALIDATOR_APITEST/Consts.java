@@ -5,7 +5,9 @@ public class Consts {
 
 	public static final String LINK = "https://validator.odin-dev.metrosystems.net/validate/";
 	public static final String PROCESS = "ProcessDeTest/";
-	public static final String VERSION = "v_1_0";
+	public static final String VERSION_1 = "v_1_0";
+	public static final String VERSION_2 = "v_2_0";
+	public static final String VERSION_3 = "v_3_0";
 	
 	public static final String LINK_PROCESSOR = "https://request-processor.odin-dev.metrosystems.net/process/";
 	public static final String VERSION_PROCESSOR = "v_1_0/";

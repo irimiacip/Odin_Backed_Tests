@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IhdsTree xmlns="http://cpim.metrosystems.net/ihds-tree/1.0/" scope="test" version="1">
+    <Transaction id="1489137860226" time="2017-03-10 11:24:20.226">
+        <Incident id="1">
+            <Domain>
+                <column attribute1="ceva" attribute2="test">2</column>
+                <column2>Text</column2>
+            </Domain>
+            <content>
+                <request>
+                    <column3>Text2</column3>
+                    <column4>10000</column4>
+                </request>
+            </content>
+            <validationResponse xmlns="">
+                <statuscode>-2</statuscode>
+                <request>
+                    <statuscode>-2</statuscode>
+                    <odinId/>
+                    <messages>
+                        <message>
+                            <messageType>ERROR</messageType>
+                            <elementName>Domain/column1</elementName>
+                            <brokenRule>minOccurs</brokenRule>
+                            <messageNo>ODIN-5</messageNo>
+                            <messagePlaceholder name="minOccurs">1</messagePlaceholder>
+                            <messagePlaceholder name="elementName">Domain/column1</messagePlaceholder>
+                        </message>
+                        <message>
+                            <messageType>ERROR</messageType>
+                            <brokenRule>Complex validation {Domain/column1}.compareTo({content/request/column4}) &lt;= 0 with values [null, 10000] failed with error java.lang.NullPointerException</brokenRule>
+                        </message>
+                    </messages>
+                </request>
+            </validationResponse>
+        </Incident>
+    </Transaction>
+</IhdsTree>
+<!-- validate atribute max occur +1-->
