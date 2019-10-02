@@ -39,8 +39,7 @@ public class ConnectDB {
 	                   obj.setCol3(col3);
 	                   obj.setCol4(col4);
 	                   
-
-	                   String val1 = obj.getCol1(); 
+	                    String val1 = obj.getCol1(); 
 	                    String val2 = obj.getCol2();
 	                    String val3 = obj.getCol3();
 	                    String val4 = obj.getCol4();
@@ -79,6 +78,5 @@ public class ConnectDB {
 	        }
 	}		
 }
-
 
 //https://www.mkyong.com/jdbc/jdbc-statement-example-select-list-of-the-records/

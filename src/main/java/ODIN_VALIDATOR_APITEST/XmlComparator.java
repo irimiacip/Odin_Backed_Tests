@@ -19,7 +19,7 @@ public class XmlComparator {
 	
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-	public static void read_xml_expected(int microservice, int version, String path, String actualXml , String path_expected, String expectedXml , String day) throws SAXException, IOException, Exception {
+	public static void read_xml_expected(int microservice, int version, String path, String actualXml , String path_expected, String expectedXml , String day , Integer date_format_value) throws SAXException, IOException, Exception {
 
 		FileInputStream fis1 = new FileInputStream(path_expected+ expectedXml);		 
 		 BufferedReader expected = new BufferedReader(new InputStreamReader(fis1));
@@ -44,7 +44,7 @@ public class XmlComparator {
 		              printDifferences(differences_validator);
 		              break;
 			    }else {
-			    	 List differences_validator = compareXML(ActualResults.obtainResponse_validator_v3(path, actualXml, day), strExpected); 
+			    	 List differences_validator = compareXML(ActualResults.obtainResponse_validator_v3(path, actualXml, day, date_format_value), strExpected); 
 		             // System.out.println("differences_validator");
 		              printDifferences(differences_validator);
 		              break;
@@ -58,21 +58,15 @@ public class XmlComparator {
 		 case 3:
              System.out.println("differences_response");
            //  printDifferences(differences_response);
-
-
 		 }
-		 
-		 
-		
+	
     }
     
     @SuppressWarnings("rawtypes")
 	public static List compareXML(String string, String string2) throws SAXException, IOException { 
 
-		 Diff xmlDiff = new Diff(string, string2); 
-		 		 
-		 DetailedDiff detailXmlDiff = new DetailedDiff(xmlDiff); 
-		 
+		 Diff xmlDiff = new Diff(string, string2); 		 		 
+		 DetailedDiff detailXmlDiff = new DetailedDiff(xmlDiff); 		 
 		 return detailXmlDiff.getAllDifferences(); 
 		 
 		 } 
@@ -83,8 +77,7 @@ public class XmlComparator {
 	     System.out.println("==============================="); 
 		 System.out.println("Total differences : " + totalDifferences);
 		 System.out.println("================================"); 
-		 
-		 		 
+		 		 		 
 		 for(String difference : differences){
 			 
 			 System.out.println(difference); } 

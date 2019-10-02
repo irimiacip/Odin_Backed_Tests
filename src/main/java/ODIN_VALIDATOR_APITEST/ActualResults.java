@@ -32,10 +32,10 @@ public  class ActualResults {
 		return response;		    		
 	}
 	
-	public static String obtainResponse_validator_v3(String path, String body_1, String day) throws Exception {
+	public static String obtainResponse_validator_v3(String path, String body_1, String day ,Integer date_format_value) throws Exception {
 		
 		
-        String data_system = DataCalcul.returnDate(day);
+        String data_system = DataCalcul.returnDate(day,date_format_value);
 		String replace = ReadBody.getBodyFromFilepath(path, body_1);
 		replace = replace.replace("DATE", data_system);
 						

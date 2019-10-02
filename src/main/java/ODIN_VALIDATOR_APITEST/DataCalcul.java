@@ -9,7 +9,7 @@ import org.omg.Messaging.SyncScopeHelper;
 
 public class DataCalcul {
 
-	public static String returnDate(String date_required) throws Exception {
+	public static String returnDate(String date_required, Integer i) throws Exception {
 		String aaa="";
 		Calendar time = Calendar.getInstance();//time.getTime()
 		
@@ -20,7 +20,7 @@ public class DataCalcul {
 			String TIMESTAMP_FORMAT = "dd.MM.yyyy HH:mm:ss.SSSSSS";
 			String[] DATE_FORMAT = new String[] {"dd.MM.yyyy", "yyyy-MM-dd", "yyyy-MM-dd'T'HH:mm:ss'Z'" , 
 			            "MM.dd.yyyy", "MM.d.yyyy", "dd.M.yyyy", "M.d.yyyy", "d.M.yyyy", "d.MM.yyyy", "M.dd.yyyy"};
-			SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT[0]);
+			SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT[i]);
 	        SimpleDateFormat timestampFormat = new SimpleDateFormat(TIMESTAMP_FORMAT);
 	        aaa= dateFormat.format(today);
 		}else if(date_required.contains("tomorrow")) {
@@ -30,7 +30,7 @@ public class DataCalcul {
 			String TIMESTAMP_FORMAT = "dd.MM.yyyy HH:mm:ss.SSSSSS";
 			String[] DATE_FORMAT = new String[] {"dd.MM.yyyy", "yyyy-MM-dd", "yyyy-MM-dd'T'HH:mm:ss'Z'" , 
 			            "MM.dd.yyyy", "MM.d.yyyy", "dd.M.yyyy", "M.d.yyyy", "d.M.yyyy", "d.MM.yyyy", "M.dd.yyyy"};
-			SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT[0]);
+			SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT[i]);
 	        SimpleDateFormat timestampFormat = new SimpleDateFormat(TIMESTAMP_FORMAT);
 	        aaa= dateFormat.format(tomorrow);
 		}else {
@@ -40,7 +40,7 @@ public class DataCalcul {
 			String TIMESTAMP_FORMAT = "dd.MM.yyyy HH:mm:ss.SSSSSS";
 			String[] DATE_FORMAT = new String[] {"dd.MM.yyyy", "yyyy-MM-dd", "yyyy-MM-dd'T'HH:mm:ss'Z'" , 
 			            "MM.dd.yyyy", "MM.d.yyyy", "dd.M.yyyy", "M.d.yyyy", "d.M.yyyy", "d.MM.yyyy", "M.dd.yyyy"};
-			SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT[0]);
+			SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT[i]);
 	        SimpleDateFormat timestampFormat = new SimpleDateFormat(TIMESTAMP_FORMAT);
 	        aaa= dateFormat.format(yesterday);
 		}
