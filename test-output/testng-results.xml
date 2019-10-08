@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="38" total="39" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="3186" started-at="2019-10-02T14:28:26Z" finished-at="2019-10-02T14:28:29Z">
+  <suite name="Default suite" duration-ms="74" started-at="2019-10-08T14:08:03Z" finished-at="2019-10-08T14:08:03Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="3186" started-at="2019-10-02T14:28:26Z" finished-at="2019-10-02T14:28:29Z">
-      <class name="ODIN_VALIDATOR_APITEST.App1">
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.App1@a67c67e]" name="startTest" is-config="true" duration-ms="769" started-at="2019-10-02T14:28:26Z" finished-at="2019-10-02T14:28:27Z">
+    <test name="Default test" duration-ms="74" started-at="2019-10-08T14:08:03Z" finished-at="2019-10-08T14:08:03Z">
+      <class name="ODIN_VALIDATOR_APITEST.App2">
+        <test-method status="PASS" signature="test1()[pri:1, instance:ODIN_VALIDATOR_APITEST.App2@192b07fd]" name="test1" duration-ms="14" started-at="2019-10-08T14:08:03Z" finished-at="2019-10-08T14:08:03Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test38()[pri:38, instance:ODIN_VALIDATOR_APITEST.App1@a67c67e]" name="test38" duration-ms="2383" started-at="2019-10-02T14:28:27Z" finished-at="2019-10-02T14:28:29Z">
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="test2()[pri:2, instance:ODIN_VALIDATOR_APITEST.App2@192b07fd]" name="test2" duration-ms="19" started-at="2019-10-08T14:08:03Z" finished-at="2019-10-08T14:08:03Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test38 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.App1@a67c67e]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-02T14:28:29Z" finished-at="2019-10-02T14:28:29Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-      </class> <!-- ODIN_VALIDATOR_APITEST.App1 -->
+        </test-method> <!-- test2 -->
+      </class> <!-- ODIN_VALIDATOR_APITEST.App2 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -6,7 +6,8 @@
       <class name="ODIN_VALIDATOR_APITEST.App1">
         <methods>
           <include name="startTest"/>
-          <include name="test33"/>
+          <include name="test2"/>
+          <include name="test20"/>
           <include name="endTest"/>
         </methods>
       </class> <!-- ODIN_VALIDATOR_APITEST.App1 -->
