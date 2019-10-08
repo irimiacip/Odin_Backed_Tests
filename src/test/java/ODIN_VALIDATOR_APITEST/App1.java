@@ -52,7 +52,7 @@ public class App1 {
 	public void test2() throws Exception {	
 		logger.info("test for  check ==>contain tag messageType<==");
 		String respond = obtainResponse_validator_v1(FILEPATH_VALIDATOR, "test_1.xml");		
-		String check = "<messageType>OK</messageType>";		  
+		String check = "<messageType>OK</meator.read_xml_expected(1, 2,FILEPATH_VALIDATOR, \"test_23.xml\" , PATH_EXPECTED_VALIDATOR, \"expected_23.xml\",\"null\",0);ssageType>";		  
 		assertTrue(respond.contains(check));
 	}
 
@@ -388,7 +388,7 @@ public class App1 {
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 1);
 	}
 	//======= finish boolean variable=======
-	
+	//======== test related to date=======
 	@Test(priority=32)
 	public void test32() throws Exception {	
 		logger.info("test for ==>date - sysdate - <==");
@@ -485,6 +485,10 @@ public class App1 {
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 1);
 	}
 
+	// ====finish tests for date ======
+	
+	
+	
 	@AfterMethod
 	public void endTest() {
 		logger.info("logout....");

@@ -24,8 +24,7 @@ public class ExpectedResults {
 		 
 		 
 		 XMLUnit.setIgnoreWhitespace(true); 	
-		 
-		 
+		 		 
 		return strExpected;
 	}
 	

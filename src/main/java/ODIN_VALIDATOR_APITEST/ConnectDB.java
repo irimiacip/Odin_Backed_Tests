@@ -57,16 +57,14 @@ public class ConnectDB {
 	                  
 	                  System.out.println(val1);
 	                  System.out.println(val1exp);
-	                  
-	                  
+	                  	                  
 	                  if ( val1.equals(val1exp)||val1.equals(val1exp)||val1.equals(val1exp)||val1.equals(val1exp) ) {
 	                	  System.out.println("Identically");
 	                  } else
 	                  {
 	                	  System.out.println("Not identically");
 	                  }
-	            
-	                  
+	            	                  
 	                }
 	            } else {
 	                System.out.println("Failed to make connection!");
