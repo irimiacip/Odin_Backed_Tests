@@ -21,8 +21,8 @@
       <name> custom repo 2</name>
       <url>https://repo.spring.io/plugins-release/</url>
     </repository>
-<repository>
-      		<id>my-repo1</id>
+    <repository>
+      		<id>my-repo3</id>
       		<name>custom repo 3</name>
       		<url>http://www.datanucleus.org/downloads/maven2</url>
     	</repository>
