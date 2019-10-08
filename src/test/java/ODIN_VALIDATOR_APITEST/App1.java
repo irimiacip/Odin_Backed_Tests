@@ -51,6 +51,7 @@ public class App1 {
 	@Test (priority=2)
 	public void test2() throws Exception {	
 		logger.info("test for  check ==>contain tag messageType<==");
+		logger.info("<a href = '*/validator/Description_Test/test1.xml'>test explanation</a>");
 		String respond = obtainResponse_validator_v1(FILEPATH_VALIDATOR, "test_1.xml");		
 		String check = "<messageType>OK</meator.read_xml_expected(1, 2,FILEPATH_VALIDATOR, \"test_23.xml\" , PATH_EXPECTED_VALIDATOR, \"expected_23.xml\",\"null\",0);ssageType>";		  
 		assertTrue(respond.contains(check));
