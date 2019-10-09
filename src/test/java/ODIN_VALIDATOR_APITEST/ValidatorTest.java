@@ -53,8 +53,9 @@ public class ValidatorTest {
 	public void test2() throws Exception {	
 		logger.info("TEST -- 2 --");
 		logger.info("test for  check ==>contain tag messageType<==");
+		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_1.xml" , PATH_EXPECTED_VALIDATOR, "expected_1.xml","null",0);
 		String respond = obtainResponse_validator_v1(FILEPATH_VALIDATOR, "test_1.xml");		
-		String check = "<messageType>OK</meator.read_xml_expected(1, 2,FILEPATH_VALIDATOR, \"test_23.xml\" , PATH_EXPECTED_VALIDATOR, \"expected_23.xml\",\"null\",0);ssageType>";		  
+		String check = "<messageType>OK</messageType>";		  
 		assertTrue(respond.contains(check));
 	}
 
@@ -63,6 +64,7 @@ public class ValidatorTest {
 	public void test3() throws Exception {
 		logger.info("TEST -- 3 --");
 		logger.info("test for check ==> contain tag status <==");
+		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_1.xml" , PATH_EXPECTED_VALIDATOR, "expected_1.xml","null",0);
 		String check = "<statuscode>0</statuscode>";
 		String respond = obtainResponse_validator_v1(FILEPATH_VALIDATOR, "test_1.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check)), 2);  
