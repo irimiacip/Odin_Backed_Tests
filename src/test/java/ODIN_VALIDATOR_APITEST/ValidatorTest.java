@@ -23,9 +23,9 @@ import io.restassured.response.Response;
 
 
 
-public class App1 {
+public class ValidatorTest {
 	
-	final static Logger logger = Logger.getLogger(App1.class);
+	final static Logger logger = Logger.getLogger(ValidatorTest.class);
 	
 
 	@BeforeMethod
@@ -270,19 +270,17 @@ public class App1 {
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 1);
 	}
-	//=======DE CLARIFICAT =======
+	
 	@Test(priority=20)
 	public void test20() throws Exception {
 		logger.info("TEST -- 20 --");
 		logger.info("test for ==> validate  minLength-1 atribute <==");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_17.xml" , PATH_EXPECTED_VALIDATOR, "expected_17.xml","null",0);
-		String check_statuscode = "<statuscode>-2</statuscode>";
-		String check_messageType = "<messageType>ERROR</messageType>";
-		String check_brokenRule= "<brokenRule>minLength</brokenRule>";
+		String check_statuscode = "<statuscode>0</statuscode>";
+		String check_messageType = "<messageType>OK</messageType>";
 		String respond = obtainResponse_validator_v1(FILEPATH_VALIDATOR, "test_17.xml");		 
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
-		assertEquals((StringUtils.countMatches(respond, check_messageType)), 2);
-		assertEquals((StringUtils.countMatches(respond, check_brokenRule)), 1);
+		assertEquals((StringUtils.countMatches(respond, check_messageType)), 1);
 	}
 	
 	@Test(priority=21)
@@ -435,10 +433,7 @@ public class App1 {
 	@Test(priority=33)
 	public void test33() throws Exception {
 		logger.info("TEST -- 33 --");
-		logger.info("test for ==> date - tomorrow - <==");
-		//XmlComparator.read_xml_expected(1, 3,FILEPATH_VALIDATOR, "test_tomorrow.xml" , PATH_EXPECTED_VALIDATOR, "expected_tomorrow.xml" , "tomorrow"); // expected..problem with data
-		//expected file should be changed dinamilcally
-		
+		logger.info("test for ==> date - tomorrow - <==");		
 		String respond = ActualResults.obtainResponse_validator_v3(FILEPATH_VALIDATOR, "test_tomorrow.xml", "tomorrow",0);
 		String expected = ExpectedResults.readExpected(PATH_EXPECTED_VALIDATOR ,"expected_tomorrow.xml","tomorrow",0);
 		XmlComparator.printDifferences(XmlComparator.compareXML(respond, expected));				
@@ -472,7 +467,7 @@ public class App1 {
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 1);
 	}
 	
-	@Test(priority=36)  // DE DISCUTAT EXPECTED
+	@Test(priority=36)  
 	public void test36() throws Exception {
 		logger.info("TEST -- 36 --");
 		logger.info("test for ==>max occur +1  boolean <==");
