@@ -13,8 +13,8 @@ import ODIN_VALIDATOR_APITEST.XmlComparator;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-public class App1 {
-final static Logger logger = Logger.getLogger(App1.class);
+public class ValidatorTest {
+final static Logger logger = Logger.getLogger(ValidatorTest.class);
 	
 
 	@BeforeMethod
