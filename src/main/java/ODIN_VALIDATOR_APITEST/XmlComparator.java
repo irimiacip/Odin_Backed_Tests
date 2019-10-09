@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.nio.file.Paths;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.custommonkey.xmlunit.DetailedDiff;
 import org.custommonkey.xmlunit.Diff;
 import org.custommonkey.xmlunit.XMLUnit;
@@ -16,7 +17,8 @@ import org.xml.sax.SAXException;
 
 
 public class XmlComparator {
-	
+	final static Logger logger = Logger.getLogger(XmlComparator.class);
+
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void read_xml_expected(int microservice, int version, String path, String actualXml , String path_expected, String expectedXml , String day , Integer date_format_value) throws SAXException, IOException, Exception {
@@ -77,6 +79,8 @@ public class XmlComparator {
 	     System.out.println("==============================="); 
 		 System.out.println("Total differences : " + totalDifferences);
 		 System.out.println("================================"); 
+			//logger.info("Total differences : " + totalDifferences);
+
 		 		 		 
 		 for(String difference : differences){
 			 

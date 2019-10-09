@@ -39,6 +39,7 @@ public class App1 {
 
 	@Test (priority=1)
 	public void test1() throws Exception {
+		logger.info("test -- 1 --");
 		logger.info("test for check response ==>http status 200<==");
 		Response result = (Response)RestAssured.given().
 				contentType("text/plain").				
@@ -50,8 +51,8 @@ public class App1 {
 
 	@Test (priority=2)
 	public void test2() throws Exception {	
+		logger.info("test -- 2 --");
 		logger.info("test for  check ==>contain tag messageType<==");
-		logger.info("http://192.169.56.22:8080/job/1-Validator_Service_tests/ws/src/main/resources/validator/Description_Test/test1.xml");
 		String respond = obtainResponse_validator_v1(FILEPATH_VALIDATOR, "test_1.xml");		
 		String check = "<messageType>OK</meator.read_xml_expected(1, 2,FILEPATH_VALIDATOR, \"test_23.xml\" , PATH_EXPECTED_VALIDATOR, \"expected_23.xml\",\"null\",0);ssageType>";		  
 		assertTrue(respond.contains(check));
@@ -60,6 +61,7 @@ public class App1 {
 
 	@Test(priority=3)
 	public void test3() throws Exception {
+		logger.info("test -- 3 --");
 		logger.info("test for check ==> contain tag status <==");
 		String check = "<statuscode>0</statuscode>";
 		String respond = obtainResponse_validator_v1(FILEPATH_VALIDATOR, "test_1.xml");		 
@@ -68,13 +70,15 @@ public class App1 {
 
 	
 	@Test (priority=4)
-	public void test4() throws Exception {	
+	public void test4() throws Exception {
+		logger.info("test -- 4 --");
 		logger.info("test for ==>compare xml structure and content<==");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_1.xml" , PATH_EXPECTED_VALIDATOR, "expected_1.xml","null",0);				
 	}
 	
 	@Test(priority=5)
 	public void test5() throws Exception {
+		logger.info("test -- 5 --");
 		logger.info("test for ==>validate <elementName> <==");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_2.xml" , PATH_EXPECTED_VALIDATOR, "expected_2.xml","null",0);
 		String check_statuscode = "<statuscode>-2</statuscode>";
@@ -87,6 +91,7 @@ public class App1 {
 	
 	@Test(priority=6)
 	public void test6() throws Exception {
+		logger.info("test -- 6 --");
 		logger.info("test for ==>validate the xml structure<==");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_3.xml" , PATH_EXPECTED_VALIDATOR, "expected_3.xml","null",0);
 		String check_statuscode = "<statuscode>-2</statuscode>";
@@ -99,6 +104,7 @@ public class App1 {
 	@Test(priority=7)
 	public void test7() throws Exception {
 		logger.info("test for ==>validate minimum value accepted<==");
+		logger.info("test -- 7 --");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_4.xml" , PATH_EXPECTED_VALIDATOR, "expected_4.xml","null",0);
 		String check_statuscode = "<statuscode>0</statuscode>";
 		String check_messageType = "<messageType>OK</messageType>";
@@ -110,6 +116,7 @@ public class App1 {
 	@Test(priority=8)
 	public void test8() throws Exception {
 		logger.info("test for ==>validate maximum value accepted<==");
+		logger.info("test -- 8 --");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_5.xml" , PATH_EXPECTED_VALIDATOR, "expected_5.xml","null",0);
 		String check_statuscode = "<statuscode>0</statuscode>";
 		String check_messageType = "<messageType>OK</messageType>";
@@ -121,6 +128,7 @@ public class App1 {
 	@Test(priority=9)
 	public void test9() throws Exception {
 		logger.info("test for ==>validate maximum value +1 not accepted<==");
+		logger.info("test -- 9 --");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_6.xml" , PATH_EXPECTED_VALIDATOR, "expected_6.xml","null",0);
 		String check_statuscode = "<statuscode>-1</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
@@ -134,6 +142,7 @@ public class App1 {
 	@Test(priority=10)
 	public void test10() throws Exception {
 		logger.info("test for ==>validate minimum value -1 not accepted<==");
+		logger.info("test -- 10 --");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_7.xml" , PATH_EXPECTED_VALIDATOR, "expected_7.xml","null",0);
 		String check_statuscode = "<statuscode>-1</statuscode>";
 		String check_messageType = "<messageType>ERROR</messageType>";
@@ -145,6 +154,7 @@ public class App1 {
 	}
 	@Test(priority=11)
 	public void test11() throws Exception {
+		logger.info("test -- 11 --");
 		logger.info("test for ==>validate variable<==");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_8.xml" , PATH_EXPECTED_VALIDATOR, "expected_8.xml","null",0);
 		String check_statuscode = "<statuscode>-2</statuscode>";
@@ -156,6 +166,7 @@ public class App1 {
 	
 	@Test(priority=12)
 	public void test12() throws Exception {
+		logger.info("test -- 12 --");
 		logger.info("test for ==>digit validation<==");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_9.xml" , PATH_EXPECTED_VALIDATOR, "expected_9.xml","null",0);
 		String check_statuscode = "<statuscode>-2</statuscode>";
@@ -170,6 +181,7 @@ public class App1 {
 
 	@Test(priority=13)
 	public void test13() throws Exception {
+		logger.info("test -- 13 --");
 		logger.info("test for ==>validate min occur<==");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_10.xml" , PATH_EXPECTED_VALIDATOR, "expected_10.xml","null",0);
 		String check_statuscode = "<statuscode>-2</statuscode>";
@@ -183,6 +195,7 @@ public class App1 {
 	
 	@Test(priority=14)
 	public void test14() throws Exception {
+		logger.info("test -- 14 --");
 		logger.info("test for ==>validate max occur<==");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_11.xml" , PATH_EXPECTED_VALIDATOR, "expected_11.xml","null",0);
 		String check_statuscode = "<statuscode>-1</statuscode>";
@@ -198,6 +211,7 @@ public class App1 {
 	
 	@Test(priority=15)
 	public void test15() throws Exception {
+		logger.info("test -- 15 --");
 		logger.info("test for ==> digit min occur atribute <==");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_12.xml" , PATH_EXPECTED_VALIDATOR, "expected_12.xml","null",0);
 		String check_statuscode = "<statuscode>0</statuscode>";
@@ -209,6 +223,7 @@ public class App1 {
 	
 	@Test(priority=16)
 	public void test16() throws Exception {
+		logger.info("test -- 16 --");
 		logger.info("test for ==> digit max occur atribute <==");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_13.xml" , PATH_EXPECTED_VALIDATOR, "expected_13.xml","null",0);
 		String check_statuscode = "<statuscode>0</statuscode>";
@@ -220,6 +235,7 @@ public class App1 {
 	
 	@Test(priority=17)
 	public void test17() throws Exception {
+		logger.info("test -- 17 --");
 		logger.info("test for ==> digit max occur+1 atribute <==");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_14.xml" , PATH_EXPECTED_VALIDATOR, "expected_14.xml","null",0);
 		String check_statuscode = "<statuscode>-2</statuscode>";
@@ -233,6 +249,7 @@ public class App1 {
 	
 	@Test(priority=18)
 	public void test18() throws Exception {
+		logger.info("test -- 18 --");
 		logger.info("test for ==> validate  minLength atribute <==");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_15.xml" , PATH_EXPECTED_VALIDATOR, "expected_15.xml","null",0);
 		String check_statuscode = "<statuscode>0</statuscode>";
@@ -244,6 +261,7 @@ public class App1 {
 	
 	@Test(priority=19)
 	public void test19() throws Exception {
+		logger.info("test -- 19 --");
 		logger.info("test for ==> validate  maxLength atribute <==");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_16.xml" , PATH_EXPECTED_VALIDATOR, "expected_16.xml","null",0);
 		String check_statuscode = "<statuscode>0</statuscode>";
@@ -255,6 +273,7 @@ public class App1 {
 	//=======DE CLARIFICAT =======
 	@Test(priority=20)
 	public void test20() throws Exception {
+		logger.info("test -- 20 --");
 		logger.info("test for ==> validate  minLength-1 atribute <==");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_17.xml" , PATH_EXPECTED_VALIDATOR, "expected_17.xml","null",0);
 		String check_statuscode = "<statuscode>-2</statuscode>";
@@ -268,6 +287,7 @@ public class App1 {
 	
 	@Test(priority=21)
 	public void test21() throws Exception {
+		logger.info("test -- 21 --");
 		logger.info("test for ==> validate  maxLength+1 atribute <==");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_18.xml" , PATH_EXPECTED_VALIDATOR, "expected_18.xml","null",0);
 		String check_statuscode = "<statuscode>-1</statuscode>";
@@ -281,6 +301,7 @@ public class App1 {
 	
 	@Test(priority=22)
 	public void test22() throws Exception {
+		logger.info("test -- 22 --");
 		logger.info("test for ==>validate  string atribute<==");
 		XmlComparator.read_xml_expected(1, 1,FILEPATH_VALIDATOR, "test_19.xml" , PATH_EXPECTED_VALIDATOR, "expected_19.xml","null",0);
 		String check_statuscode = "<statuscode>0</statuscode>";
@@ -292,6 +313,7 @@ public class App1 {
 	//=========boolean vaiable ============
 	@Test(priority=23)
 	public void test23() throws Exception {
+		logger.info("test -- 23 --");
 		logger.info("test for ==>validate  boolean  variable false <==");
 		XmlComparator.read_xml_expected(1, 2,FILEPATH_VALIDATOR, "test_20.xml" , PATH_EXPECTED_VALIDATOR, "expected_20.xml","null",0);
 		String check_statuscode = "<statuscode>0</statuscode>";
@@ -303,6 +325,7 @@ public class App1 {
 	
 	@Test(priority=24)
 	public void test24() throws Exception {
+		logger.info("test -- 24 --");
 		logger.info("test for ==>validate  boolean varialve true<==");
 		XmlComparator.read_xml_expected(1, 2,FILEPATH_VALIDATOR, "test_21.xml" , PATH_EXPECTED_VALIDATOR, "expected_21.xml","null",0);
 		String check_statuscode = "<statuscode>0</statuscode>";
@@ -314,6 +337,7 @@ public class App1 {
 	
 	@Test(priority=25)
 	public void test25() throws Exception {
+		logger.info("test -- 25 --");
 		logger.info("test for ==>validate  booleam max occurance true<==");
 		XmlComparator.read_xml_expected(1, 2,FILEPATH_VALIDATOR, "test_22.xml" , PATH_EXPECTED_VALIDATOR, "expected_22.xml","null",0);
 		String check_statuscode = "<statuscode>0</statuscode>";
@@ -325,6 +349,7 @@ public class App1 {
 	
 	@Test(priority=26)
 	public void test26() throws Exception {
+		logger.info("test -- 26 --");
 		logger.info("test for ==>validate  booleam max occurance false<==");
 		XmlComparator.read_xml_expected(1, 2,FILEPATH_VALIDATOR, "test_23.xml" , PATH_EXPECTED_VALIDATOR, "expected_23.xml","null",0);
 		String check_statuscode = "<statuscode>0</statuscode>";
@@ -336,6 +361,7 @@ public class App1 {
 	
 	@Test(priority=27) 
 	public void test27() throws Exception {
+		logger.info("test -- 27 --");
 		logger.info("test for ==>validate  booleam max occurance true/false<==");
 		XmlComparator.read_xml_expected(1, 2,FILEPATH_VALIDATOR, "test_24.xml" , PATH_EXPECTED_VALIDATOR, "expected_24.xml","null",0);
 		String check_statuscode = "<statuscode>0</statuscode>";
@@ -347,6 +373,7 @@ public class App1 {
 	
 	@Test(priority=28)
 	public void test28() throws Exception {
+		logger.info("test -- 28 --");
 		logger.info("test for ==>validate  booleam max occurance false/true<==");
 		XmlComparator.read_xml_expected(1, 2,FILEPATH_VALIDATOR, "test_25.xml" , PATH_EXPECTED_VALIDATOR, "expected_25.xml","null",0);
 		String check_statuscode = "<statuscode>0</statuscode>";
@@ -358,6 +385,7 @@ public class App1 {
 	
 	@Test(priority=29)
 	public void test29() throws Exception {
+		logger.info("test -- 29 --");
 		logger.info("test for ==>validate  boolean max occurance + 1<==");
 		XmlComparator.read_xml_expected(1, 2,FILEPATH_VALIDATOR, "test_26.xml" , PATH_EXPECTED_VALIDATOR, "expected_26.xml","null",0);
 		String check_statuscode = "<statuscode>-1</statuscode>";
@@ -369,6 +397,7 @@ public class App1 {
 	
 	@Test(priority=30) 
 	public void test30() throws Exception {
+		logger.info("test -- 30 --");
 		logger.info("test for ==>validate  boolean min occurance -1<==");
 		XmlComparator.read_xml_expected(1, 2,FILEPATH_VALIDATOR, "test_27.xml" , PATH_EXPECTED_VALIDATOR, "expected_27.xml","null",0);
 		String check_statuscode = "<statuscode>-1</statuscode>";
@@ -380,6 +409,7 @@ public class App1 {
 	
 	@Test(priority=31)
 	public void test31() throws Exception {
+		logger.info("test -- 31 --");
 		logger.info("test for ==>validate  boolean value<==");
 		XmlComparator.read_xml_expected(1, 2,FILEPATH_VALIDATOR, "test_28.xml" , PATH_EXPECTED_VALIDATOR, "expected_28.xml","null",0);
 		String check_statuscode = "<statuscode>-1</statuscode>";
@@ -391,7 +421,8 @@ public class App1 {
 	//======= finish boolean variable=======
 	//======== test related to date=======
 	@Test(priority=32)
-	public void test32() throws Exception {	
+	public void test32() throws Exception {
+		logger.info("test -- 32 --");
 		logger.info("test for ==>date - sysdate - <==");
 		XmlComparator.read_xml_expected(1, 3,FILEPATH_VALIDATOR, "test_sysdate.xml" , PATH_EXPECTED_VALIDATOR, "expected_sysdate.xml" , "today",0);
 		String respond = ActualResults.obtainResponse_validator_v3(FILEPATH_VALIDATOR, "test_sysdate.xml", "today",0);		
@@ -402,7 +433,8 @@ public class App1 {
 	}
 	
 	@Test(priority=33)
-	public void test33() throws Exception {	
+	public void test33() throws Exception {
+		logger.info("test -- 33 --");
 		logger.info("test for ==> date - tomorrow - <==");
 		//XmlComparator.read_xml_expected(1, 3,FILEPATH_VALIDATOR, "test_tomorrow.xml" , PATH_EXPECTED_VALIDATOR, "expected_tomorrow.xml" , "tomorrow"); // expected..problem with data
 		//expected file should be changed dinamilcally
@@ -418,6 +450,7 @@ public class App1 {
 	
 	@Test(priority=34)
 	public void test34() throws Exception {	
+		logger.info("test -- 34 --");
 		logger.info("test for ==>date - yesterday - <==");
 		XmlComparator.read_xml_expected(1, 3,FILEPATH_VALIDATOR, "test_sysdate.xml" , PATH_EXPECTED_VALIDATOR, "expected_yesterday.xml" , "yesterday",0);
 		String respond = ActualResults.obtainResponse_validator_v3(FILEPATH_VALIDATOR, "test_yesterday.xml", "yesterday",0);		
@@ -429,6 +462,7 @@ public class App1 {
 	
 	@Test(priority=35)
 	public void test35() throws Exception {	
+		logger.info("test -- 35 --");
 		logger.info("test for ==>min occur -1  boolean <==");
 		XmlComparator.read_xml_expected(1, 3,FILEPATH_VALIDATOR, "test_35.xml" , PATH_EXPECTED_VALIDATOR, "expected_35.xml" , "yesterday", 0);
 		String respond = ActualResults.obtainResponse_validator_v3(FILEPATH_VALIDATOR, "test_35.xml", "yesterday", 0);		
@@ -439,7 +473,8 @@ public class App1 {
 	}
 	
 	@Test(priority=36)  // DE DISCUTAT EXPECTED
-	public void test36() throws Exception {	
+	public void test36() throws Exception {
+		logger.info("test -- 36 --");
 		logger.info("test for ==>max occur +1  boolean <==");
 		XmlComparator.read_xml_expected(1, 3,FILEPATH_VALIDATOR, "test_36.xml" , PATH_EXPECTED_VALIDATOR, "expected_36.xml" , "yesterday", 0);
 		String respond = ActualResults.obtainResponse_validator_v3(FILEPATH_VALIDATOR, "test_36.xml", "today", 0);		
@@ -451,6 +486,7 @@ public class App1 {
 	
 	@Test(priority=37)
 	public void test37() throws Exception {	
+		logger.info("test -- 37 --");
 		logger.info("test for ==>date - sysdate - (date format changed)<==");
 		XmlComparator.read_xml_expected(1, 3,FILEPATH_VALIDATOR, "test_sysdate.xml" , PATH_EXPECTED_VALIDATOR, "expected_sysdate.xml" , "today",1);
 		String respond = ActualResults.obtainResponse_validator_v3(FILEPATH_VALIDATOR, "test_sysdate.xml", "today",0);		
@@ -462,6 +498,7 @@ public class App1 {
 	
 	@Test(priority=38)
 	public void test38() throws Exception {	
+		logger.info("test -- 38 --");
 		logger.info("test for ==> date - tomorrow - (date format changed)<==");
 		//XmlComparator.read_xml_expected(1, 3,FILEPATH_VALIDATOR, "test_tomorrow.xml" , PATH_EXPECTED_VALIDATOR, "expected_tomorrow.xml" , "tomorrow"); // expected..problem with data
 		//expected file should be changed dinamilcally
@@ -477,6 +514,7 @@ public class App1 {
 	
 	@Test(priority=39)
 	public void test39() throws Exception {	
+		logger.info("test -- 39 --");
 		logger.info("test for ==>date - yesterday -(date format changed) <==");
 		XmlComparator.read_xml_expected(1, 3,FILEPATH_VALIDATOR, "test_sysdate.xml" , PATH_EXPECTED_VALIDATOR, "expected_yesterday.xml" , "yesterday",1);
 		String respond = ActualResults.obtainResponse_validator_v3(FILEPATH_VALIDATOR, "test_yesterday.xml", "yesterday",0);		
