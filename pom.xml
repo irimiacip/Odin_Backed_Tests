@@ -19,14 +19,14 @@
         </repository>
         
         
-        <repository>
+   <!--      <repository>
 					<snapshots>
 						<enabled>true</enabled>
 					</snapshots>
 					<id>artifactory0001</id>
 					<name>libs-release</name>
 					<url>https://artifactory.metrosystems.net/artifactory/libs-release</url>
-		</repository>
+		</repository>  -->
         
  <!--     <repository>
       <id>my-repo1</id>
