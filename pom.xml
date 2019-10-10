@@ -8,7 +8,7 @@
   <packaging>jar</packaging>
 
   <name>ODIN_API_CALL</name>
-  <url>http://maven.apache.org</url>
+ <!--  <url>http://maven.apache.org</url>  -->
 
 <repositories>
 
