@@ -31,6 +31,7 @@ public class ValidatorTest {
 	@BeforeMethod
 
 	public void startTest() {
+		logger.info("=====================");
 		logger.info("autentification......");
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		RestAssured.useRelaxedHTTPSValidation();
@@ -528,7 +529,8 @@ public class ValidatorTest {
 	@AfterMethod
 	public void endTest() {
 		logger.info("logout....");
-		logger.info(" ");
+		//logger.info("=====================");
+		//logger.info(" ");
 	}
 
 }

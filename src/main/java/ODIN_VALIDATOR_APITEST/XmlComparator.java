@@ -76,9 +76,9 @@ public class XmlComparator {
 		 public static void printDifferences(List<String> differences)  { 
 			  
 	     int totalDifferences = differences.size(); 
-	     System.out.println("==============================="); 
+	     System.out.println("--------------------------------"); 
 		 System.out.println("Total differences : " + totalDifferences);
-		 System.out.println("================================"); 
+		 System.out.println("---------------------------------"); 
 			//logger.info("Total differences : " + totalDifferences);
 
 		 		 		 
