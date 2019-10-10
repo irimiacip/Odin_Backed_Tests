@@ -13,10 +13,18 @@
 <repositories>
 
         <repository>
-            <id>artifactory.metrosystems.net</id>
+            <id>artifactory1.metrosystems.net</id>
             <name>artifactory.metrosystems.net-global-repo</name>
             <url>https://artifactory.metrosystems.net/artifactory/repo</url>
         </repository>
+        
+        
+        <repository>
+            <id>artifactory2.metrosystems.net</id>
+            <name>artifactory.metrosystems.net-global-repo</name>
+            <url>https://artifactory.metrosystems.net/artifactory</url>
+        </repository>
+        
         
         <repository>
 					<snapshots>
