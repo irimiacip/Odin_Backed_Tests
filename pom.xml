@@ -11,6 +11,14 @@
   <url>http://maven.apache.org</url>
 
 <repositories>
+
+        <repository>
+            <id>artifactory.metrosystems.net</id>
+            <name>artifactory.metrosystems.net-global-repo</name>
+            <url>https://artifactory.metrosystems.net/artifactory/repo</url>
+        </repository>
+        
+        
     <repository>
       <id>my-repo1</id>
       <name> custom repo 1</name>
