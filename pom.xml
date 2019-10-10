@@ -20,13 +20,6 @@
         
         
         <repository>
-            <id>artifactory2.metrosystems.net</id>
-            <name>artifactory.metrosystems.net-global-repo</name>
-            <url>https://artifactory.metrosystems.net/artifactory</url>
-        </repository>
-        
-        
-        <repository>
 					<snapshots>
 						<enabled>true</enabled>
 					</snapshots>
@@ -35,7 +28,7 @@
 					<url>https://artifactory.metrosystems.net/artifactory/libs-release</url>
 		</repository>
         
-    <repository>
+ <!--     <repository>
       <id>my-repo1</id>
       <name> custom repo 1</name>
       <url>http://repo.maven.apache.org/maven2/</url>
@@ -49,7 +42,7 @@
       		<id>my-repo3</id>
       		<name>custom repo 3</name>
       		<url>http://www.datanucleus.org/downloads/maven2</url>
-    	</repository>
+    	</repository> -->
 
     
   </repositories>
@@ -127,7 +120,7 @@
             <plugin>
              <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
-            <version>2.10</version> 
+            <version>2.22.1</version> 
             <configuration>
                       <systemPropertyVariables>
  
