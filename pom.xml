@@ -14,7 +14,7 @@
     <repository>
       <id>my-repo1</id>
       <name> custom repo 1</name>
-      <url>http://maven.apache.org</url>
+      <url>http://repo.maven.apache.org/maven2/</url>
     </repository>
     <repository>
       <id>my-repo2</id>
