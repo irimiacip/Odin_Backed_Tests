@@ -136,7 +136,7 @@
 
 
 
-            <configuration>
+            <configuration>	
                       <systemPropertyVariables>
  
           </systemPropertyVariables>
@@ -159,5 +159,18 @@
         </plugins>
     </build>
 
-  
+ <distributionManagement>
+   <snapshotRepository>
+       <id>artifactory.metrosystems.net</id>
+        <name>artifactory.metrosystems.net-snapshots-local</name>
+        <url>https://artifactory.metrosystems.net/artifactory/libs-snapshot-local</url>
+   </snapshotRepository>
+    <repository>
+       <id>artifactory.metrosystems.net</id>
+       <name>artifactory.metrosystems.net-release-local</name>
+       <url>https://artifactory.metrosystems.net/artifactory/libs-release-local</url>
+    </repository>
+   </distributionManagement>
+   
+    
 </project>
