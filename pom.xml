@@ -17,7 +17,11 @@
             <name>artifactory.metrosystems.net-global-repo</name>
             <url>https://artifactory.metrosystems.net/artifactory/repo</url>
         </repository>
-        
+         <repository>
+            <id>artifactory0001</id>
+            <name>artifactory0001-releases</name>
+            <url>http://artifactory.metrosystems.net/artifactory/libs-release-local</url>
+        </repository>
         
    <!--      <repository>
 					<snapshots>
@@ -74,8 +78,6 @@
     <artifactId>ojdbc6</artifactId>
     <version>11.2.0.3</version>
 </dependency>
-
-
 
 		
 	<!-- https://mvnrepository.com/artifact/org.custommonkey.xmlunit/com.springsource.org.custommonkey.xmlunit -->
