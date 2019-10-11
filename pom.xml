@@ -17,11 +17,7 @@
             <name>artifactory.metrosystems.net-global-repo</name>
             <url>https://artifactory.metrosystems.net/artifactory/repo</url>
         </repository>
-         <repository>
-            <id>artifactory0001</id>
-            <name>artifactory0001-releases</name>
-            <url>http://artifactory.metrosystems.net/artifactory/libs-release-local</url>
-        </repository>
+
         
    <!--      <repository>
 					<snapshots>
