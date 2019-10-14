@@ -45,7 +45,7 @@
 			<artifactId>rest-assured</artifactId>
 			<version>3.3.0</version>
 		</dependency>
-<dependency><groupId>com.datastax.cassandra</groupId><artifactId>cassandra-driver-mapping</artifactId><version>${cassandra.driver.version}</version><!--$NO-MVN-MAN-VER$--></dependency>
+
 
 
 		<dependency>
