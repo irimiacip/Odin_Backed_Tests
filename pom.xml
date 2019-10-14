@@ -30,7 +30,7 @@
 		</repository>   -->
 
 
-	<repository>
+<!--	<repository>
 		<snapshots>
 			<enabled>true</enabled>
 		</snapshots>
@@ -53,7 +53,7 @@
 		<id>my-repo3</id>
 		<name>custom repo 3</name>
 		<url>http://www.datanucleus.org/downloads/maven2</url>
-	</repository>
+	</repository> -->
 
 
 	</repositories>
