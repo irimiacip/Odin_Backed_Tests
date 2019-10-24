@@ -523,9 +523,94 @@ public class ValidatorTest {
 	}
 
 	// ====finish tests for date ======
+	// === test for complex validation ====
+	
+	@Test(priority=40)
+	public void test40() throws Exception {	
+		logger.info("TEST -- 40 --");
+		logger.info("test for ==>complex validation: two variable are null  <==");
+		XmlComparator.read_xml_expected(1, 5,FILEPATH_VALIDATOR, "test_37.xml" , PATH_EXPECTED_VALIDATOR, "expected_37.xml" , "today",1);
+	}
+
+	@Test(priority=41)
+	public void test41() throws Exception {	
+		logger.info("TEST -- 41 --");
+		logger.info("test for ==>complex validation: first variable is null  <==");
+		XmlComparator.read_xml_expected(1, 5,FILEPATH_VALIDATOR, "test_38.xml" , PATH_EXPECTED_VALIDATOR, "expected_38.xml" , "today",1);
+	}
+	
+	@Test(priority=42)
+	public void test42() throws Exception {	
+		logger.info("TEST -- 42 --");
+		logger.info("test for ==>complex validation: second variable is null  <==");
+		XmlComparator.read_xml_expected(1, 5,FILEPATH_VALIDATOR, "test_39.xml" , PATH_EXPECTED_VALIDATOR, "expected_39.xml" , "today",1);
+	}
+	
+	@Test(priority=43)
+	public void test43() throws Exception {	
+		logger.info("TEST -- 43 --");
+		logger.info("test for ==>complex validation: positivve situation  <==");
+		XmlComparator.read_xml_expected(1, 5,FILEPATH_VALIDATOR, "test_40.xml" , PATH_EXPECTED_VALIDATOR, "expected_40.xml" , "today",1);
+	}
+	
+	@Test(priority=44)
+	public void test44() throws Exception {	
+		logger.info("TEST -- 44 --");
+		logger.info("test for ==>complex validation: column 1 > column 4  <==");
+		XmlComparator.read_xml_expected(1, 6,FILEPATH_VALIDATOR, "test_41.xml" , PATH_EXPECTED_VALIDATOR, "expected_41.xml" , "today",1);
+	}
+	
+	@Test(priority=45)
+	public void test45() throws Exception {	
+		logger.info("TEST -- 45 --DE CLARIFICAT");
+		logger.info("test for ==>complex validation: column 4 : [0-9]+$  (positive situation)<== ");
+		XmlComparator.read_xml_expected(1, 7,FILEPATH_VALIDATOR, "test_42.xml" , PATH_EXPECTED_VALIDATOR, "expected_42.xml" , "today",1);
+	}
+	
+	@Test(priority=46)
+	public void test46() throws Exception {	
+		logger.info("TEST -- 46 --DE CLARIFICAT");
+		logger.info("test for ==>complex validation: column 4 : [0-9]+$  (negative test)  <==");
+		XmlComparator.read_xml_expected(1, 7,FILEPATH_VALIDATOR, "test_43.xml" , PATH_EXPECTED_VALIDATOR, "expected_43.xml" , "today",1);
+	}
 	
 	
+	@Test(priority=47)
+	public void test47() throws Exception {	
+		logger.info("TEST -- 47 --DE CLARIFICAT");
+		logger.info("test for ==>complex validation:column 4 : [0-9]+$  (negative test)  <==");
+		XmlComparator.read_xml_expected(1, 7,FILEPATH_VALIDATOR, "test_44.xml" , PATH_EXPECTED_VALIDATOR, "expected_44.xml" , "today",1);
+	}
 	
+	@Test(priority=48)
+	public void test48() throws Exception {	
+		logger.info("TEST -- 48 --DE CLARIFICAT");
+		logger.info("test for ==>complex validation:column 4 : \\d+  (positive test)  <==");
+		XmlComparator.read_xml_expected(1, 8,FILEPATH_VALIDATOR, "test_45.xml" , PATH_EXPECTED_VALIDATOR, "expected_45.xml" , "today",1);
+	}
+	
+	@Test(priority=49)
+	public void test49() throws Exception {	
+		logger.info("TEST -- 49 --DE CLARIFICAT");
+		logger.info("test for ==>complex validation:column 4 : \\d+  (negative test)  <==");
+		XmlComparator.read_xml_expected(1, 8,FILEPATH_VALIDATOR, "test_46.xml" , PATH_EXPECTED_VALIDATOR, "expected_46.xml" , "today",1);
+	}
+	
+	@Test(priority=50)
+	public void test50() throws Exception {	
+		logger.info("TEST -- 50 --DE CLARIFICAT");
+		logger.info("test for ==>complex validation:column 5 : isEmpty  (positive test)  <==");
+		XmlComparator.read_xml_expected(1, 8,FILEPATH_VALIDATOR, "test_46.xml" , PATH_EXPECTED_VALIDATOR, "expected_46.xml" , "today",1);
+	}
+	
+	@Test(priority=51)
+	public void test51() throws Exception {	
+		logger.info("TEST -- 51 --DE CLARIFICAT");
+		logger.info("test for ==>complex validation:column 5 : isEmpty  (negative test)  <==");
+		XmlComparator.read_xml_expected(1, 8,FILEPATH_VALIDATOR, "test_46.xml" , PATH_EXPECTED_VALIDATOR, "expected_46.xml" , "today",1);
+	}
+	
+		
 	@AfterMethod
 	public void endTest() {
 		logger.info("logout....");

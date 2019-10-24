@@ -45,8 +45,33 @@ public class XmlComparator {
 		             // System.out.println("differences_validator");
 		              printDifferences(differences_validator);
 		              break;
-			    }else {
+			    }else if (version == 3){
 			    	 List differences_validator = compareXML(ActualResults.obtainResponse_validator_v3(path, actualXml, day, date_format_value), strExpected); 
+		             // System.out.println("differences_validator");
+		              printDifferences(differences_validator);
+		              break;
+			    }else if (version == 5){
+			    	 List differences_validator = compareXML(ActualResults.obtainResponse_validator_v5(path, actualXml, day, date_format_value), strExpected); 
+		             // System.out.println("differences_validator");
+		              printDifferences(differences_validator);
+		              break;
+			    }else if (version == 6){
+			    	 List differences_validator = compareXML(ActualResults.obtainResponse_validator_v6(path, actualXml, day, date_format_value), strExpected); 
+		             // System.out.println("differences_validator");
+		              printDifferences(differences_validator);
+		              break;
+			    }else if (version == 7){
+			    	 List differences_validator = compareXML(ActualResults.obtainResponse_validator_v7(path, actualXml, day, date_format_value), strExpected); 
+		             // System.out.println("differences_validator");
+		              printDifferences(differences_validator);
+		              break;
+			    }else if (version == 8){
+			    	 List differences_validator = compareXML(ActualResults.obtainResponse_validator_v8(path, actualXml, day, date_format_value), strExpected); 
+		             // System.out.println("differences_validator");
+		              printDifferences(differences_validator);
+		              break;
+			    }else if (version == 9){
+			    	 List differences_validator = compareXML(ActualResults.obtainResponse_validator_v9(path, actualXml, day, date_format_value), strExpected); 
 		             // System.out.println("differences_validator");
 		              printDifferences(differences_validator);
 		              break;

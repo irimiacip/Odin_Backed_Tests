@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IhdsTree xmlns="http://cpim.metrosystems.net/ihds-tree/1.0/" scope="test" version="1">
+    <Transaction id="1489137860226" time="2017-03-10 11:24:20.226">
+        <Incident id="1">
+            <Domain>
+                <column1 attribute1="ceva">100</column1>
+                <column2>true</column2>
+            </Domain>
+            <content>
+                <request>
+                    <column3>{DATE:TOMORROW}</column3>
+                    <column4>10000</column4>
+                </request>
+            </content>
+            <validationResponse xmlns="">
+                <statuscode>1</statuscode>
+                <request>
+                    <statuscode>1</statuscode>
+                    <odinId/>
+                    <messages>
+                        <message>
+                            <messageType>WARNING</messageType>
+                            <elementName>content/request/column3</elementName>
+                            <brokenRule>minValue</brokenRule>
+                            <messageNo>ODIN-7</messageNo>
+                            <messagePlaceholder name="minValue">{DATE:TOMORROW}</messagePlaceholder>
+                            <messagePlaceholder name="elementName">content/request/column3</messagePlaceholder>
+                        </message>
+                    </messages>
+                </request>
+            </validationResponse>
+        </Incident>
+    </Transaction>
+</IhdsTree>
+<!-- validate  maxLength+1 atribute-->

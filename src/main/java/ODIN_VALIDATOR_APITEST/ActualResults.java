@@ -47,6 +47,81 @@ public  class ActualResults {
 		return response;		    		
 	}
 	
+	public static String obtainResponse_validator_v5(String path, String body_1, String day ,Integer date_format_value) throws Exception {
+		
+		
+        String data_system = DataCalcul.returnDate(day,date_format_value);
+		String replace = ReadBody.getBodyFromFilepath(path, body_1);
+		replace = replace.replace("DATE", data_system);
+						
+		Response result = (Response)RestAssured.given().
+				contentType("text/plain").				
+				body(replace).
+				put(LINK + PROCESS + VERSION_5);		
+		 String response = result.asString();
+		return response;		    		
+	}
+	
+	public static String obtainResponse_validator_v6(String path, String body_1, String day ,Integer date_format_value) throws Exception {
+		
+		
+        String data_system = DataCalcul.returnDate(day,date_format_value);
+		String replace = ReadBody.getBodyFromFilepath(path, body_1);
+		replace = replace.replace("DATE", data_system);
+						
+		Response result = (Response)RestAssured.given().
+				contentType("text/plain").				
+				body(replace).
+				put(LINK + PROCESS + VERSION_6);		
+		 String response = result.asString();
+		return response;		    		
+	}
+	
+	public static String obtainResponse_validator_v7(String path, String body_1, String day ,Integer date_format_value) throws Exception {
+		
+		
+        String data_system = DataCalcul.returnDate(day,date_format_value);
+		String replace = ReadBody.getBodyFromFilepath(path, body_1);
+		replace = replace.replace("DATE", data_system);
+						
+		Response result = (Response)RestAssured.given().
+				contentType("text/plain").				
+				body(replace).
+				put(LINK + PROCESS + VERSION_7);		
+		 String response = result.asString();
+		return response;		    		
+	}
+	
+	public static String obtainResponse_validator_v8(String path, String body_1, String day ,Integer date_format_value) throws Exception {
+		
+		
+        String data_system = DataCalcul.returnDate(day,date_format_value);
+		String replace = ReadBody.getBodyFromFilepath(path, body_1);
+		replace = replace.replace("DATE", data_system);
+						
+		Response result = (Response)RestAssured.given().
+				contentType("text/plain").				
+				body(replace).
+				put(LINK + PROCESS + VERSION_8);		
+		 String response = result.asString();
+		return response;		    		
+	}
+	
+	public static String obtainResponse_validator_v9(String path, String body_1, String day ,Integer date_format_value) throws Exception {
+		
+		
+        String data_system = DataCalcul.returnDate(day,date_format_value);
+		String replace = ReadBody.getBodyFromFilepath(path, body_1);
+		replace = replace.replace("DATE", data_system);
+						
+		Response result = (Response)RestAssured.given().
+				contentType("text/plain").				
+				body(replace).
+				put(LINK + PROCESS + VERSION_9);		
+		 String response = result.asString();
+		return response;		    		
+	}
+	
 	
 	public static String obtainResponse_request_processor(String path, String body_1) throws Exception {
 		

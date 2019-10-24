@@ -5,76 +5,83 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ConnectDB {
-
-	public static void main(String[] args) {
-	ConnectDB.checkDatabaseConnection();
-	}
-
-	
-	public static  void checkDatabaseConnection (){
-
+//
+//	public static void main(String[] args) throws InterruptedException, SQLException {
+//	ConnectDB.executeQuerryDB(DataBaseConsts.CLEAN_DB ,DataBaseConsts.strUserID, DataBaseConsts.strPassword, DataBaseConsts.dbURL);
+//	
+//	ConnectDB.executeQuerryDB(DataBaseConsts.GET_DATA_DB ,DataBaseConsts.strUserID, DataBaseConsts.strPassword, DataBaseConsts.dbURL);
+//	}
+	static List<String> listactual = new ArrayList<String>();
+	static Connection connection = null;
+	public static ResultSet  executeQuerryDB (String querry , String user , String pass , String dbURL) throws InterruptedException, SQLException{
 		
-		 String sql = "select * from ODIN_TEST";
+	 ResultSet resultSet = null ;
+		
+		 String sql = querry;
+		 String dburl = dbURL;
+		 String	strUserID = user; 
+		 String strPassword = pass;
 		 
-		 try (Connection conn = DriverManager.getConnection(
-				 "jdbc:oracle:thin:@h227serv.metro-dus.de:15227:MDP07PLD", "nwe", "europa")) {
-				
-	            if (conn != null) {
+		
+		 
+        int count = 10;
+        int test_conn = 0 ;
+		 while (connection == null && test_conn<count) {
+		     try {
+		         connection = DriverManager.getConnection(dbURL,strUserID,strPassword);
+		     } catch (SQLException e) {
+		    	 test_conn= test_conn + 1;
+		    	 System.out.println("Afisare counter :" + test_conn);
+		    	  System.out.println("Connecting failed, retrying...");
+		    	  Thread.sleep(10000);
+		     }
+		     
+		 }
+
+	            if (connection != null) {
 	                System.out.println("Connected to the database!");
-	                Statement statement = conn.createStatement();
-	                ResultSet resultSet = statement.executeQuery(sql);
-	                while (resultSet.next()) {
-
-	                	String col1 = resultSet.getString("COLOANA1");
-	                    String col2 = resultSet.getString("COLOANA2");
-	                    String col3 = resultSet.getString("COLOANA3");
-	                    String col4 = resultSet.getString("COLOANA4");
-
-	                    DBobj obj = new DBobj();
-	                    
-	                   obj.setCol1(col1);
-	                   obj.setCol2(col2);
-	                   obj.setCol3(col3);
-	                   obj.setCol4(col4);
-	                   
-	                    String val1 = obj.getCol1(); 
-	                    String val2 = obj.getCol2();
-	                    String val3 = obj.getCol3();
-	                    String val4 = obj.getCol4();
-	                    
-	                    DBobjexp objexp = new DBobjexp();
-	                    objexp.setCol1("2");
-	                    objexp.setCol2("Text");
-	                    objexp.setCol3("Text2");
-	                    objexp.setCol4("1000");
-	                    
-	                    String val1exp = objexp.getCol1();
-	                  String val2exp = objexp.getCol2();
-	                  String val3exp = objexp.getCol3();
-	                  String val4exp = objexp.getCol4();
-	                  
-	                  System.out.println(val1);
-	                  System.out.println(val1exp);
-	                  	                  
-	                  if ( val1.equals(val1exp)||val1.equals(val1exp)||val1.equals(val1exp)||val1.equals(val1exp) ) {
-	                	  System.out.println("Identically");
-	                  } else
-	                  {
-	                	  System.out.println("Not identically");
-	                  }
-	            	                  
-	                }
+	                Statement statement = connection.createStatement();	                
+	                 resultSet = statement.executeQuery(sql);
+	                 System.out.println("SQL statement executed");
+	                
 	            } else {
 	                System.out.println("Failed to make connection!");
 	            }
-	        } catch (SQLException e) {
-	            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-	}		
+
+		return resultSet;		
+	}
+	
+	public static List<String> getDatafromDB(ResultSet resultSet) throws SQLException {
+		
+		  while (resultSet.next()) {
+
+          	  String col1 = resultSet.getString("COLOANA1");
+              String col2 = resultSet.getString("COLOANA2");
+              String col3 = resultSet.getString("COLOANA3");
+              String col4 = resultSet.getString("COLOANA4");
+              
+              listactual.add(col1);
+              listactual.add(col2);
+              listactual.add(col3);
+              listactual.add(col4);
+		  }
+		  
+		return listactual;
+	}
+	public static void closeDbConn() throws SQLException {
+		
+		if (connection != null) {	
+		connection.close();
+		System.out.println("Db connection was closed");
+		}
+	}
 }
+
+
+
 
 //https://www.mkyong.com/jdbc/jdbc-statement-example-select-list-of-the-records/

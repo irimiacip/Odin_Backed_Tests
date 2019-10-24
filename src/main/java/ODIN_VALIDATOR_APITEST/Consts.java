@@ -9,8 +9,14 @@ public class Consts {
 	public static final String VERSION_2 = "v_2_0";
 	public static final String VERSION_3 = "v_3_0";
 	
+	public static final String VERSION_5 = "v_5_0";
+	public static final String VERSION_6 = "v_6_0";
+	public static final String VERSION_7 = "v_7_0";
+	public static final String VERSION_8 = "v_8_0";
+	public static final String VERSION_9 = "v_9_0";
+	
 	public static final String LINK_PROCESSOR = "https://request-processor.odin-dev.metrosystems.net/process/";
-	public static final String VERSION_PROCESSOR = "v_1_0/";
+	public static final String VERSION_PROCESSOR = "v_2_0/";
 	public static final String COUNTRY_TENANT = "PL/MCC/SDA";
 
 	public static final String FILEPATH_VALIDATOR = "src/main/resources/validator/files/";
