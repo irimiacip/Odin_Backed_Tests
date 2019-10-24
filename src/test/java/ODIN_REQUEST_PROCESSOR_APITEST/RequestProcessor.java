@@ -32,8 +32,8 @@ final static Logger logger = Logger.getLogger(RequestProcessor.class);
 static	List<String> listactual = new ArrayList<String>();
 static List<String> listexpected = new ArrayList<String>();
 static boolean value = true;
-	@BeforeMethod
 
+	@BeforeMethod
 	public void startTest() {
 		logger.info("autentification......");
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
