@@ -57,7 +57,16 @@ public class ConnectDB {
 	
 	public static List<String> getDatafromDB(ResultSet resultSet) throws SQLException {
 		
-		  while (resultSet.next()) {
+		if (resultSet.next() == false) { 
+			System.out.println("ResultSet in empty in Java"); 
+            listactual.add("null");
+            listactual.add("null");
+            listactual.add("null");
+            listactual.add("null");
+			}
+		else {
+			
+		 // while (resultSet.next()) {
 
           	  String col1 = resultSet.getString("COLOANA1");
               String col2 = resultSet.getString("COLOANA2");
@@ -68,8 +77,8 @@ public class ConnectDB {
               listactual.add(col2);
               listactual.add(col3);
               listactual.add(col4);
-		  }
-		  
+	//	  }
+		}
 		return listactual;
 	}
 	public static void closeDbConn() throws SQLException {

@@ -16,7 +16,20 @@ public class Consts {
 	public static final String VERSION_9 = "v_9_0";
 	
 	public static final String LINK_PROCESSOR = "https://request-processor.odin-dev.metrosystems.net/process/";
-	public static final String VERSION_PROCESSOR = "v_2_0/";
+	public static final String VERSION_PROCESSOR_1 = "v_2_0/";
+	public static final String VERSION_PROCESSOR_2 = "v_2.2_0/";
+	public static final String VERSION_PROCESSOR_3 = "v_2.3_0/";
+	public static final String VERSION_PROCESSOR_4 = "v_2.4_0/";
+	public static final String VERSION_PROCESSOR_5 = "v_2.5_0/";
+	public static final String VERSION_PROCESSOR_6 = "v_2.6_0/";
+	public static final String VERSION_PROCESSOR_7 = "v_2.7_0/";
+	public static final String VERSION_PROCESSOR_8 = "v_2.8_0/";
+	public static final String VERSION_PROCESSOR_9 = "v_2.9_0/";
+	public static final String VERSION_PROCESSOR_10 = "v_2.10_0/";
+	public static final String VERSION_PROCESSOR_11 = "v_2.11_0/";
+	
+	
+	
 	public static final String COUNTRY_TENANT = "PL/MCC/SDA";
 
 	public static final String FILEPATH_VALIDATOR = "src/main/resources/validator/files/";

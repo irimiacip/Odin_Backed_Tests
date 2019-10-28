@@ -14,7 +14,7 @@ import org.custommonkey.xmlunit.DetailedDiff;
 import org.custommonkey.xmlunit.Diff;
 import org.custommonkey.xmlunit.XMLUnit;
 import org.xml.sax.SAXException;
-
+import static ODIN_VALIDATOR_APITEST.Consts.*;
 
 public class XmlComparator {
 	final static Logger logger = Logger.getLogger(XmlComparator.class);
@@ -78,10 +78,73 @@ public class XmlComparator {
 			    }
 
 		 case 2:
-			 List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml), strExpected); 
+			 
+			 
+			 if(version == 1) {
+				 List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_1), strExpected);  
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
+		    }else if( version == 2) {
+		    	 List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_2), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
+		    }else if (version == 3){
+		    	 List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_3), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
+		    }else if (version == 4){
+		    	 List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_4), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
+		    }else if (version == 5){
+		    	 List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_5), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
+		    }else if (version == 6){
+		    	 List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_6), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
+		    }else if (version == 7){
+		    	 List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_7), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
+		    }else if (version == 8){
+		    	 List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_8), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
+		    }else if (version == 9){
+		    	 List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_9), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
+		    }else if (version == 10){
+		    	 List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_10), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
+		    }else if (version == 11){
+		    	 List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_11), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
+		    }
+			 
+			 
+			 
+			 
+			 
+			/* List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_1), strExpected); 
              //System.out.println("differences_request_procesor");
              printDifferences(differences_request_procesor);
-             break;
+             break;*/
 		 case 3:
              System.out.println("differences_response");
            //  printDifferences(differences_response);

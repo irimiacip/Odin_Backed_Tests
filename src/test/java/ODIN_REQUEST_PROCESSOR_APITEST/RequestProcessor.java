@@ -50,9 +50,9 @@ static boolean value = true;
 	
 	@Test (priority=1)
 	public void test1() throws Exception {	
-		logger.info("test for ==>compare xml structure , content , datra inserted vs expected<==");
+		logger.info("test for ==>compare xml structure , content , datra inserted in DB vs expected<==");
 		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);	
-		XmlComparator.read_xml_expected(2, 2,FILEPATH_REQUEST_PROCESSOR, "test_1.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_1.xml","null",0);
+		XmlComparator.read_xml_expected(2, 1,FILEPATH_REQUEST_PROCESSOR, "test_1.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_1.xml","null",0);
 		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
 		listexpected = ReadCSVFile.readExpected("0");
 		logger.info("check data inserted in DB");
@@ -60,17 +60,45 @@ static boolean value = true;
 		assertEquals(true, value);
 		logger.info("check succesfully");					
 	}
-	
+
 	@Test (priority=2)
 	public void test2() throws Exception {
 		logger.info("test for check response ==>http status 200<==");
+		
 		Response result = (Response)RestAssured.given().
 				contentType("text/plain").				
 				body(ReadBody.getBodyFromFilepath(FILEPATH_REQUEST_PROCESSOR, "test_1.xml")).
-				put(LINK_PROCESSOR + PROCESS + VERSION_PROCESSOR + COUNTRY_TENANT).				
+				put(LINK_PROCESSOR + PROCESS + VERSION_PROCESSOR_1 + COUNTRY_TENANT).				
 				then().
 				statusCode(200).contentType("application/xml").extract().response();
 	}
+	
+	@Test (priority=3)
+	public void test3() throws Exception {	
+		logger.info("test for ==>compare xml structure , content , data inserted in DB vs expected<==");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);	
+		XmlComparator.read_xml_expected(2, 10,FILEPATH_REQUEST_PROCESSOR, "test_1.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_2.xml","null",0);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
+		listexpected = ReadCSVFile.readExpected("2");
+		logger.info("check data inserted in DB");
+		value=ListComparator.compareLists(listactual, listexpected);		
+		assertEquals(true, value);
+		logger.info("check succesfully");					
+	}
+	
+	
+	@Test (priority=4)
+	public void test4() throws Exception {	
+		logger.info("test for ==>compare xml structure , content , datra inserted in DB vs expected<==");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);	
+		XmlComparator.read_xml_expected(2, 11,FILEPATH_REQUEST_PROCESSOR, "test_1.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_3.xml","null",0);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
+		listexpected = ReadCSVFile.readExpected("3");
+		logger.info("check data inserted in DB");
+		value=ListComparator.compareLists(listactual, listexpected);		
+		assertEquals(true, value);
+		logger.info("check succesfully");					
+	}
+	
     
-
 }
