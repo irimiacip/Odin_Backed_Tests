@@ -136,17 +136,19 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
 
 			<plugin>
-				<!-- <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-plugin</artifactId> 
-					<version>2.22.1</version> -->
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.6</version><!--$NO-MVN-MAN-VER$ -->
-
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.1</version>
 				<configuration>
-					<systemPropertyVariables>
-					</systemPropertyVariables>
+				<!--	<systemPropertyVariables>
+						<propertyName>${var1}</propertyName>
+					</systemPropertyVariables>  -->
 					<suiteXmlFiles>
 						<suiteXmlFile>${testngFile}</suiteXmlFile>
 					</suiteXmlFiles>
@@ -154,9 +156,9 @@
 			</plugin>
 
 			<plugin>
-            	<groupId>org.apache.maven.surefire</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.15</version>  
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
 				<configuration>
 					<compilerVersion>1.8</compilerVersion>
 					<source>1.8</source>

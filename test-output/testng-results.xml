@@ -1,541 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="44" passed="44">
+<testng-results skipped="0" failed="0" ignored="0" total="7" passed="7">
   <reporter-output>
   </reporter-output>
-  <suite name="softwaretestingmaterial" duration-ms="58115" started-at="2019-10-29T16:39:33Z" finished-at="2019-10-29T16:40:31Z">
+  <suite name="softwaretestingmaterial" duration-ms="9199" started-at="2019-10-29T16:55:59Z" finished-at="2019-10-29T16:56:08Z">
     <groups>
     </groups>
-    <test name="testngTest" duration-ms="58115" started-at="2019-10-29T16:39:33Z" finished-at="2019-10-29T16:40:31Z">
-      <class name="ODIN_VALIDATOR_APITEST.ValidatorTest">
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="610" started-at="2019-10-29T16:39:33Z" finished-at="2019-10-29T16:39:34Z">
+    <test name="testngTest1" duration-ms="9199" started-at="2019-10-29T16:55:59Z" finished-at="2019-10-29T16:56:08Z">
+      <class name="ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest">
+        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="startTest" is-config="true" duration-ms="669" started-at="2019-10-29T16:55:59Z" finished-at="2019-10-29T16:55:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test1()[pri:1, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test1" duration-ms="1958" started-at="2019-10-29T16:39:34Z" finished-at="2019-10-29T16:39:36Z">
+        <test-method status="PASS" signature="test1()[pri:1, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="test1" duration-ms="3261" started-at="2019-10-29T16:55:59Z" finished-at="2019-10-29T16:56:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test1 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:39:36Z" finished-at="2019-10-29T16:39:36Z">
+        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:56:03Z" finished-at="2019-10-29T16:56:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:39:36Z" finished-at="2019-10-29T16:39:36Z">
+        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:56:03Z" finished-at="2019-10-29T16:56:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test2()[pri:2, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test2" duration-ms="2445" started-at="2019-10-29T16:39:36Z" finished-at="2019-10-29T16:39:38Z">
+        <test-method status="PASS" signature="test2()[pri:2, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="test2" duration-ms="873" started-at="2019-10-29T16:56:03Z" finished-at="2019-10-29T16:56:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test2 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:39:38Z" finished-at="2019-10-29T16:39:38Z">
+        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="endTest" is-config="true" duration-ms="5" started-at="2019-10-29T16:56:04Z" finished-at="2019-10-29T16:56:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="9" started-at="2019-10-29T16:39:38Z" finished-at="2019-10-29T16:39:38Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test3()[pri:3, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test3" duration-ms="1217" started-at="2019-10-29T16:39:38Z" finished-at="2019-10-29T16:39:39Z">
+        <test-method status="PASS" signature="test3()[pri:3, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="test3" duration-ms="866" started-at="2019-10-29T16:56:04Z" finished-at="2019-10-29T16:56:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test3 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:39:39Z" finished-at="2019-10-29T16:39:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:39:39Z" finished-at="2019-10-29T16:39:39Z">
+        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="startTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:56:04Z" finished-at="2019-10-29T16:56:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test4()[pri:4, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test4" duration-ms="658" started-at="2019-10-29T16:39:39Z" finished-at="2019-10-29T16:39:40Z">
+        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:56:04Z" finished-at="2019-10-29T16:56:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTest -->
+        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:56:04Z" finished-at="2019-10-29T16:56:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTest -->
+        <test-method status="PASS" signature="test4()[pri:4, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="test4" duration-ms="788" started-at="2019-10-29T16:56:04Z" finished-at="2019-10-29T16:56:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test4 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="5" started-at="2019-10-29T16:39:40Z" finished-at="2019-10-29T16:39:40Z">
+        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:56:05Z" finished-at="2019-10-29T16:56:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:39:40Z" finished-at="2019-10-29T16:39:40Z">
+        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:56:05Z" finished-at="2019-10-29T16:56:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test5()[pri:5, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test5" duration-ms="1472" started-at="2019-10-29T16:39:40Z" finished-at="2019-10-29T16:39:41Z">
+        <test-method status="PASS" signature="test5()[pri:5, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="test5" duration-ms="802" started-at="2019-10-29T16:56:05Z" finished-at="2019-10-29T16:56:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test5 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:39:41Z" finished-at="2019-10-29T16:39:41Z">
+        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:56:06Z" finished-at="2019-10-29T16:56:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="3" started-at="2019-10-29T16:39:41Z" finished-at="2019-10-29T16:39:41Z">
+        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:56:06Z" finished-at="2019-10-29T16:56:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test6()[pri:6, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test6" duration-ms="1688" started-at="2019-10-29T16:39:41Z" finished-at="2019-10-29T16:39:43Z">
+        <test-method status="PASS" signature="test6()[pri:6, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="test6" duration-ms="896" started-at="2019-10-29T16:56:06Z" finished-at="2019-10-29T16:56:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test6 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:39:43Z" finished-at="2019-10-29T16:39:43Z">
+        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:56:07Z" finished-at="2019-10-29T16:56:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:39:43Z" finished-at="2019-10-29T16:39:43Z">
+        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="startTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:56:07Z" finished-at="2019-10-29T16:56:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test7()[pri:7, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test7" duration-ms="1276" started-at="2019-10-29T16:39:43Z" finished-at="2019-10-29T16:39:44Z">
+        <test-method status="PASS" signature="test7()[pri:7, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="test7" duration-ms="940" started-at="2019-10-29T16:56:07Z" finished-at="2019-10-29T16:56:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test7 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:39:44Z" finished-at="2019-10-29T16:39:44Z">
+        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:56:08Z" finished-at="2019-10-29T16:56:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="test8()[pri:8, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test8" duration-ms="1210" started-at="2019-10-29T16:39:44Z" finished-at="2019-10-29T16:39:46Z">
+        <test-method status="PASS" signature="closeDB()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@7d907bac]" name="closeDB" is-config="true" duration-ms="41" started-at="2019-10-29T16:56:08Z" finished-at="2019-10-29T16:56:08Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test8 -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:39:44Z" finished-at="2019-10-29T16:39:44Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:39:46Z" finished-at="2019-10-29T16:39:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:39:46Z" finished-at="2019-10-29T16:39:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test9()[pri:9, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test9" duration-ms="1239" started-at="2019-10-29T16:39:46Z" finished-at="2019-10-29T16:39:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test9 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:39:47Z" finished-at="2019-10-29T16:39:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:39:47Z" finished-at="2019-10-29T16:39:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test10()[pri:10, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test10" duration-ms="1300" started-at="2019-10-29T16:39:47Z" finished-at="2019-10-29T16:39:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test10 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:39:48Z" finished-at="2019-10-29T16:39:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:39:48Z" finished-at="2019-10-29T16:39:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test11()[pri:11, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test11" duration-ms="2348" started-at="2019-10-29T16:39:48Z" finished-at="2019-10-29T16:39:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test11 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:39:51Z" finished-at="2019-10-29T16:39:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="4" started-at="2019-10-29T16:39:51Z" finished-at="2019-10-29T16:39:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test12()[pri:12, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test12" duration-ms="1482" started-at="2019-10-29T16:39:51Z" finished-at="2019-10-29T16:39:52Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test12 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:39:52Z" finished-at="2019-10-29T16:39:52Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:39:52Z" finished-at="2019-10-29T16:39:52Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test13()[pri:13, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test13" duration-ms="1360" started-at="2019-10-29T16:39:52Z" finished-at="2019-10-29T16:39:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test13 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:39:53Z" finished-at="2019-10-29T16:39:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="3" started-at="2019-10-29T16:39:53Z" finished-at="2019-10-29T16:39:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test14()[pri:14, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test14" duration-ms="1531" started-at="2019-10-29T16:39:53Z" finished-at="2019-10-29T16:39:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test14 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:39:55Z" finished-at="2019-10-29T16:39:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="14" started-at="2019-10-29T16:39:55Z" finished-at="2019-10-29T16:39:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test15()[pri:15, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test15" duration-ms="1203" started-at="2019-10-29T16:39:55Z" finished-at="2019-10-29T16:39:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test15 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:39:56Z" finished-at="2019-10-29T16:39:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="4" started-at="2019-10-29T16:39:56Z" finished-at="2019-10-29T16:39:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test16()[pri:16, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test16" duration-ms="1197" started-at="2019-10-29T16:39:56Z" finished-at="2019-10-29T16:39:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test16 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:39:57Z" finished-at="2019-10-29T16:39:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:39:57Z" finished-at="2019-10-29T16:39:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test17()[pri:17, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test17" duration-ms="1467" started-at="2019-10-29T16:39:57Z" finished-at="2019-10-29T16:39:59Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test17 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:39:59Z" finished-at="2019-10-29T16:39:59Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="4" started-at="2019-10-29T16:39:59Z" finished-at="2019-10-29T16:39:59Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test18()[pri:18, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test18" duration-ms="1281" started-at="2019-10-29T16:39:59Z" finished-at="2019-10-29T16:40:00Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test18 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:00Z" finished-at="2019-10-29T16:40:00Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="3" started-at="2019-10-29T16:40:00Z" finished-at="2019-10-29T16:40:00Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test19()[pri:19, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test19" duration-ms="1173" started-at="2019-10-29T16:40:00Z" finished-at="2019-10-29T16:40:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test19 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:01Z" finished-at="2019-10-29T16:40:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="3" started-at="2019-10-29T16:40:01Z" finished-at="2019-10-29T16:40:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test20()[pri:20, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test20" duration-ms="1208" started-at="2019-10-29T16:40:01Z" finished-at="2019-10-29T16:40:03Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test20 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:03Z" finished-at="2019-10-29T16:40:03Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:03Z" finished-at="2019-10-29T16:40:03Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test21()[pri:21, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test21" duration-ms="1521" started-at="2019-10-29T16:40:03Z" finished-at="2019-10-29T16:40:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test21 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:04Z" finished-at="2019-10-29T16:40:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:04Z" finished-at="2019-10-29T16:40:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test22()[pri:22, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test22" duration-ms="1201" started-at="2019-10-29T16:40:04Z" finished-at="2019-10-29T16:40:05Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test22 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:40:05Z" finished-at="2019-10-29T16:40:05Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="3" started-at="2019-10-29T16:40:05Z" finished-at="2019-10-29T16:40:05Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test23()[pri:23, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test23" duration-ms="1276" started-at="2019-10-29T16:40:05Z" finished-at="2019-10-29T16:40:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test23 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:07Z" finished-at="2019-10-29T16:40:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="3" started-at="2019-10-29T16:40:07Z" finished-at="2019-10-29T16:40:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test24()[pri:24, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test24" duration-ms="1382" started-at="2019-10-29T16:40:07Z" finished-at="2019-10-29T16:40:08Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test24 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:08Z" finished-at="2019-10-29T16:40:08Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:40:08Z" finished-at="2019-10-29T16:40:08Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test25()[pri:25, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test25" duration-ms="1429" started-at="2019-10-29T16:40:08Z" finished-at="2019-10-29T16:40:09Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test25 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:40:09Z" finished-at="2019-10-29T16:40:09Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:40:09Z" finished-at="2019-10-29T16:40:09Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test26()[pri:26, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test26" duration-ms="1155" started-at="2019-10-29T16:40:09Z" finished-at="2019-10-29T16:40:11Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test26 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:40:11Z" finished-at="2019-10-29T16:40:11Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:40:11Z" finished-at="2019-10-29T16:40:11Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test27()[pri:27, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test27" duration-ms="1272" started-at="2019-10-29T16:40:11Z" finished-at="2019-10-29T16:40:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test27 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:12Z" finished-at="2019-10-29T16:40:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:40:12Z" finished-at="2019-10-29T16:40:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test28()[pri:28, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test28" duration-ms="1448" started-at="2019-10-29T16:40:12Z" finished-at="2019-10-29T16:40:13Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test28 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:13Z" finished-at="2019-10-29T16:40:13Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:40:13Z" finished-at="2019-10-29T16:40:13Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test29()[pri:29, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test29" duration-ms="1569" started-at="2019-10-29T16:40:13Z" finished-at="2019-10-29T16:40:15Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test29 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:15Z" finished-at="2019-10-29T16:40:15Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:40:15Z" finished-at="2019-10-29T16:40:15Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test30()[pri:30, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test30" duration-ms="1315" started-at="2019-10-29T16:40:15Z" finished-at="2019-10-29T16:40:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test30 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:16Z" finished-at="2019-10-29T16:40:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:40:16Z" finished-at="2019-10-29T16:40:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test31()[pri:31, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test31" duration-ms="1516" started-at="2019-10-29T16:40:16Z" finished-at="2019-10-29T16:40:18Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test31 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:40:18Z" finished-at="2019-10-29T16:40:18Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:18Z" finished-at="2019-10-29T16:40:18Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test32()[pri:32, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test32" duration-ms="1340" started-at="2019-10-29T16:40:18Z" finished-at="2019-10-29T16:40:19Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test32 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:40:19Z" finished-at="2019-10-29T16:40:19Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:40:19Z" finished-at="2019-10-29T16:40:19Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test33()[pri:33, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test33" duration-ms="620" started-at="2019-10-29T16:40:19Z" finished-at="2019-10-29T16:40:20Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test33 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:40:20Z" finished-at="2019-10-29T16:40:20Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:20Z" finished-at="2019-10-29T16:40:20Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test34()[pri:34, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test34" duration-ms="1389" started-at="2019-10-29T16:40:20Z" finished-at="2019-10-29T16:40:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test34 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:40:21Z" finished-at="2019-10-29T16:40:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:21Z" finished-at="2019-10-29T16:40:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test35()[pri:35, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test35" duration-ms="1197" started-at="2019-10-29T16:40:21Z" finished-at="2019-10-29T16:40:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test35 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:40:22Z" finished-at="2019-10-29T16:40:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:22Z" finished-at="2019-10-29T16:40:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test36()[pri:36, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test36" duration-ms="1634" started-at="2019-10-29T16:40:22Z" finished-at="2019-10-29T16:40:24Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test36 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:40:24Z" finished-at="2019-10-29T16:40:24Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="2" started-at="2019-10-29T16:40:24Z" finished-at="2019-10-29T16:40:24Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test37()[pri:37, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test37" duration-ms="1264" started-at="2019-10-29T16:40:24Z" finished-at="2019-10-29T16:40:25Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test37 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:40:25Z" finished-at="2019-10-29T16:40:25Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:25Z" finished-at="2019-10-29T16:40:25Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test38()[pri:38, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test38" duration-ms="600" started-at="2019-10-29T16:40:25Z" finished-at="2019-10-29T16:40:26Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test38 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:26Z" finished-at="2019-10-29T16:40:26Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:26Z" finished-at="2019-10-29T16:40:26Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test39()[pri:39, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test39" duration-ms="1295" started-at="2019-10-29T16:40:26Z" finished-at="2019-10-29T16:40:27Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test39 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:27Z" finished-at="2019-10-29T16:40:27Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="3" started-at="2019-10-29T16:40:27Z" finished-at="2019-10-29T16:40:27Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test40()[pri:40, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test40" duration-ms="918" started-at="2019-10-29T16:40:27Z" finished-at="2019-10-29T16:40:28Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test40 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:28Z" finished-at="2019-10-29T16:40:28Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="3" started-at="2019-10-29T16:40:28Z" finished-at="2019-10-29T16:40:28Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test41()[pri:41, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test41" duration-ms="800" started-at="2019-10-29T16:40:28Z" finished-at="2019-10-29T16:40:29Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test41 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:29Z" finished-at="2019-10-29T16:40:29Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:29Z" finished-at="2019-10-29T16:40:29Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test42()[pri:42, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test42" duration-ms="783" started-at="2019-10-29T16:40:29Z" finished-at="2019-10-29T16:40:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test42 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:30Z" finished-at="2019-10-29T16:40:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:30Z" finished-at="2019-10-29T16:40:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test43()[pri:43, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test43" duration-ms="678" started-at="2019-10-29T16:40:30Z" finished-at="2019-10-29T16:40:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test43 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="1" started-at="2019-10-29T16:40:30Z" finished-at="2019-10-29T16:40:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="startTest" is-config="true" duration-ms="3" started-at="2019-10-29T16:40:30Z" finished-at="2019-10-29T16:40:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test44()[pri:44, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="test44" duration-ms="798" started-at="2019-10-29T16:40:30Z" finished-at="2019-10-29T16:40:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test44 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_VALIDATOR_APITEST.ValidatorTest@7d907bac]" name="endTest" is-config="true" duration-ms="0" started-at="2019-10-29T16:40:31Z" finished-at="2019-10-29T16:40:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTest -->
-      </class> <!-- ODIN_VALIDATOR_APITEST.ValidatorTest -->
-    </test> <!-- testngTest -->
+        </test-method> <!-- closeDB -->
+      </class> <!-- ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest -->
+    </test> <!-- testngTest1 -->
   </suite> <!-- softwaretestingmaterial -->
 </testng-results>
