@@ -29,8 +29,8 @@ import io.restassured.response.Response;
 import static ODIN_VALIDATOR_APITEST.ConnectDB.*;
 
 
-public class RequestProcessor {
-final static Logger logger = Logger.getLogger(RequestProcessor.class);
+public class RequestProcessorTest {
+final static Logger logger = Logger.getLogger(RequestProcessorTest.class);
 static	List<String> listactual = new ArrayList<String>();
 static List<String> listexpected = new ArrayList<String>();
 static boolean value = true;
