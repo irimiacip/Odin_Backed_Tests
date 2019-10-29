@@ -8,6 +8,7 @@
           <include name="endTest"/>
           <include name="test1"/>
           <include name="startTest"/>
+          <include name="closeDB"/>
         </methods>
       </class> <!-- ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessor -->
     </classes>
