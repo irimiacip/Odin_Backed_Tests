@@ -560,14 +560,14 @@ public class ValidatorTest {
 		XmlComparator.read_xml_expected(1, 6,FILEPATH_VALIDATOR, "test_41.xml" , PATH_EXPECTED_VALIDATOR, "expected_41.xml" , "today",1);
 	}
 	
-	@Test(priority=45)
+//	@Test(priority=45)
 	public void test45() throws Exception {	
 		logger.info("TEST -- 45 --DE CLARIFICAT");
 		logger.info("test for ==>complex validation: column 4 : [0-9]+$  (positive situation)<== ");
 		XmlComparator.read_xml_expected(1, 7,FILEPATH_VALIDATOR, "test_42.xml" , PATH_EXPECTED_VALIDATOR, "expected_42.xml" , "today",1);
 	}
 	
-	@Test(priority=46)
+//	@Test(priority=46)
 	public void test46() throws Exception {	
 		logger.info("TEST -- 46 --DE CLARIFICAT");
 		logger.info("test for ==>complex validation: column 4 : [0-9]+$  (negative test)  <==");
@@ -575,35 +575,35 @@ public class ValidatorTest {
 	}
 	
 	
-	@Test(priority=47)
+//	@Test(priority=47)
 	public void test47() throws Exception {	
 		logger.info("TEST -- 47 --DE CLARIFICAT");
 		logger.info("test for ==>complex validation:column 4 : [0-9]+$  (negative test)  <==");
 		XmlComparator.read_xml_expected(1, 7,FILEPATH_VALIDATOR, "test_44.xml" , PATH_EXPECTED_VALIDATOR, "expected_44.xml" , "today",1);
 	}
 	
-	@Test(priority=48)
+//	@Test(priority=48)
 	public void test48() throws Exception {	
 		logger.info("TEST -- 48 --DE CLARIFICAT");
 		logger.info("test for ==>complex validation:column 4 : \\d+  (positive test)  <==");
 		XmlComparator.read_xml_expected(1, 8,FILEPATH_VALIDATOR, "test_45.xml" , PATH_EXPECTED_VALIDATOR, "expected_45.xml" , "today",1);
 	}
 	
-	@Test(priority=49)
+//	@Test(priority=49)
 	public void test49() throws Exception {	
 		logger.info("TEST -- 49 --DE CLARIFICAT");
 		logger.info("test for ==>complex validation:column 4 : \\d+  (negative test)  <==");
 		XmlComparator.read_xml_expected(1, 8,FILEPATH_VALIDATOR, "test_46.xml" , PATH_EXPECTED_VALIDATOR, "expected_46.xml" , "today",1);
 	}
 	
-	@Test(priority=50)
+//	@Test(priority=50)
 	public void test50() throws Exception {	
 		logger.info("TEST -- 50 --DE CLARIFICAT");
 		logger.info("test for ==>complex validation:column 5 : isEmpty  (positive test)  <==");
 		XmlComparator.read_xml_expected(1, 8,FILEPATH_VALIDATOR, "test_46.xml" , PATH_EXPECTED_VALIDATOR, "expected_46.xml" , "today",1);
 	}
 	
-	@Test(priority=51)
+//	@Test(priority=51)
 	public void test51() throws Exception {	
 		logger.info("TEST -- 51 --DE CLARIFICAT");
 		logger.info("test for ==>complex validation:column 5 : isEmpty  (negative test)  <==");
