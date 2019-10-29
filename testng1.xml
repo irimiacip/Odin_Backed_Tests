@@ -1,5 +1,5 @@
 <suite name="softwaretestingmaterial">
-	<test name="testngTest">
+	<test name="testngTest1">
 		<classes>
 			 <class name="ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessor" /> 
 		

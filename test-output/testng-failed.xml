@@ -6,9 +6,9 @@
       <class name="ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessor">
         <methods>
           <include name="endTest"/>
-          <include name="test1"/>
           <include name="startTest"/>
           <include name="closeDB"/>
+          <include name="test5"/>
         </methods>
       </class> <!-- ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessor -->
     </classes>
