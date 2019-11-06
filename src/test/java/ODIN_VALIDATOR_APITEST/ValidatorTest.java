@@ -1,6 +1,5 @@
 package ODIN_VALIDATOR_APITEST;
 
-import static ODIN_VALIDATOR_APITEST.Consts.FILEPATH_VALIDATOR;
 import static ODIN_VALIDATOR_APITEST.ActualResults.obtainResponse_validator_v1;
 import static ODIN_VALIDATOR_APITEST.Consts.FILEPATH_VALIDATOR;
 import static ODIN_VALIDATOR_APITEST.Consts.LINK;
@@ -11,18 +10,9 @@ import static io.restassured.specification.ProxySpecification.host;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.URL;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
+import java.util.List;
 
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -42,67 +32,22 @@ public class ValidatorTest {
 
 	public void startTest() {
 		logger.info("=====================");
-//		trustSelfSignedSSL();
 		logger.info("autentification......");
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		RestAssured.useRelaxedHTTPSValidation();
-//		RestAssured.proxy = host("proxy.metro.ro").withPort(3128);
+		RestAssured.proxy = host("proxy.metro.ro").withPort(3128);
 	}
-	
 
-	/*@Test (priority=1)
+	@Test (priority=1)
 	public void test1() throws Exception {
-		URL obj = new URL(LINK + PROCESS + VERSION_1);
-	
-		HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
-	con.setRequestMethod("PUT");
-	con.setRequestProperty("Content-Type", "text/plain; charset=utf-8");
-	// For POST only - START
-	con.setDoOutput(true);
-	OutputStream os = con.getOutputStream();
-//	System.out.println(ReadBody.getBodyFromFilepath(FILEPATH_VALIDATOR, "test_1.xml"));
-	os.write(ReadBody.getBodyFromFilepath(FILEPATH_VALIDATOR, "test_1.xml").getBytes());
-	os.flush();
-	os.close();
-	// For POST only - END
-
-	int responseCode = con.getResponseCode();
-	System.out.println("PUT Response Code :: " + responseCode);
-
-	if (responseCode == HttpsURLConnection.HTTP_OK) { //success
-		BufferedReader in = new BufferedReader(new InputStreamReader(
-				con.getInputStream()));
-		String inputLine;
-		StringBuffer response = new StringBuffer();
-
-		while ((inputLine = in.readLine()) != null) {
-			response.append(inputLine);
-		}
-		in.close();
-
-		// print result
-		System.out.println(response.toString());
-	} else {
-		System.out.println("POST request not worked");
-	}}*/
-
-
-	@Test (priority=2000)
-	public void test2000() throws Exception {
 		logger.info("TEST -- 1 --");
 		logger.info("test for check response ==>http status 200<==");
-		logger.info("URL:" + LINK + PROCESS + VERSION_1);
 		Response result = (Response)RestAssured.given().
 				contentType("text/plain").				
 				body(ReadBody.getBodyFromFilepath(FILEPATH_VALIDATOR, "test_1.xml")).
 				put(LINK + PROCESS + VERSION_1).
 				then().
 				statusCode(200).contentType("application/xml").extract().response();
-		System.out.println(result.asString());
-//		System.out.println(result.prettyPrint());
-//		System.out.println(result.print());
-//		System.out.println(result.getBody().asString());
-//		System.out.println(result.getBody().prettyPrint());
 	}
 
 	@Test (priority=2)
@@ -116,7 +61,7 @@ public class ValidatorTest {
 	}
 
 
-	/*@Test(priority=3)
+	@Test(priority=3)
 	public void test3() throws Exception {
 		logger.info("TEST -- 3 --");
 		logger.info("test for check ==> contain tag status <==");
@@ -664,35 +609,13 @@ public class ValidatorTest {
 		logger.info("test for ==>complex validation:column 5 : isEmpty  (negative test)  <==");
 		XmlComparator.read_xml_expected(1, 8,FILEPATH_VALIDATOR, "test_46.xml" , PATH_EXPECTED_VALIDATOR, "expected_46.xml" , "today",1);
 	}
-	*/
+	
 		
 	@AfterMethod
 	public void endTest() {
 		logger.info("logout....");
 		//logger.info("=====================");
 		//logger.info(" ");
-	}
-	
-	private static void trustSelfSignedSSL() {
-		try {
-			SSLContext ctx = SSLContext.getInstance("TLS");
-			X509TrustManager tm = new X509TrustManager() {
-
-				public void checkClientTrusted(X509Certificate[] xcs, String string) throws CertificateException {
-				}
-
-				public void checkServerTrusted(X509Certificate[] xcs, String string) throws CertificateException {
-				}
-
-				public X509Certificate[] getAcceptedIssuers() {
-					return null;
-				}
-			};
-			ctx.init(null, new TrustManager[] { tm }, null);
-			SSLContext.setDefault(ctx);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
 	}
 
 }
