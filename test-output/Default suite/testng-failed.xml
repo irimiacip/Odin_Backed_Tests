@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessor">
+      <class name="ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest">
         <methods>
-          <include name="endTest"/>
+          <include name="test10"/>
           <include name="startTest"/>
           <include name="closeDB"/>
-          <include name="test5"/>
+          <include name="endTest"/>
         </methods>
-      </class> <!-- ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessor -->
+      </class> <!-- ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

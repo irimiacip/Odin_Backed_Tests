@@ -41,7 +41,7 @@ static boolean value = true;
 		logger.info("autentification......");
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		RestAssured.useRelaxedHTTPSValidation();
-		RestAssured.proxy = host("proxy.metro.ro").withPort(3128);
+		//RestAssured.proxy = host("proxy.metro.ro").withPort(3128);
 	}
 	
 	@AfterMethod
@@ -60,6 +60,7 @@ static boolean value = true;
 	public void test1() throws Exception {	
 		logger.info("TEST -- 1 --");
 		logger.info("test for ==>compare xml structure , content , data inserted in DB vs expected <==");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);	
 		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);	
 		XmlComparator.read_xml_expected(2, 1,FILEPATH_REQUEST_PROCESSOR, "test_1.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_1.xml","null",0);
 		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
@@ -153,5 +154,59 @@ static boolean value = true;
 		logger.info("check succesfully");					
 	}
 	
-    
+	@Test (priority=8)
+	public void test8() throws Exception {	
+		logger.info("TEST -- 8 --");
+		logger.info("Test situation for tag : SUBSTR : extract first 5 caracters starting with the first ==>");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);	
+		XmlComparator.read_xml_expected(2, 2,FILEPATH_REQUEST_PROCESSOR, "test_5.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_7.xml","null",0);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
+		listexpected = ReadCSVFile.readExpected("8");
+		logger.info("check data inserted in DB");
+		value=ListComparator.compareLists(listactual, listexpected);		
+		assertEquals(true, value);
+		logger.info("check succesfully");					
+	}
+	
+	@Test (priority=9)
+	public void test9() throws Exception {	
+		logger.info("TEST -- 9 --");
+		logger.info("Test situation for tag : SUBSTR : extract first 5 caracters starting with the first; string contain less then 5 char ==>");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);	
+		XmlComparator.read_xml_expected(2, 2,FILEPATH_REQUEST_PROCESSOR, "test_6.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_8.xml","null",0);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
+		listexpected = ReadCSVFile.readExpected("9");
+		logger.info("check data inserted in DB");
+		value=ListComparator.compareLists(listactual, listexpected);		
+		assertEquals(true, value);
+		logger.info("check succesfully");					
+	}
+	
+	@Test (priority=10)
+	public void test10() throws Exception {	
+		logger.info("TEST -- 10 --");
+		logger.info("If a tag has null value, the concatenated values from two columns will be inserted there==>");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);	
+		XmlComparator.read_xml_expected(2, 3,FILEPATH_REQUEST_PROCESSOR, "test_7.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_9.xml","null",0);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
+		listexpected = ReadCSVFile.readExpected("10");
+		logger.info("check data inserted in DB");
+		value=ListComparator.compareLists(listactual, listexpected);		
+		assertEquals(true, value);
+		logger.info("check succesfully");					
+	}
+	
+	@Test (priority=11)
+	public void test11() throws Exception {	
+		logger.info("TEST -- 11 --DE DISCUTAT");
+		logger.info("If a tag has null value, the concatenated values from two columns will be inserted there(one one them is null==>");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);	
+		XmlComparator.read_xml_expected(2, 4,FILEPATH_REQUEST_PROCESSOR, "test_8.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_10.xml","null",0);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
+		listexpected = ReadCSVFile.readExpected("11");
+		logger.info("check data inserted in DB");
+		value=ListComparator.compareLists(listactual, listexpected);		
+		assertEquals(true, value);
+		logger.info("check succesfully");					
+	}
 }

@@ -2,8 +2,11 @@ package ODIN_VALIDATOR_APITEST;
 import static ODIN_VALIDATOR_APITEST.Consts.FILEPATH_VALIDATOR;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import org.omg.Messaging.SyncScopeHelper;
 
@@ -39,7 +42,7 @@ public class DataCalcul {
 			time.add(Calendar.DATE, 1);  
 			String TIMESTAMP_FORMAT = "dd.MM.yyyy HH:mm:ss.SSSSSS";
 			String[] DATE_FORMAT = new String[] {"dd.MM.yyyy", "yyyy-MM-dd", "yyyy-MM-dd'T'HH:mm:ss'Z'" , 
-			            "MM.dd.yyyy", "MM.d.yyyy", "dd.M.yyyy", "M.d.yyyy", "d.M.yyyy", "d.MM.yyyy", "M.dd.yyyy"};
+			            "MM.dd.yyyy", "MM.d.yyyy", "dd.M.yyyy", "M.d.yyyy", "d.M.yyyy", "d.MM.yyyy", "M.dd.yyyy" ,"dd-MM-YY"};
 			SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT[i]);
 	        SimpleDateFormat timestampFormat = new SimpleDateFormat(TIMESTAMP_FORMAT);
 	        aaa= dateFormat.format(yesterday);
@@ -49,6 +52,25 @@ public class DataCalcul {
 
 	}
 	
+	public static String fomatDay(String  actualDate){
+		String formated_date=null;
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
+		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("dd-MMM-yy", Locale.ENGLISH);
+		LocalDate ld = LocalDate.parse(actualDate, dtf);
+		String date = dtf2.format(ld);
+		formated_date = date;
+		return formated_date;
+	}
+	
+	public static String getDayPlus1() {	
+		String zzz = null;
+		Date date = new Date();
+		long ltime=date.getTime()+1*24*60*60*1000;
+		Date today1=new Date(ltime);			
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		zzz = formatter.format(today1).toString();
+		return zzz;			
+	}
 
 	
 

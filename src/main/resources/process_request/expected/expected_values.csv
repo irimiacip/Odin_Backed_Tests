@@ -2,6 +2,11 @@
 "Test 2", =================
 "Test 3",null,null,null,null
 "Test 4",null,null,null,null
-"Test 5",100,true,31-OCT-19,10000
-"Test 6",2,true,31-OCT-19,10000
+"Test 5",100,true,DATE,10000
+"Test 6",2,true,DATE,10000
 "Test 7",null,null,null,null
+"Test 8",null,DATE,DATE,null
+"Test 9",4,Text,Text1,200000
+"Test 10",5,Text,T,200000
+"Test 11",13,Text,13_Text,200000
+"Test 12",null,null,null,null
