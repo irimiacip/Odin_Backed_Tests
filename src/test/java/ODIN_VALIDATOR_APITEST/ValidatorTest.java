@@ -50,7 +50,7 @@ public class ValidatorTest {
 	}
 	
 
-	@Test (priority=1)
+	/*@Test (priority=1)
 	public void test1() throws Exception {
 		URL obj = new URL(LINK + PROCESS + VERSION_1);
 	
@@ -84,7 +84,7 @@ public class ValidatorTest {
 		System.out.println(response.toString());
 	} else {
 		System.out.println("POST request not worked");
-	}}
+	}}*/
 
 
 	@Test (priority=2000)
@@ -99,10 +99,10 @@ public class ValidatorTest {
 				then().
 				statusCode(200).contentType("application/xml").extract().response();
 		System.out.println(result.asString());
-		System.out.println(result.prettyPrint());
-		System.out.println(result.print());
-		System.out.println(result.getBody().asString());
-		System.out.println(result.getBody().prettyPrint());
+//		System.out.println(result.prettyPrint());
+//		System.out.println(result.print());
+//		System.out.println(result.getBody().asString());
+//		System.out.println(result.getBody().prettyPrint());
 	}
 
 	@Test (priority=2)
