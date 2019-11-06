@@ -35,9 +35,12 @@ public class ListComparator {
 		
 		
 				Integer[] diff = new Integer[4];
+				System.out.println("valoare inainte :" + value);
 		if(value = listactual.equals(listexpected)) {
-			
+			System.out.println("valoare dupa check :" + value);
+			System.out.println("SUNT EGALE");
 		} else {
+			System.out.println("SE PARE CA NU SUNT EGALE");
 			int k = 0;
 			while (k < listactual.size()) {
 				     

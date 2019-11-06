@@ -58,7 +58,7 @@ public class DataCalcul {
 		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("dd-MMM-yy", Locale.ENGLISH);
 		LocalDate ld = LocalDate.parse(actualDate, dtf);
 		String date = dtf2.format(ld);
-		formated_date = date;
+		formated_date = date.toUpperCase();
 		return formated_date;
 	}
 	
@@ -68,7 +68,7 @@ public class DataCalcul {
 		long ltime=date.getTime()+1*24*60*60*1000;
 		Date today1=new Date(ltime);			
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		zzz = formatter.format(today1).toString();
+		zzz = formatter.format(today1).toString().toUpperCase();
 		return zzz;			
 	}
 

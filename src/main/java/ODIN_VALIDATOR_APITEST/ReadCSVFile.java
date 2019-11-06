@@ -38,14 +38,16 @@ public class ReadCSVFile {
             		            		
             	if (String.valueOf(i).equals(linefromcsv)) {
                 String[] values = line.split(cvsSplitBy);               
-                listexpected.add(values[1]);
-                listexpected.add(values[2]);
-                listexpected.add(values[3]);
-                listexpected.add(values[4]);
+                listexpected.add(values[1].toString());
+                listexpected.add(values[2].toString());
+                listexpected.add(values[3].toString());
+                listexpected.add(values[4].toString());
             	}
             	i++;
             }
             updated_list();
+            
+          
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -71,7 +73,7 @@ public class ReadCSVFile {
 			//System.out.println("expected data :" + listexpected.get(i));
 			if(listexpected.get(i).equals("DATE")) {
 				//System.out.println(i);
-				listexpected.set(i,fomatDay(getDayPlus1()));
+				listexpected.set(i,fomatDay(getDayPlus1()).toString());
 			}
 			i++;
 		}
