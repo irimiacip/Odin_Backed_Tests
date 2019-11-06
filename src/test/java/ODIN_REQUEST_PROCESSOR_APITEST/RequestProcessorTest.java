@@ -61,7 +61,7 @@ static boolean value = true;
 		logger.info("TEST -- 1 --");
 		logger.info("test for ==>compare xml structure , content , data inserted in DB vs expected <==");
 		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);	
-		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);	
+		//executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);	
 		XmlComparator.read_xml_expected(2, 1,FILEPATH_REQUEST_PROCESSOR, "test_1.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_1.xml","null",0);
 		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
 		listexpected = ReadCSVFile.readExpected("0");
