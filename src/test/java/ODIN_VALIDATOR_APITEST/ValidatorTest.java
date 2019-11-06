@@ -42,7 +42,7 @@ public class ValidatorTest {
 
 	public void startTest() {
 		logger.info("=====================");
-		trustSelfSignedSSL();
+//		trustSelfSignedSSL();
 		logger.info("autentification......");
 //		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 //		RestAssured.useRelaxedHTTPSValidation();
