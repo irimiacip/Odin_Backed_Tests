@@ -46,7 +46,7 @@ public class ValidatorTest {
 		logger.info("autentification......");
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 //		RestAssured.useRelaxedHTTPSValidation();
-		RestAssured.proxy = host("proxy.metro.ro").withPort(3128);
+//		RestAssured.proxy = host("proxy.metro.ro").withPort(3128);
 	}
 	
 
