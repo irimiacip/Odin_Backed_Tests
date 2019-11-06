@@ -105,7 +105,7 @@ public class ValidatorTest {
 		System.out.println(result.getBody().prettyPrint());
 	}
 
-	/*@Test (priority=2)
+	@Test (priority=2)
 	public void test2() throws Exception {	
 		logger.info("TEST -- 2 --");
 		logger.info("test for  check ==>contain tag messageType<==");
@@ -116,7 +116,7 @@ public class ValidatorTest {
 	}
 
 
-	@Test(priority=3)
+	/*@Test(priority=3)
 	public void test3() throws Exception {
 		logger.info("TEST -- 3 --");
 		logger.info("test for check ==> contain tag status <==");
