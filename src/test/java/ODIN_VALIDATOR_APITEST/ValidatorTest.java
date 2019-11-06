@@ -98,6 +98,7 @@ public class ValidatorTest {
 				put(LINK + PROCESS + VERSION_1).
 				then().
 				statusCode(200).contentType("application/xml").extract().response();
+		System.out.println(result.toString());
 	}
 
 	/*@Test (priority=2)
