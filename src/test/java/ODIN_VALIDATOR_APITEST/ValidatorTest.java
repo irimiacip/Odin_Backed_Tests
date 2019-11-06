@@ -42,6 +42,7 @@ public class ValidatorTest {
 	public void test1() throws Exception {
 		logger.info("TEST -- 1 --");
 		logger.info("test for check response ==>http status 200<==");
+		logger.info("URL:" + LINK + PROCESS + VERSION_1);
 		Response result = (Response)RestAssured.given().
 				contentType("text/plain").				
 				body(ReadBody.getBodyFromFilepath(FILEPATH_VALIDATOR, "test_1.xml")).
