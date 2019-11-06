@@ -1,6 +1,15 @@
 package ODIN_VALIDATOR_APITEST;
 
 import static ODIN_VALIDATOR_APITEST.Consts.FILEPATH_VALIDATOR;
+import static ODIN_VALIDATOR_APITEST.ActualResults.obtainResponse_validator_v1;
+import static ODIN_VALIDATOR_APITEST.Consts.FILEPATH_VALIDATOR;
+import static ODIN_VALIDATOR_APITEST.Consts.LINK;
+import static ODIN_VALIDATOR_APITEST.Consts.PROCESS;
+import static ODIN_VALIDATOR_APITEST.Consts.*;
+import static ODIN_VALIDATOR_APITEST.Consts.PATH_EXPECTED_VALIDATOR;
+import static io.restassured.specification.ProxySpecification.host;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -18,6 +27,9 @@ import org.apache.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
 
 
 
@@ -40,7 +52,7 @@ public class ValidatorTest {
 
 	@Test (priority=1)
 	public void test1() throws Exception {
-		URL obj = new URL("https://validator.odin-dev.metrosystems.net/validate/ProcessDeTest/v_1_0");
+		URL obj = new URL(LINK + PROCESS + VERSION_1);
 	
 		HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 	con.setRequestMethod("PUT");
@@ -75,7 +87,7 @@ public class ValidatorTest {
 	}}
 
 
-/*	@Test (priority=2000)
+	@Test (priority=2000)
 	public void test2000() throws Exception {
 		logger.info("TEST -- 1 --");
 		logger.info("test for check response ==>http status 200<==");
@@ -86,7 +98,7 @@ public class ValidatorTest {
 				put(LINK + PROCESS + VERSION_1).
 				then().
 				statusCode(200).contentType("application/xml").extract().response();
-	}*/
+	}
 
 	/*@Test (priority=2)
 	public void test2() throws Exception {	

@@ -3,7 +3,7 @@ package ODIN_VALIDATOR_APITEST;
 
 public class Consts {
 
-	public static final String LINK = "https://odin-dev-validator.apps-api-k8s-001-test6-mcc-be-gcw1.metroscales.io/validate/";
+	public static final String LINK = "https://validator.odin-dev.metrosystems.net/validate/";
 	public static final String PROCESS = "ProcessDeTest/";
 	public static final String VERSION_1 = "v_1_0";
 	public static final String VERSION_2 = "v_2_0";
