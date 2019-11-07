@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="11" total="12" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="3860" started-at="2019-11-07T13:43:41Z" finished-at="2019-11-07T13:43:45Z">
+  <suite name="Default suite" duration-ms="9554" started-at="2019-11-07T15:05:07Z" finished-at="2019-11-07T15:05:16Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="3860" started-at="2019-11-07T13:43:41Z" finished-at="2019-11-07T13:43:45Z">
+    <test name="Default test" duration-ms="9554" started-at="2019-11-07T15:05:07Z" finished-at="2019-11-07T15:05:16Z">
       <class name="ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest">
-        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@2b9627bc]" name="startTest" is-config="true" duration-ms="692" started-at="2019-11-07T13:43:41Z" finished-at="2019-11-07T13:43:42Z">
+        <test-method status="PASS" signature="startTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@2b9627bc]" name="startTest" is-config="true" duration-ms="651" started-at="2019-11-07T15:05:07Z" finished-at="2019-11-07T15:05:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTest -->
-        <test-method status="PASS" signature="test12()[pri:12, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@2b9627bc]" name="test12" duration-ms="3098" started-at="2019-11-07T13:43:42Z" finished-at="2019-11-07T13:43:45Z">
+        <test-method status="PASS" signature="test12()[pri:12, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@2b9627bc]" name="test12" duration-ms="8823" started-at="2019-11-07T15:05:08Z" finished-at="2019-11-07T15:05:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test12 -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@2b9627bc]" name="endTest" is-config="true" duration-ms="0" started-at="2019-11-07T13:43:45Z" finished-at="2019-11-07T13:43:45Z">
+        <test-method status="PASS" signature="endTest()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@2b9627bc]" name="endTest" is-config="true" duration-ms="1" started-at="2019-11-07T15:05:16Z" finished-at="2019-11-07T15:05:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTest -->
-        <test-method status="PASS" signature="closeDB()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@2b9627bc]" name="closeDB" is-config="true" duration-ms="39" started-at="2019-11-07T13:43:45Z" finished-at="2019-11-07T13:43:45Z">
+        <test-method status="PASS" signature="closeDB()[pri:0, instance:ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest@2b9627bc]" name="closeDB" is-config="true" duration-ms="41" started-at="2019-11-07T15:05:16Z" finished-at="2019-11-07T15:05:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeDB -->

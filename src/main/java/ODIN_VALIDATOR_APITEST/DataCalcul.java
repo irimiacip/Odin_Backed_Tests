@@ -88,18 +88,18 @@ public class DataCalcul {
 		Date date = new Date();   // given date
 		Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
 		int a = calendar.get(Calendar.HOUR);        // gets hour in 12h format
-		int b = calendar.get(Calendar.MINUTE);
+		//int b = calendar.get(Calendar.MINUTE);
 		String hour = String.valueOf(a-1); 
-		String minutes = String.valueOf(b);
+	//	String minutes = String.valueOf(b);
 		System.out.println(hour);
-		System.out.println(minutes);
+		//System.out.println(minutes);
 		String day = DataCalcul.fomatDay(getDay());
 		System.out.println(day);
 		if(hour.contains("10")||hour.contains("11")||hour.contains("12")) {
-			data_special = day+" "+hour+"."+minutes;
+			data_special = day+" "+hour;//+"."+minutes;
 			System.out.println("data ce va fi inserata : "+ data_special);
 		}else {
-			data_special = day+" "+"0"+hour+"."+minutes;
+			data_special = day+" "+"0"+hour;//+"."+minutes;
 			System.out.println("data ce va fi inserata : "+ data_special);
 		}
 		

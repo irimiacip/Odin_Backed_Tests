@@ -74,7 +74,7 @@ public class ConnectDB {
               String col4 = resultSet.getString("COLOANA4");
 
             if(col3.contains("PM")||col3.contains("AM")) {
-            	col3=col3.substring(0,15);
+            	col3=col3.substring(0,12);
             	System.out.println("data from db :  " + col3 );
             }
                           
