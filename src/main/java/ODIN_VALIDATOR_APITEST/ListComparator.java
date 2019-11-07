@@ -21,7 +21,7 @@ public class ListComparator {
 
 	public static boolean compareLists (List<String> listactual ,List<String> listexpected ) {
 		
-		int j = 0;
+/*		int j = 0;
 		while (j < listactual.size()) {
 			System.out.println("actual data :" + listactual.get(j));
 			j++;
@@ -30,17 +30,17 @@ public class ListComparator {
 		while (i < listexpected.size()) {
 			System.out.println("expected data :" + listexpected.get(i));
 			i++;
-		}
+		}*/
 		
 		
 		
 				Integer[] diff = new Integer[4];
 				System.out.println("valoare inainte :" + value);
 		if(value = listactual.equals(listexpected)) {
-			System.out.println("valoare dupa check :" + value);
-			System.out.println("SUNT EGALE");
+		//	System.out.println("valoare dupa check :" + value);
+		//	System.out.println("SUNT EGALE");
 		} else {
-			System.out.println("SE PARE CA NU SUNT EGALE");
+		//	System.out.println("SE PARE CA NU SUNT EGALE");
 			int k = 0;
 			while (k < listactual.size()) {
 				     
