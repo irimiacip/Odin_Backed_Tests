@@ -3,14 +3,21 @@ import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 
+import org.omg.Messaging.SyncScopeHelper;
+
 public class TEST {
 
-	public static void main(String[] args) {				
-		fomatDay(getDayPlus1());
+	public static void main(String[] args) throws Exception {				
+		//fomatDay(getDayPlus1());
+		String a = DataCalcul.returnDate("today", 10);
+		System.out.println(a);
+		String b = DataCalcul.fomatDay(DataCalcul.getDay());
+		System.out.println(b);
 	}
 
 		public static void fomatDay(String  actualDate){
@@ -30,6 +37,7 @@ public class TEST {
 			zzz = formatter.format(today1).toString();
 			return zzz;			
 		}
-	
+	    
+
 	
 }

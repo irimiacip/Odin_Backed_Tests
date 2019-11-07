@@ -10,3 +10,4 @@
 "Test 10",5,Text,T,200000
 "Test 11",13,Text,13_Text,200000
 "Test 12",null,null,null,null
+"Test 13",13,Text,DATE-FORMAT,123

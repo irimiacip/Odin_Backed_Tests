@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
 import org.omg.Messaging.SyncScopeHelper;
@@ -72,6 +73,38 @@ public class DataCalcul {
 		return zzz;			
 	}
 
+	public static String getDay() {	
+		String zzz = null;
+		Date date = new Date();
+		long ltime=date.getTime();
+		Date today1=new Date(ltime);			
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		zzz = formatter.format(today1).toString().toUpperCase();
+		return zzz;			
+	}
 	
+	public static String data_special() throws Exception {
+		String data_special=null;
+		Date date = new Date();   // given date
+		Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
+		int a = calendar.get(Calendar.HOUR);        // gets hour in 12h format
+		int b = calendar.get(Calendar.MINUTE);
+		String hour = String.valueOf(a-1);
+		String minutes = String.valueOf(b);
+		System.out.println(hour);
+		System.out.println(minutes);
+		String day = DataCalcul.fomatDay(getDay());
+		System.out.println(day);
+		if(hour.contains("10")||hour.contains("11")||hour.contains("12")) {
+			data_special = day+" "+hour+"."+minutes;
+			System.out.println("data ce va fi inserata : "+ data_special);
+		}else {
+			data_special = day+" "+"0"+hour+"."+minutes;
+			System.out.println("data ce va fi inserata : "+ data_special);
+		}
+		
+		return data_special;
+		
+	}
 
 }

@@ -209,4 +209,18 @@ static boolean value = true;
 		assertEquals(true, value);
 		logger.info("check succesfully");					
 	}
+	
+	@Test (priority=12)
+	public void test12() throws Exception {	
+		logger.info("TEST -- 12 --DE FACUT REFACTOR LA COD--");
+		logger.info("insert date SYSTIMESTAMP when a tag is missing==>");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);	
+		XmlComparator.read_xml_expected(2, 5,FILEPATH_REQUEST_PROCESSOR, "test_9.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_11.xml","null",0);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
+		listexpected = ReadCSVFile.readExpected("12");
+		logger.info("check data inserted in DB");
+		value=ListComparator.compareLists(listactual, listexpected);		
+		assertEquals(true, value);
+		logger.info("check succesfully");					
+	}
 }

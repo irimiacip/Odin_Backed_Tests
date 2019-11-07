@@ -2,7 +2,7 @@ package ODIN_VALIDATOR_APITEST;
 
 import static ODIN_VALIDATOR_APITEST.DataCalcul.fomatDay;
 import static ODIN_VALIDATOR_APITEST.DataCalcul.getDayPlus1;
-
+import static ODIN_VALIDATOR_APITEST.DataCalcul.data_special;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,7 +14,7 @@ import ODIN_VALIDATOR_APITEST.Consts.*;
 
 public class ReadCSVFile {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		readExpected("7");
 		updated_list();
 		System.out.println("=========new list==================");
@@ -24,7 +24,7 @@ public class ReadCSVFile {
 	
 	static List<String> listexpected = new ArrayList<String>();
 	
-	public static List<String> readExpected(String linefromcsv) {
+	public static List<String> readExpected(String linefromcsv) throws Exception {
 		String csvFile = Consts.PATH_EXPECTED_REQUEST_PROCESSOR +"/expected_values.csv" ;
         BufferedReader br = null;
         String line = "";
@@ -67,13 +67,16 @@ public class ReadCSVFile {
 		
     }
 	
-	public static void updated_list() {
+	public static void updated_list() throws Exception {
 		int i = 0;
 		while (i < listexpected.size()) {
 			//System.out.println("expected data :" + listexpected.get(i));
 			if(listexpected.get(i).equals("DATE")) {
 				//System.out.println(i);
 				listexpected.set(i,fomatDay(getDayPlus1()).toString());
+			}
+			else if(listexpected.get(i).equals("DATE-FORMAT")) {
+				listexpected.set(i,data_special().toString().trim());
 			}
 			i++;
 		}
