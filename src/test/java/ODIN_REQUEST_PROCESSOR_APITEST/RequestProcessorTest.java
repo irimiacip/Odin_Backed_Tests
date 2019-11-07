@@ -210,7 +210,7 @@ static boolean value = true;
 		logger.info("check succesfully");					
 	}
 	
-	@Test (priority=12)
+	//@Test (priority=12)
 	public void test12() throws Exception {	
 		logger.info("TEST -- 12 --DE FACUT REFACTOR LA COD--");
 		logger.info("insert date SYSTIMESTAMP when a tag is missing==>");
