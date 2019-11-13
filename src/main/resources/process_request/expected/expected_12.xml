@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<IhdsTree xmlns="http://cpim.metrosystems.net/ihds-tree/1.0/" scope="test" version="1">
+    <Transaction id="1489137860226" time="2017-03-10 11:24:20.226">
+        <Incident id="1">
+            <Domain>
+                <column1 attribute1="ceva">2</column1>
+                <column2/>
+            </Domain>
+            <content>
+                <request>
+                    <column3>mascul</column3>
+                    <column4>3</column4>
+                </request>
+            </content>
+            <validationResponse xmlns="">
+                <statuscode>0</statuscode>
+                <request>
+                    <statuscode>0</statuscode>
+                    <odinId/>
+                    <messages>
+                        <message>
+                            <messageType>OK</messageType>
+                            <brokenRule>NONE</brokenRule>
+                        </message>
+                    </messages>
+                </request>
+            </validationResponse>
+        </Incident>
+    </Transaction>
+</IhdsTree>

@@ -223,4 +223,21 @@ static boolean value = true;
 		assertEquals(true, value);
 		logger.info("check succesfully");					
 	}
+	
+	@Test (priority=13)
+	public void test13() throws Exception {	
+		logger.info("TEST -- 13 --");
+		logger.info("test for <mappingRule>{FUNCTION:select..... ON INSERT");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);
+		executeQuerryDB(INSERT_DB, strUserID, strPassword, dbURL);
+		XmlComparator.read_xml_expected(2, 6,FILEPATH_REQUEST_PROCESSOR, "test_10.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_12.xml","null",0);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
+		listexpected = ReadCSVFile.readExpected("13");
+		logger.info("check data inserted in DB");
+		value=ListComparator.compareLists(listactual, listexpected);		
+		assertEquals(true, value);
+		logger.info("check succesfully");					
+	}
+	
+	
 }
