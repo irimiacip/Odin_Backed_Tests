@@ -5,7 +5,7 @@
     <classes>
       <class name="ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest">
         <methods>
-          <include name="test13"/>
+          <include name="test14"/>
           <include name="startTest"/>
           <include name="closeDB"/>
           <include name="endTest"/>
