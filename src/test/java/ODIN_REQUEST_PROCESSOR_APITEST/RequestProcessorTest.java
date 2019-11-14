@@ -313,16 +313,16 @@ static boolean value = true;
 		logger.info("check succesfully");					
 	}
 	
-	//@Test (priority=15)
-	public void test15() throws Exception {	
-		logger.info("TEST -- 15 --");
+	@Test (priority=19)
+	public void test19() throws Exception {	
+		logger.info("TEST -- 19 --");
 		logger.info("test for <mappingRule>{FUNCTION:select..... ON INSERT two record in table");
 		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);
-		executeQuerryDB(INSERT_DB_1, strUserID, strPassword, dbURL);
-		executeQuerryDB(INSERT_DB_2, strUserID, strPassword, dbURL);
-		XmlComparator.read_xml_expected(2, 6,FILEPATH_REQUEST_PROCESSOR, "test_16.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_18.xml","null",0);
+		executeQuerryDB(INSERT_DB_4, strUserID, strPassword, dbURL);
+		executeQuerryDB(INSERT_DB_5, strUserID, strPassword, dbURL);
+		XmlComparator.read_xml_expected(2, 8,FILEPATH_REQUEST_PROCESSOR, "test_16.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_18.xml","null",0);
 		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
-		listexpected = ReadCSVFile.readExpected("15");
+		listexpected = ReadCSVFile.readExpected("19");
 		logger.info("check data inserted in DB");
 		value=ListComparator.compareLists(listactual, listexpected);		
 		assertEquals(true, value);
