@@ -5,10 +5,10 @@
     <classes>
       <class name="ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest">
         <methods>
+          <include name="test20"/>
           <include name="startTest"/>
           <include name="closeDB"/>
           <include name="endTest"/>
-          <include name="test19"/>
         </methods>
       </class> <!-- ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTest -->
     </classes>
