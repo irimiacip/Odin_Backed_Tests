@@ -316,7 +316,7 @@ static boolean value = true;
 	@Test (priority=19)
 	public void test19() throws Exception {	
 		logger.info("TEST -- 19 --");
-		logger.info("test for <mappingRule>{FUNCTION:select..... ON INSERT two record in table");
+		logger.info("test for <mappingRule>{FUNCTION:select..... ON INSERT integer two record in table");
 		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);
 		executeQuerryDB(INSERT_DB_4, strUserID, strPassword, dbURL);
 		executeQuerryDB(INSERT_DB_5, strUserID, strPassword, dbURL);
@@ -329,14 +329,14 @@ static boolean value = true;
 		logger.info("check succesfully");					
 	}
 	
-	//@Test (priority=16)
-	public void test16() throws Exception {	
-		logger.info("TEST -- 16 --");
-		logger.info("test for <mappingRule>{FUNCTION:select......ON INSERT no record in table and skippline is prezent");
+	@Test (priority=20)
+	public void test20() throws Exception {	
+		logger.info("TEST -- 20 --");
+		logger.info("test for <mappingRule>{FUNCTION:select......ON INSERT integer no record in table and skippline is prezent");
 		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);
-		XmlComparator.read_xml_expected(2, 7,FILEPATH_REQUEST_PROCESSOR, "test_13.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_15.xml","null",0);
+		XmlComparator.read_xml_expected(2, 9,FILEPATH_REQUEST_PROCESSOR, "test_17.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_19.xml","null",0);
 		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
-		listexpected = ReadCSVFile.readExpected("16");
+		listexpected = ReadCSVFile.readExpected("20");
 		logger.info("check data inserted in DB");
 		value=ListComparator.compareLists(listactual, listexpected);		
 		assertEquals(true, value);
