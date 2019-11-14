@@ -283,4 +283,68 @@ static boolean value = true;
 		logger.info("check succesfully");					
 	}
 	
+	
+	@Test (priority=17)
+	public void test17() throws Exception {	
+		logger.info("TEST -- 17 --");
+		logger.info("test for <mappingRule>{FUNCTION:select..... ON INSERT integer");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);
+		executeQuerryDB(INSERT_DB_3, strUserID, strPassword, dbURL);
+		XmlComparator.read_xml_expected(2, 8,FILEPATH_REQUEST_PROCESSOR, "test_14.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_16.xml","null",0);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
+		listexpected = ReadCSVFile.readExpected("17");
+		logger.info("check data inserted in DB");
+		value=ListComparator.compareLists(listactual, listexpected);		
+		assertEquals(true, value);
+		logger.info("check succesfully");					
+	}
+	
+	@Test (priority=14)
+	public void test14() throws Exception {	
+		logger.info("TEST -- 14 --");
+		logger.info("test for <mappingRule>{FUNCTION:select..... ON INSERT null table");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);
+		XmlComparator.read_xml_expected(2, 6,FILEPATH_REQUEST_PROCESSOR, "test_11.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_13.xml","null",0);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
+		listexpected = ReadCSVFile.readExpected("14");
+		logger.info("check data inserted in DB");
+		value=ListComparator.compareLists(listactual, listexpected);		
+		assertEquals(true, value);
+		logger.info("check succesfully");					
+	}
+	
+	@Test (priority=15)
+	public void test15() throws Exception {	
+		logger.info("TEST -- 15 --");
+		logger.info("test for <mappingRule>{FUNCTION:select..... ON INSERT two record in table");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);
+		executeQuerryDB(INSERT_DB_1, strUserID, strPassword, dbURL);
+		executeQuerryDB(INSERT_DB_2, strUserID, strPassword, dbURL);
+		XmlComparator.read_xml_expected(2, 6,FILEPATH_REQUEST_PROCESSOR, "test_12.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_14.xml","null",0);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
+		listexpected = ReadCSVFile.readExpected("15");
+		logger.info("check data inserted in DB");
+		value=ListComparator.compareLists(listactual, listexpected);		
+		assertEquals(true, value);
+		logger.info("check succesfully");					
+	}
+	
+	@Test (priority=16)
+	public void test16() throws Exception {	
+		logger.info("TEST -- 16 --");
+		logger.info("test for <mappingRule>{FUNCTION:select......ON INSERT no record in table and skippline is prezent");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);
+		XmlComparator.read_xml_expected(2, 7,FILEPATH_REQUEST_PROCESSOR, "test_13.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_15.xml","null",0);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
+		listexpected = ReadCSVFile.readExpected("16");
+		logger.info("check data inserted in DB");
+		value=ListComparator.compareLists(listactual, listexpected);		
+		assertEquals(true, value);
+		logger.info("check succesfully");					
+	}
+	
+	
+	
+	
+	
 }
