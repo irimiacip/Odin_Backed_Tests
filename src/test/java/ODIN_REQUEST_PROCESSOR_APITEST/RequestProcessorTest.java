@@ -393,6 +393,19 @@ static boolean value = true;
 	}
 	
 	
+	@Test (priority=24)
+	public void test24() throws Exception {	
+		logger.info("TEST -- 24 --");
+		logger.info("test for <mappingRule>{FUNCTION:select......ON INSERT data no record in table and skippline ");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);
+		XmlComparator.read_xml_expected(2, 11,FILEPATH_REQUEST_PROCESSOR, "test_21.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_23.xml","null",0);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
+		listexpected = ReadCSVFile.readExpected("24");
+		logger.info("check data inserted in DB");
+		value=ListComparator.compareLists(listactual, listexpected);		
+		assertEquals(true, value);
+		logger.info("check succesfully");					
+	}
 	
 	
 	
