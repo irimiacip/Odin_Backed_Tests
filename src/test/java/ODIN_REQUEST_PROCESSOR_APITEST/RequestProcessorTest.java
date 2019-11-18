@@ -342,6 +342,55 @@ static boolean value = true;
 		assertEquals(true, value);
 		logger.info("check succesfully");					
 	}
+	// date tests
+	@Test (priority=21)
+	public void test21() throws Exception {	
+		logger.info("TEST -- 21 --");
+		logger.info("test for <mappingRule>{FUNCTION:select......ON INSERT data ");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);
+		executeQuerryDB(INSERT_DB_6, strUserID, strPassword, dbURL);
+		executeQuerryDB(INSERT_DB_7, strUserID, strPassword, dbURL);
+		executeQuerryDB(INSERT_DB_8, strUserID, strPassword, dbURL);
+		XmlComparator.read_xml_expected(2, 10,FILEPATH_REQUEST_PROCESSOR, "test_18.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_20.xml","null",0);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
+		listexpected = ReadCSVFile.readExpected("21");
+		logger.info("check data inserted in DB");
+		value=ListComparator.compareLists(listactual, listexpected);		
+		assertEquals(true, value);
+		logger.info("check succesfully");					
+	}
+	
+	@Test (priority=22)
+	public void test22() throws Exception {	
+		logger.info("TEST -- 22 --");
+		logger.info("test for <mappingRule>{FUNCTION:select......ON INSERT data multiple record in table ");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);
+		executeQuerryDB(INSERT_DB_6, strUserID, strPassword, dbURL);
+		executeQuerryDB(INSERT_DB_7, strUserID, strPassword, dbURL);
+		executeQuerryDB(INSERT_DB_8, strUserID, strPassword, dbURL);
+		executeQuerryDB(INSERT_DB_9, strUserID, strPassword, dbURL);
+		XmlComparator.read_xml_expected(2, 10,FILEPATH_REQUEST_PROCESSOR, "test_19.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_21.xml","null",0);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
+		listexpected = ReadCSVFile.readExpected("22");
+		logger.info("check data inserted in DB");
+		value=ListComparator.compareLists(listactual, listexpected);		
+		assertEquals(true, value);
+		logger.info("check succesfully");					
+	}
+	
+	@Test (priority=23)
+	public void test23() throws Exception {	
+		logger.info("TEST -- 23 --");
+		logger.info("test for <mappingRule>{FUNCTION:select......ON INSERT data no record in table ");
+		executeQuerryDB(CLEAN_DB, strUserID, strPassword, dbURL);
+		XmlComparator.read_xml_expected(2, 10,FILEPATH_REQUEST_PROCESSOR, "test_20.xml" , PATH_EXPECTED_REQUEST_PROCESSOR, "expected_22.xml","null",0);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB,strUserID, strPassword, dbURL));
+		listexpected = ReadCSVFile.readExpected("23");
+		logger.info("check data inserted in DB");
+		value=ListComparator.compareLists(listactual, listexpected);		
+		assertEquals(true, value);
+		logger.info("check succesfully");					
+	}
 	
 	
 	
