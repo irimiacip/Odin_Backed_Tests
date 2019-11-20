@@ -2,8 +2,12 @@ package ODIN_VALIDATOR_APITEST;
 import static ODIN_VALIDATOR_APITEST.Consts.FILEPATH_VALIDATOR;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -87,14 +91,25 @@ public class DataCalcul {
 		String data_special=null;
 		Date date = new Date();   // given date
 		Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
-		int a = calendar.get(Calendar.HOUR);        // gets hour in 12h format
+	//	int a = calendar.get(Calendar.HOUR);        // gets hour in 12h format
 		//int b = calendar.get(Calendar.MINUTE);
-		String hour = String.valueOf(a-1); 
+	//	String hour = String.valueOf(a-1); 
+		
+		Instant now = Instant.now();
+		ZonedDateTime chicago = now.atZone(ZoneId.of("Europe/Paris"));
+		String hour = (String)chicago.format(DateTimeFormatter.ofLocalizedTime(FormatStyle.FULL));
+		System.out.println(hour);
+		hour = hour.substring(0,1);
+		System.out.println(hour);
+		
 	//	String minutes = String.valueOf(b);
 		System.out.println(hour);
 		//System.out.println(minutes);
 		String day = DataCalcul.fomatDay(getDay());
 		System.out.println(day);
+		
+		data_special = day+" "+hour;//+"."+minutes;
+		System.out.println("data ce va fi inserata : "+ data_special);
 		if(hour.contains("10")||hour.contains("11")||hour.contains("12")) {
 			data_special = day+" "+hour;//+"."+minutes;
 			System.out.println("data ce va fi inserata : "+ data_special);
@@ -103,8 +118,8 @@ public class DataCalcul {
 			System.out.println("data ce va fi inserata : "+ data_special);
 		}
 		
-		return data_special;
-		
+		return data_special;		
 	}
+	
 
 }
