@@ -16,8 +16,9 @@ public class Consts {
 	public static final String VERSION_7 = "v_7_0";
 	public static final String VERSION_8 = "v_8_0";
 	public static final String VERSION_9 = "v_9_0";
-	
-	public static final String LINK_PROCESSOR = "https://request-processor.odin-dev.metrosystems.net/process/";
+	//public static final String LINK_PROCESSOR = "https://request-processor.odin-dev.metrosystems.net/process/";
+
+	public static final String LINK_PROCESSOR = "https://request-processor.odin-"+System.getProperty("varlink")+".metrosystems.net/process/";
 	public static final String VERSION_PROCESSOR_1 = "v_2_0/";
 	public static final String VERSION_PROCESSOR_2 = "v_2.2_0/";
 	public static final String VERSION_PROCESSOR_3 = "v_2.3_0/";
