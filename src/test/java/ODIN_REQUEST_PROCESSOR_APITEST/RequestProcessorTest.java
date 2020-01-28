@@ -281,7 +281,7 @@ public class RequestProcessorTest {
 		logger.info("check succesfully");
 	}
 
-	@Test(priority = 14)
+	// @Test(priority = 14)
 	public void test14() throws Exception {
 		logger.info("TEST -- 14 --");
 		logger.info("test for <mappingRule>{FUNCTION:select..... ON INSERT null table");
