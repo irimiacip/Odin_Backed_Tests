@@ -34,6 +34,7 @@ public class ConnectDB {
 			try {
 				connection = DriverManager.getConnection(dbURL, strUserID, strPassword);
 			} catch (SQLException e) {
+				System.out.println("afisare eroarea " + e.getMessage());
 				test_conn = test_conn + 1;
 				System.out.println("Afisare counter :" + test_conn);
 				System.out.println("Connecting failed, retrying...");
