@@ -394,7 +394,7 @@ public class RequestProcessorTest {
 	}
 
 	// date tests
-	// @Test(priority = 21)
+	@Test(priority = 21)
 	public void test21() throws Exception {
 		logger.info("TEST -- 21 --");
 		logger.info("test for <mappingRule>{FUNCTION:select......ON INSERT data ");
