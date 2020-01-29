@@ -18,8 +18,10 @@ public class DataBaseConsts {
 
 	public static final String dbURL = "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=metrom1-scan.de1.ocm.s1587589.oraclecloudatcustomer.com)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=MDP07PLD.de1.ocm.s1587589.oraclecloudatcustomer.com)))";
 	public static final String dbURL_pp = "jdbc:oracle:thin:@i125serv.metro-dus.de:15125:MD01PLI";
-	public static final String strUserID = "nwe";
+	// public static final String strUserID = "nwe";
+	public static String strUserID = System.getProperty("Credential_user_dev");
 	public static final String strUserID_pp = "nwe";
-	public static final String strPassword = "europa";
+	// public static final String strPassword = "europa";
+	public static String strPassword = System.getProperty("Credential_pass_dev");
 	public static final String strPassword_pp = "PSC6O-3HFWOR";
 }
