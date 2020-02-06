@@ -31,8 +31,6 @@ public class Consts {
 	public static final String VERSION_PROCESSOR_11 = "v_2.11_0/";
 	public static final String VERSION_PROCESSOR_12 = "v_2.12_0/";
 	public static final String VERSION_PROCESSOR_13 = "v_2.13_0/";
-	
-	
 	public static final String COUNTRY_TENANT = "PL/MCC/SDA";
 	public static final String FILEPATH_VALIDATOR = "src/main/resources/validator/files/";
 	public static final String PATH_EXPECTED_VALIDATOR = "src/main/resources/validator/expected/";
