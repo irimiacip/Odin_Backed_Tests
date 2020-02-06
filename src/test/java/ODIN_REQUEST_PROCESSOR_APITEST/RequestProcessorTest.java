@@ -106,7 +106,6 @@ public class RequestProcessorTest {
 	public void test2() throws Exception {
 		logger.info("TEST -- 2 --");
 		logger.info("test for ==> check response http status 200 <==");
-
 		Response result = (Response) RestAssured.given().contentType("text/plain")
 				.body(ReadBody.getBodyFromFilepath(FILEPATH_REQUEST_PROCESSOR, "test_1.xml"))
 				.put(LINK_PROCESSOR + PROCESS + VERSION_PROCESSOR_1 + COUNTRY_TENANT).then().statusCode(200)
