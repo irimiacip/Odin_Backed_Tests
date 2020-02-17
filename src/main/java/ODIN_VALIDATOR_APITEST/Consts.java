@@ -32,6 +32,11 @@ public class Consts {
 	public static final String VERSION_PROCESSOR_11 = "v_2.11_0/";
 	public static final String VERSION_PROCESSOR_12 = "v_2.12_0/";
 	public static final String VERSION_PROCESSOR_13 = "v_2.13_0/";
+	public static final String VERSION_PROCESSOR_14 = "v_2.14_0/";
+	public static final String VERSION_PROCESSOR_15 = "v_2.15_0/";
+	public static final String VERSION_PROCESSOR_16 = "v_2.16_0/";
+	
+	
 	
 	
 	public static final String COUNTRY_TENANT = "PL/MCC/SDA";

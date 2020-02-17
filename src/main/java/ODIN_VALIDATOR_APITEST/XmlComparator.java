@@ -145,6 +145,21 @@ public class XmlComparator {
 	             // System.out.println("differences_validator");
 	              printDifferences(differences_request_procesor);
 	              break;
+		    }else if(version ==14) {
+		    	 List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_14), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
+		    }else if(version ==15) {
+		    	List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_15), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
+		    }else if(version ==16) {
+		    	List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_16), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
 		    }
 			 
 			 

@@ -2,10 +2,10 @@
 "Test 2", =================
 "Test 3",null,null,null,null
 "Test 4",null,null,null,null
-"Test 5",100,true,DATE,10000
-"Test 6",2,true,DATE,10000
+"Test 5",100,true,DATE+1,10000
+"Test 6",2,true,DATE+1,10000
 "Test 7",null,null,null,null
-"Test 8",null,DATE,DATE,null
+"Test 8",null,DATE+1,DATE+1,null
 "Test 9",4,Text,Text1,200000
 "Test 10",5,Text,T,200000
 "Test 11",13,Text,13_Text,200000
@@ -23,3 +23,25 @@
 "Test 23",4,salam agricola,20-12-2019,400
 "Test 24",null,null,null,null
 "Test 25",null,null,null,null
+"Test 26",TO_BE,null,null,null
+"Test 27",TO_BE,null,null,null
+"Test 28",2017-05-24 00:00:00,DATE
+"Test 29",DATE+1,2949-01-01 00:00:00
+"Test 30",2017-05-24 00:00:00,DATE
+"Test 31",DATE+1,2099-12-31 00:00:00
+"Test 32",DATE+1,2099-12-31 00:00:00
+"Test 33",2100-01-01 00:00:00,2949-01-01 00:00:00
+"Test 34",2017-05-24 00:00:00,2017-12-31 00:00:00
+"Test 35",2018-01-01 00:00:00,DATE
+"Test 36",DATE+1,2099-12-31 00:00:00
+"Test 37",2100-01-01 00:00:00,2500-01-01 00:00:00
+"Test 38",2500-01-02 00:00:00,2949-01-01 00:00:00
+
+
+
+
+
+
+
+
+

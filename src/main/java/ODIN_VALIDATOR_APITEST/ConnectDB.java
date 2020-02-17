@@ -87,6 +87,31 @@ public class ConnectDB {
 		return listactual;
 	}
 
+	
+	public static List<String> getDatafromDB(ResultSet resultSet,String MERGE_TYPE) throws SQLException {
+
+		if (resultSet.next() == false) {
+			System.out.println("ResultSet in empty in Java");
+			listactual.add("null");
+			listactual.add("null");
+			listactual.add("null");
+			listactual.add("null");
+		} else {
+
+			// while (resultSet.next()) {
+
+			String col1 = resultSet.getString("VALID_FROM");
+			String col2 = resultSet.getString("VALID_TO");
+
+
+			listactual.add(col1);
+			listactual.add(col2);
+
+			// }
+		}
+		return listactual;
+	}
+	
 	public static void closeDbConn() throws SQLException {
 
 		if (connection != null) {

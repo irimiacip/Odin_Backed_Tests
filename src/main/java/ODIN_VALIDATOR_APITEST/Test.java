@@ -100,8 +100,9 @@ public class Test {
 	
 	public static void main(String[] args) throws Exception {
 		//xxx();
-		a();
-		
+	//	a();
+		String a = DataCalcul.getDayPlus1();
+		System.out.println(a);
 	//	System.out.println(DataCalcul.returnDate("yesterday"));
 		//SimpleDateFormat dateFormat;
 		//dateFormat.format(today);
@@ -110,6 +111,8 @@ public class Test {
 	//System.out.println(test1().getPrenume());
 	//System.out.println(test2().getTimestampFormat());
 	//System.out.println(test2());
+		
+		
 	}
 	
 		
