@@ -30,7 +30,6 @@ public class ValidatorTest {
 	
 
 	@BeforeMethod
-
 	public void startTest() {
 		logger.info("=====================");
 		logger.info("autentification......");
@@ -61,7 +60,6 @@ public class ValidatorTest {
 		assertTrue(respond.contains(check));
 	}
 
-
 	@Test(priority=3)
 	public void test3() throws Exception {
 		logger.info("TEST -- 3 --");
@@ -72,7 +70,6 @@ public class ValidatorTest {
 		assertEquals((StringUtils.countMatches(respond, check)), 2);  
 	}
 
-	
 	@Test (priority=4)
 	public void test4() throws Exception {
 		logger.info("TEST -- 4 --");
@@ -91,7 +88,6 @@ public class ValidatorTest {
 		assertEquals((StringUtils.countMatches(respond, check_statuscode)), 2);  
 		assertEquals((StringUtils.countMatches(respond, check_messageType)), 2);  
 	}
-	
 	
 	@Test(priority=6)
 	public void test6() throws Exception {

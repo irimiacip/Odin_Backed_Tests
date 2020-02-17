@@ -10,7 +10,6 @@ public class Consts {
 	public static final String VERSION_1 = "v_1_0";
 	public static final String VERSION_2 = "v_2_0";
 	public static final String VERSION_3 = "v_3_0";
-	
 	public static final String VERSION_5 = "v_5_0";
 	public static final String VERSION_6 = "v_6_0";
 	public static final String VERSION_7 = "v_7_0";
@@ -32,21 +31,15 @@ public class Consts {
 	public static final String VERSION_PROCESSOR_11 = "v_2.11_0/";
 	public static final String VERSION_PROCESSOR_12 = "v_2.12_0/";
 	public static final String VERSION_PROCESSOR_13 = "v_2.13_0/";
-	public static final String VERSION_PROCESSOR_14 = "v_2.14_0/";
-	public static final String VERSION_PROCESSOR_15 = "v_2.15_0/";
-	public static final String VERSION_PROCESSOR_16 = "v_2.16_0/";
+
 	
 	
 	
 	
+
 	public static final String COUNTRY_TENANT = "PL/MCC/SDA";
-
 	public static final String FILEPATH_VALIDATOR = "src/main/resources/validator/files/";
-	
 	public static final String PATH_EXPECTED_VALIDATOR = "src/main/resources/validator/expected/";
-	
 	public static final String FILEPATH_REQUEST_PROCESSOR = "src/main/resources/process_request/files/";
-
-	
 	public static final String PATH_EXPECTED_REQUEST_PROCESSOR = "src/main/resources/process_request/expected/";
 }
