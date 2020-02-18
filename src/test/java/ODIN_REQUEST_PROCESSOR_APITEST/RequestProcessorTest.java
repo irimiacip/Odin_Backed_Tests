@@ -654,7 +654,7 @@ public class RequestProcessorTest {
 	@Test(priority = 35)
 	public void test35() {
 		// test 
-		// insert gap and add intervall
+		// insert gap and add interval
 	}
 		
 	//mvn clean test -DproxySet=true -DproxyHost=proxy.metro.ro -DproxyPort=3128 -DtestngFile=2_testng.xml -Dvar=dev -Dvarlink=dev -DCredential_user_dev=nwe -DCredential_pass_dev=europa
