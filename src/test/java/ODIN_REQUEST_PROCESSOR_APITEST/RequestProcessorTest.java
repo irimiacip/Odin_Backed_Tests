@@ -477,7 +477,7 @@ public class RequestProcessorTest {
 		// delete data inserted in mms
 	}
 	
-	
+	@Ignore
 	@Test (priority = 28) // Merge MMS
 	public void test28() throws Exception {
 		logger.info("TEST --28 --");
@@ -503,7 +503,7 @@ public class RequestProcessorTest {
 		value = ListComparator.compareLists(listactual, listexpected);
 		assertEquals(true, value);
 	}
-	
+	@Ignore
 	@Test (priority = 29) // Merge MMS
 	public void test29() throws Exception {
 		logger.info("TEST --29 --");
@@ -547,7 +547,7 @@ public class RequestProcessorTest {
 		  value = ListComparator.compareLists(listactual, listexpected);
 		  assertEquals(true, value);		 
 	}
-	
+	@Ignore
 	@Test (priority = 30) // Merge MMS
 	public void test30() throws Exception {
 		logger.info("TEST --30 --");
@@ -622,17 +622,24 @@ public class RequestProcessorTest {
 				 				 		 		
 	}
 	
-	@Ignore
+	
 	@Test(priority = 31)
 	public void test31() throws Exception {
 		logger.info("--TEST 30--");
 		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
 		executeQuerryDB(INSERT_DB_BRAND_ID_1, user, pass, url);
 		executeQuerryDB(INSERT_DB_BRAND_ID_2, user, pass, url);
-        XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_25.xml",PATH_EXPECTED_REQUEST_PROCESSOR, "expected_27.xml", "null", 0);
+        XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_26.xml",PATH_EXPECTED_REQUEST_PROCESSOR, "expected_30.xml", "null", 0);
 
-		// test negative
-		// bad body request  brand_id = wrong
+        listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_3, user, pass,url),"MERGE_MMS");		
+		 listexpected = ReadCSVFile.readExpected("33","MERGE_MMS");
+		 value = ListComparator.compareLists(listactual, listexpected);
+		 assertEquals(true, value);
+		listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_4, user, pass,url),"MERGE_MMS");		
+		 listexpected = ReadCSVFile.readExpected("34","MERGE_MMS");
+		 value = ListComparator.compareLists(listactual, listexpected);
+		 assertEquals(true, value);
+		 
 	}
 	
 	@Ignore
