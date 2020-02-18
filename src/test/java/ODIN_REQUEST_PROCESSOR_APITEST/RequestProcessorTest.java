@@ -550,7 +550,7 @@ public class RequestProcessorTest {
 	
 	@Test (priority = 30) // Merge MMS
 	public void test30() throws Exception {
-		logger.info("TEST --29 --");
+		logger.info("TEST --30 --");
 		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
 		executeQuerryDB(INSERT_DB_BRAND_ID_1, user, pass, url);
 		executeQuerryDB(INSERT_DB_BRAND_ID_2, user, pass, url);
@@ -624,7 +624,10 @@ public class RequestProcessorTest {
 	
 	@Ignore
 	@Test(priority = 31)
-	public void test31() {
+	public void test31() throws Exception {
+		logger.info("--TEST 30--");
+		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
+		
 		// test negative
 		// bad body request  brand_id = wrong
 	}
