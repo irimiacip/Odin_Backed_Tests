@@ -477,7 +477,7 @@ public class RequestProcessorTest {
 		// delete data inserted in mms
 	}
 	
-	@Ignore
+	
 	@Test (priority = 28) // Merge MMS
 	public void test28() throws Exception {
 		logger.info("TEST --28 --");
@@ -503,7 +503,7 @@ public class RequestProcessorTest {
 		value = ListComparator.compareLists(listactual, listexpected);
 		assertEquals(true, value);
 	}
-	@Ignore
+	
 	@Test (priority = 29) // Merge MMS
 	public void test29() throws Exception {
 		logger.info("TEST --29 --");
@@ -547,7 +547,7 @@ public class RequestProcessorTest {
 		  value = ListComparator.compareLists(listactual, listexpected);
 		  assertEquals(true, value);		 
 	}
-	@Ignore
+	
 	@Test (priority = 30) // Merge MMS
 	public void test30() throws Exception {
 		logger.info("TEST --30 --");
