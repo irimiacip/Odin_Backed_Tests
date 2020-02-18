@@ -629,21 +629,34 @@ public class RequestProcessorTest {
 		// test negative
 		// bad body request  brand_id = wrong
 	}
+	
 	@Ignore
 	@Test(priority = 32)
-	
 	public void test32() {
+		// test negative
+		// bad request sub_brand_id=wrong
+	}
+	@Ignore
+	@Test(priority=33)
+	public void test33() {
+		// test negative
+		//bad request supplier_no = wrong
+	}
+	
+	@Ignore
+	@Test(priority = 34)
+	
+	public void test34() {
 		// test negative
 		// bad process xml 
 	}
 	@Ignore
-	@Test(priority = 33)
-	public void test33() {
+	@Test(priority = 35)
+	public void test35() {
 		// test 
 		// insert gap and add intervall
 	}
-	
-	
+		
 	//mvn clean test -DproxySet=true -DproxyHost=proxy.metro.ro -DproxyPort=3128 -DtestngFile=2_testng.xml -Dvar=dev -Dvarlink=dev -DCredential_user_dev=nwe -DCredential_pass_dev=europa
 	// mvn clean test -DtestngFile=2_testng.xml -Dvar=pp -Dvarlink=pp1
 	// mvn clean test -DtestngFile=2_testng.xml -Dvar=dev -Dvarlink=dev
