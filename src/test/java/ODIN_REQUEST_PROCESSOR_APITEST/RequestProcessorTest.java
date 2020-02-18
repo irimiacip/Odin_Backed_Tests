@@ -627,7 +627,10 @@ public class RequestProcessorTest {
 	public void test31() throws Exception {
 		logger.info("--TEST 30--");
 		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
-		
+		executeQuerryDB(INSERT_DB_BRAND_ID_1, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_2, user, pass, url);
+        XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_25.xml",PATH_EXPECTED_REQUEST_PROCESSOR, "expected_27.xml", "null", 0);
+
 		// test negative
 		// bad body request  brand_id = wrong
 	}
