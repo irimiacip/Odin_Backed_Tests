@@ -649,9 +649,7 @@ public class RequestProcessorTest {
 		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
 		executeQuerryDB(INSERT_DB_BRAND_ID_1, user, pass, url);
 		executeQuerryDB(INSERT_DB_BRAND_ID_2, user, pass, url);
-		
-        XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_27.xml",PATH_EXPECTED_REQUEST_PROCESSOR, "expected_31.xml", "null", 0);
-        
+        XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_27.xml",PATH_EXPECTED_REQUEST_PROCESSOR, "expected_31.xml", "null", 0);        
         listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_3, user, pass,url),"MERGE_MMS");		
 		 listexpected = ReadCSVFile.readExpected("38","MERGE_MMS");
 		 value = ListComparator.compareLists(listactual, listexpected);
@@ -668,6 +666,7 @@ public class RequestProcessorTest {
 	@Ignore
 	@Test(priority=33)
 	public void test33() {
+		logger.info("TEST");
 		// test negative
 		//bad request supplier_no = wrong
 	}
