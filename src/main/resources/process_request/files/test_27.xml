@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<IhdsTree xmlns="http://cpim.metrosystems.net/ihds-tree/1.0/" scope="BD" version="1">
+    <Transaction id="2070" time="2016-10-31T15:32:39.280">
+        <Incident id="1">
+            <Domain>
+                <KEY>documents/PL/brands?company=MCC&amp;brandid=2070</KEY>
+                <SCOPE_DESC>BRANDS_BDM</SCOPE_DESC>
+                <COUNTRY>PL</COUNTRY>
+                <COMPANY>MCC</COMPANY>
+                <BRAND_ID>33710</BRAND_ID>
+            </Domain>
+            <brand>
+                <BRANDNAME language_code="ENG">LEGO</BRANDNAME>
+		        <BRANDNAME language_code="POL"></BRANDNAME>
+                <IS_TECHNICAL>false</IS_TECHNICAL>
+                <IS_VALID_FOR_LOV>true</IS_VALID_FOR_LOV>
+                <BDM_BRAND_ID>33710</BDM_BRAND_ID>
+                <subbrands>
+                    <subbrand>
+                        <BDM_SUB_BRAND_ID>27209XXXX</BDM_SUB_BRAND_ID>
+                        <SUB_BRAND_NAME language_code="ENG">VANILLA</SUB_BRAND_NAME>
+                        <SUB_BRAND_NAME language_code="POL">VANILLA</SUB_BRAND_NAME>
+                    </subbrand>
+                    <subbrand>
+                        <BDM_SUB_BRAND_ID>2721</BDM_SUB_BRAND_ID>
+                        <SUB_BRAND_NAME language_code="ENG">CHERRY</SUB_BRAND_NAME>
+                        <SUB_BRAND_NAME language_code="POL">CHERRY</SUB_BRAND_NAME>
+                    </subbrand>
+                </subbrands>
+                <suppliers>
+                    <SUPPLIER_NO>24381</SUPPLIER_NO>
+                </suppliers>
+            </brand>
+            <validationResponse xmlns="">
+                <statuscode>0</statuscode>
+                <request>
+                    <statuscode>0</statuscode>
+                    <odinId/>
+                    <messages>
+                        <message>
+                            <messageType>OK</messageType>
+                            <brokenRule>NONE</brokenRule>
+                        </message>
+                    </messages>
+                </request>
+            </validationResponse>
+        </Incident>
+    </Transaction>
+</IhdsTree>

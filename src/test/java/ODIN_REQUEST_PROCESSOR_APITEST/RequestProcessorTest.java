@@ -618,34 +618,52 @@ public class RequestProcessorTest {
 				listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_7, user, pass,url),"MERGE_MMS");		
 				 listexpected = ReadCSVFile.readExpected("37","MERGE_MMS");
 				 value = ListComparator.compareLists(listactual, listexpected);
-				 assertEquals(true, value);
-				 				 		 		
+				 assertEquals(true, value);				 				 		 		
 	}
 	
-	
+
 	@Test(priority = 31)
 	public void test31() throws Exception {
-		logger.info("--TEST 30--");
+		logger.info("--TEST 31--");
+		logger.info("Test negative for the situation when the description for BRAND is not avalaible");
 		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
 		executeQuerryDB(INSERT_DB_BRAND_ID_1, user, pass, url);
 		executeQuerryDB(INSERT_DB_BRAND_ID_2, user, pass, url);
         XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_26.xml",PATH_EXPECTED_REQUEST_PROCESSOR, "expected_30.xml", "null", 0);
-
         listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_3, user, pass,url),"MERGE_MMS");		
-		 listexpected = ReadCSVFile.readExpected("33","MERGE_MMS");
+		 listexpected = ReadCSVFile.readExpected("38","MERGE_MMS");
 		 value = ListComparator.compareLists(listactual, listexpected);
 		 assertEquals(true, value);
-		listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_4, user, pass,url),"MERGE_MMS");		
-		 listexpected = ReadCSVFile.readExpected("34","MERGE_MMS");
+		listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_3, user, pass,url),"MERGE_MMS");		
+		 listexpected = ReadCSVFile.readExpected("39","MERGE_MMS");
 		 value = ListComparator.compareLists(listactual, listexpected);
 		 assertEquals(true, value);
 		 
 	}
 	
-	@Ignore
+	
 	@Test(priority = 32)
-	public void test32() {
-		// test negative
+	public void test32() throws Exception{
+		
+		logger.info("--TEST 32--");
+		logger.info("test negativ with sub_brand_id not valid ");
+		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_1, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_2, user, pass, url);
+		
+        XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_27.xml",PATH_EXPECTED_REQUEST_PROCESSOR, "expected_31.xml", "null", 0);
+        
+        listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_3, user, pass,url),"MERGE_MMS");		
+		 listexpected = ReadCSVFile.readExpected("38","MERGE_MMS");
+		 value = ListComparator.compareLists(listactual, listexpected);
+		 assertEquals(true, value);
+		listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_3, user, pass,url),"MERGE_MMS");		
+		 listexpected = ReadCSVFile.readExpected("39","MERGE_MMS");
+		 value = ListComparator.compareLists(listactual, listexpected);
+		 assertEquals(true, value);
+		 
+		 
+	
 		// bad request sub_brand_id=wrong
 	}
 	@Ignore
