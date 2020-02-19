@@ -658,9 +658,7 @@ public class RequestProcessorTest {
 		 listexpected = ReadCSVFile.readExpected("39","MERGE_MMS");
 		 value = ListComparator.compareLists(listactual, listexpected);
 		 assertEquals(true, value);
-		 
-		 
-	
+		 	
 		// bad request sub_brand_id=wrong
 	}
 	@Ignore
