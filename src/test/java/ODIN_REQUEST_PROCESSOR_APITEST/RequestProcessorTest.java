@@ -667,7 +667,6 @@ public class RequestProcessorTest {
 		logger.info("TEST");
 		// test negative
 		//bad request supplier_no = wrong
-		
 	}
 	
 	@Ignore
