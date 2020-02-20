@@ -665,8 +665,7 @@ public class RequestProcessorTest {
 	@Test(priority=33)
 	public void test33() {
 		logger.info("TEST");
-		// test negative
-		//bad request supplier_no = wrong
+		// change setting for table process for allowings gaps
 	
 	}
 	
@@ -674,15 +673,13 @@ public class RequestProcessorTest {
 	@Test(priority = 34)
 	
 	public void test34() {
-		// test negative
-		// bad process xml 
+// execute tests for allowed gaps test situation 1
 	}
 	
 	@Ignore
 	@Test(priority = 35)
 	public void test35() {
-		// test 
-		// insert gap and add interval
+		// execute tests for allowed gaps test situation 2
 	}
 		
 	//mvn clean test -DproxySet=true -DproxyHost=proxy.metro.ro -DproxyPort=3128 -DtestngFile=2_testng.xml -Dvar=dev -Dvarlink=dev -DCredential_user_dev=nwe -DCredential_pass_dev=europa
