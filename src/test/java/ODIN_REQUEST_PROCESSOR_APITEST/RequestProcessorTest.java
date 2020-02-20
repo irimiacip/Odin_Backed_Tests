@@ -625,7 +625,7 @@ public class RequestProcessorTest {
 	@Test(priority = 31)
 	public void test31() throws Exception {
 		logger.info("--TEST 31--");
-		logger.info("Test negative for the situation when the description for BRAND is not avalaible");
+		logger.info("Test negative for the situation when the description for BRAND is missing");
 		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
 		executeQuerryDB(INSERT_DB_BRAND_ID_1, user, pass, url);
 		executeQuerryDB(INSERT_DB_BRAND_ID_2, user, pass, url);
@@ -645,7 +645,7 @@ public class RequestProcessorTest {
 	public void test32() throws Exception{
 		
 		logger.info("--TEST 32--");
-		logger.info("test negativ with sub_brand_id not valid ");
+		logger.info("Test negativ with sub_brand_id not valid and brand_id valid");
 		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
 		executeQuerryDB(INSERT_DB_BRAND_ID_1, user, pass, url);
 		executeQuerryDB(INSERT_DB_BRAND_ID_2, user, pass, url);
