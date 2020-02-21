@@ -464,24 +464,90 @@ public class RequestProcessorTest {
 		logger.info("check succesfully");
 	}
 	@Ignore
-	@Test(priority=25)  // Merge   request ===> 22 23 24   expected  24 25 26 
-	       
-	public void test25() {
+	@Test(priority=25)  // Merge   request ===> 22 23 24   expected  24 25 26      
+	public void test25() throws Exception{
 		logger.info("TEST -- 25 --");
+		logger.info("Test MERGE situation 1");
+		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_MERGE__1_ENG, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_MERGE__2_ENG, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_MERGE__1_POL, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_MERGE__2_POL, user, pass, url);
+		XmlComparator.read_xml_expected(2, 17, FILEPATH_REQUEST_PROCESSOR, "test_22.xml",PATH_EXPECTED_REQUEST_PROCESSOR, "expected_24.xml", "null", 0);		
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM__MERGE_1_ENG, user, pass, url),"MERGE_MMS");
+		listexpected = ReadCSVFile.readExpected("25","MERGE");
+		value = ListComparator.compareLists(listactual, listexpected);
+		assertEquals(true, value);		
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_TO__MERGE_1_ENG, user, pass, url),"MERGE_MMS");
+		listexpected = ReadCSVFile.readExpected("26","MERGE");
+		value = ListComparator.compareLists(listactual, listexpected);
+		assertEquals(true, value);		
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM__MERGE_1_POL, user, pass, url),"MERGE_MMS");
+		listexpected = ReadCSVFile.readExpected("25","MERGE");
+		value = ListComparator.compareLists(listactual, listexpected);
+		assertEquals(true, value);		
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_TO__MERGE_1_POL, user, pass, url),"MERGE_MMS");
+		listexpected = ReadCSVFile.readExpected("26","MERGE");
+		value = ListComparator.compareLists(listactual, listexpected);
+		assertEquals(true, value);
 		
-		// conect and delete some record from MMS 
+		
+		// prepaer the settings.xml for MERGE
+		// conect and delete // insert data in MMS (brand) 
 		// insert data initial
 		// execute request 
 		// compare expected with actual 
 		// check data from db
+		// check that the interval is changed and some records are deleted
 		// delete data inserted in mms
 	}
 	
 	
+	@Test(priority=26)  // Merge   request ===> 22 23 24   expected  24 25 26      
+	public void test26() throws Exception{
+		logger.info("TEST -- 26 --");
+		logger.info("Test MERGE situation 2");
+		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_MERGE__1_ENG, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_MERGE__2_ENG, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_MERGE__1_POL, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_MERGE__2_POL, user, pass, url);
+		XmlComparator.read_xml_expected(2, 18, FILEPATH_REQUEST_PROCESSOR, "test_23.xml",PATH_EXPECTED_REQUEST_PROCESSOR, "expected_25.xml", "null", 0);		
+		
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM__MERGE_2_ENG, user, pass, url),"MERGE_MMS");
+		listexpected = ReadCSVFile.readExpected("40","MERGE");
+		value = ListComparator.compareLists(listactual, listexpected);
+		assertEquals(true, value);		
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_TO__MERGE_2_ENG, user, pass, url),"MERGE_MMS");
+		listexpected = ReadCSVFile.readExpected("41","MERGE");
+		value = ListComparator.compareLists(listactual, listexpected);
+		assertEquals(true, value);		
+	//	listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM__MERGE_2_POL, user, pass, url),"MERGE_MMS");
+	//	listexpected = ReadCSVFile.readExpected("40","MERGE");
+	//	value = ListComparator.compareLists(listactual, listexpected);
+	//	assertEquals(true, value);		
+	//	listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_TO__MERGE_2_POL, user, pass, url),"MERGE_MMS");
+	//	listexpected = ReadCSVFile.readExpected("41","MERGE");
+	//	value = ListComparator.compareLists(listactual, listexpected);
+	//	assertEquals(true, value);
+		
+		
+		// prepaer the settings.xml for MERGE
+		// conect and delete // insert data in MMS (brand) 
+		// insert data initial
+		// execute request 
+		// compare expected with actual 
+		// check data from db
+		// check that the interval is changed and some records are deleted
+		// delete data inserted in mms
+	}
+	
+	
+	@Ignore
 	@Test (priority = 28) // Merge MMS
 	public void test28() throws Exception {
 		logger.info("TEST --28 --");
-		logger.info("test situation 1");
+		logger.info("test MERGE MMS situation 1");
 		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
 		executeQuerryDB(INSERT_DB_BRAND_ID_1, user, pass, url);
 		executeQuerryDB(INSERT_DB_BRAND_ID_2, user, pass, url);
@@ -503,7 +569,7 @@ public class RequestProcessorTest {
 		value = ListComparator.compareLists(listactual, listexpected);
 		assertEquals(true, value);
 	}
-	
+	@Ignore
 	@Test (priority = 29) // Merge MMS
 	public void test29() throws Exception {
 		logger.info("TEST --29 --");
@@ -547,7 +613,7 @@ public class RequestProcessorTest {
 		  value = ListComparator.compareLists(listactual, listexpected);
 		  assertEquals(true, value);		 
 	}
-	
+	@Ignore
 	@Test (priority = 30) // Merge MMS
 	public void test30() throws Exception {
 		logger.info("TEST --30 --");
@@ -621,7 +687,7 @@ public class RequestProcessorTest {
 				 assertEquals(true, value);				 				 		 		
 	}
 	
-
+	@Ignore
 	@Test(priority = 31)
 	public void test31() throws Exception {
 		logger.info("--TEST 31--");
@@ -640,7 +706,7 @@ public class RequestProcessorTest {
 		 assertEquals(true, value);		 
 	}
 	
-	
+	@Ignore
 	@Test(priority = 32)
 	public void test32() throws Exception{
 		

@@ -34,8 +34,8 @@ public class Consts {
 	public static final String VERSION_PROCESSOR_14 = "v_2.14_0/";
 	public static final String VERSION_PROCESSOR_15 = "v_2.15_0/";
 	public static final String VERSION_PROCESSOR_16 = "v_2.16_0/";
-	
-	
+	public static final String VERSION_PROCESSOR_17 = "v_2.17_0/";
+	public static final String VERSION_PROCESSOR_18 = "v_2.18_0/";
 	
 	
 

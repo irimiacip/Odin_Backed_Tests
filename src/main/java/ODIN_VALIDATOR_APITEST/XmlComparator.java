@@ -160,6 +160,16 @@ public class XmlComparator {
 	             // System.out.println("differences_validator");
 	              printDifferences(differences_request_procesor);
 	              break;
+		    }else if(version ==17) {
+		    	List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_17), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
+		    }else if (version ==18) {
+		    	List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_18), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
 		    }
 			 
 			 
