@@ -522,14 +522,14 @@ public class RequestProcessorTest {
 		listexpected = ReadCSVFile.readExpected("41","MERGE");
 		value = ListComparator.compareLists(listactual, listexpected);
 		assertEquals(true, value);		
-	//	listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM__MERGE_2_POL, user, pass, url),"MERGE_MMS");
-	//	listexpected = ReadCSVFile.readExpected("40","MERGE");
-	//	value = ListComparator.compareLists(listactual, listexpected);
-	//	assertEquals(true, value);		
-	//	listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_TO__MERGE_2_POL, user, pass, url),"MERGE_MMS");
-	//	listexpected = ReadCSVFile.readExpected("41","MERGE");
-	//	value = ListComparator.compareLists(listactual, listexpected);
-	//	assertEquals(true, value);
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM__MERGE_2_POL, user, pass, url),"MERGE_MMS");
+		listexpected = ReadCSVFile.readExpected("40","MERGE");
+		value = ListComparator.compareLists(listactual, listexpected);
+		assertEquals(true, value);		
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_TO__MERGE_2_POL, user, pass, url),"MERGE_MMS");
+		listexpected = ReadCSVFile.readExpected("41","MERGE");
+		value = ListComparator.compareLists(listactual, listexpected);
+		assertEquals(true, value);
 		
 		
 		// prepaer the settings.xml for MERGE
