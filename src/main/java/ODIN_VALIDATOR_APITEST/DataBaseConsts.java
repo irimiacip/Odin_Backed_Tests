@@ -101,4 +101,10 @@ public class DataBaseConsts {
 	// public static final String strPassword = "europa";
 	public static String strPassword = System.getProperty("Credential_pass_dev");
 	public static final String strPassword_pp = "PSC6O-3HFWOR";
+	
+	
+	public static final String sql_cassandra_allow_gap = "INSERT INTO od_inbound_dev.additional_target_properties (target_system, namespace, table_owner, content) VALUES('MMS_HO', 'NWE', 'RT_BRANDS_ML', '{ \\\"writeExportRecords\\\":\\\"false\\\", \\\"exportRecordIdentifier\\\":\\\"RT\\\", \\\"tableAllowsScheduleGaps\\\":\\\"true\\\", \\\"filterKeyColumn\\\":\\\"BRAND_ID\\\"}');";
+	public static final String sql_cassandra_not_allow_gap = "INSERT INTO od_inbound_dev.additional_target_properties (target_system, namespace, table_owner, content) VALUES('MMS_HO', 'NWE', 'RT_BRANDS_ML', '{ \\\"writeExportRecords\\\":\\\"false\\\", \\\"exportRecordIdentifier\\\":\\\"RT\\\", \\\"tableAllowsScheduleGaps\\\":\\\"false\\\", \\\"filterKeyColumn\\\":\\\"BRAND_ID\\\"}');";
+	public static final String user_cassandra = "mcc_test6";
+	public static final String pass_cassandra = "kQ9Tg50A8rVQXWfK2GMSTwdf93Bbn4";
 }

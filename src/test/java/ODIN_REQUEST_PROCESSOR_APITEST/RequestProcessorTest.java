@@ -28,7 +28,7 @@ import static ODIN_VALIDATOR_APITEST.DataBaseConsts.strPassword_pp;
 import static ODIN_VALIDATOR_APITEST.DataBaseConsts.strUserID;
 import static ODIN_VALIDATOR_APITEST.DataBaseConsts.strUserID_pp;*/
 import static org.testng.Assert.assertEquals;
-
+import static ODIN_VALIDATOR_APITEST.Cassandra_dbconnect.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -769,25 +769,42 @@ public class RequestProcessorTest {
 		 assertEquals(true, value);	 	
 		// bad request sub_brand_id=wrong
 	}
-	@Ignore
+	
 	@Test(priority=33)
 	public void test33() {
-		logger.info("TEST");
-		// change setting for table process for allowings gaps
-	
+		logger.info("---- TEST 33 ----");
+		logger.info("Test will change the setting in cassandra for table RT_BRANDS_ML to allow GAP");
+		cassandra_update(user_cassandra,pass_cassandra,sql_cassandra_allow_gap);
 	}
 	
 	@Ignore
 	@Test(priority = 34)
 	
 	public void test34() {
-// execute tests for allowed gaps test situation 1
+		logger.info("---TEST 34 ------");
+		logger.info("Test first situation for ALLOWED GAP");
 	}
 	
 	@Ignore
 	@Test(priority = 35)
 	public void test35() {
-		// execute tests for allowed gaps test situation 2
+		logger.info("---TEST 35 ------");
+		logger.info("Test second situation for ALLOWED GAP");
+	}
+	
+	@Ignore
+	@Test(priority = 36)
+	public void test36() {
+		logger.info("---TEST 36 ------");
+		logger.info("Test third situation for ALLOWED GAP");
+	}
+	
+	@Ignore
+	@Test(priority = 37)
+	public void test37() {
+		logger.info("---TEST 37 ------");
+		logger.info("Test will change the setting in cassandra for table RT_BRANDS_ML to NOT allow GAP");
+		cassandra_update(user_cassandra,pass_cassandra,sql_cassandra_not_allow_gap);
 	}
 		
 	//mvn clean test -DproxySet=true -DproxyHost=proxy.metro.ro -DproxyPort=3128 -DtestngFile=2_testng.xml -Dvar=dev -Dvarlink=dev -DCredential_user_dev=nwe -DCredential_pass_dev=europa
