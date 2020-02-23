@@ -723,8 +723,7 @@ public class RequestProcessorTest {
 		listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_3, user, pass,url),"MERGE_MMS");		
 		 listexpected = ReadCSVFile.readExpected("39","MERGE_MMS");
 		 value = ListComparator.compareLists(listactual, listexpected);
-		 assertEquals(true, value);
-		 	
+		 assertEquals(true, value);	 	
 		// bad request sub_brand_id=wrong
 	}
 	@Ignore
