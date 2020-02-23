@@ -502,7 +502,7 @@ public class RequestProcessorTest {
 		// delete data inserted in mms
 	}
 	
-	
+	@Ignore
 	@Test(priority=26)  // Merge   request ===> 22 23 24   expected  24 25 26      
 	public void test26() throws Exception{
 		logger.info("TEST -- 26 --");
@@ -541,6 +541,49 @@ public class RequestProcessorTest {
 		// check that the interval is changed and some records are deleted
 		// delete data inserted in mms
 	}
+	
+	@Ignore
+	@Test(priority=27)  // Merge   request ===> 22 23 24   expected  24 25 26      
+	public void test27() throws Exception{
+		logger.info("TEST -- 27 --");
+		logger.info("Test MERGE negative situation 3");
+		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_MERGE__1_ENG, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_MERGE__2_ENG, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_MERGE__1_POL, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_MERGE__2_POL, user, pass, url);
+		
+		XmlComparator.read_xml_expected(2, 18, FILEPATH_REQUEST_PROCESSOR, "test_24.xml",PATH_EXPECTED_REQUEST_PROCESSOR, "expected_26.xml", "null", 0);		
+		
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM__MERGE_3_ENG, user, pass, url),"MERGE_MMS");
+		listexpected = ReadCSVFile.readExpected("42","MERGE");
+		value = ListComparator.compareLists(listactual, listexpected);
+		assertEquals(true, value);		
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_TO__MERGE_3_ENG, user, pass, url),"MERGE_MMS");
+		listexpected = ReadCSVFile.readExpected("43","MERGE");
+		value = ListComparator.compareLists(listactual, listexpected);
+		assertEquals(true, value);		
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM__MERGE_3_POL, user, pass, url),"MERGE_MMS");
+		listexpected = ReadCSVFile.readExpected("42","MERGE");
+		value = ListComparator.compareLists(listactual, listexpected);
+		assertEquals(true, value);		
+		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_TO__MERGE_3_POL, user, pass, url),"MERGE_MMS");
+		listexpected = ReadCSVFile.readExpected("43","MERGE");
+		value = ListComparator.compareLists(listactual, listexpected);
+		assertEquals(true, value);
+		
+		
+		// prepaer the settings.xml for MERGE
+		// conect and delete // insert data in MMS (brand) 
+		// insert data initial
+		// execute request 
+		// compare expected with actual 
+		// check data from db
+		// check that the interval is changed and some records are deleted
+		// delete data inserted in mms
+	}
+	
+	
 	
 	
 	@Ignore
