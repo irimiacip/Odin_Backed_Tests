@@ -751,8 +751,7 @@ public class RequestProcessorTest {
 	
 	@Ignore
 	@Test(priority = 32)
-	public void test32() throws Exception{
-		
+	public void test32() throws Exception{		
 		logger.info("--TEST 32--");
 		logger.info("Test negativ with sub_brand_id not valid and brand_id valid");
 		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
@@ -780,32 +779,193 @@ public class RequestProcessorTest {
 	@Ignore
 	@Test(priority = 34)
 	
-	public void test34() {
+	public void test34() throws Exception{
 		logger.info("---TEST 34 ------");
 		logger.info("Test first situation for ALLOWED GAP");
+		
+		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_ALLOW_GAP_ENG_1, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_ALLOW_GAP_ENG_2, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_1, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_2, user, pass, url);
+		
+        XmlComparator.read_xml_expected(2, 19, FILEPATH_REQUEST_PROCESSOR, "test_28.xml",PATH_EXPECTED_REQUEST_PROCESSOR, "expected_32.xml", "null", 0);  
+                 
+    listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_ALLOW_GAP_1, user, pass,url),"MERGE_MMS");		
+	listexpected = ReadCSVFile.readExpected("44","MERGE_MMS");
+	value = ListComparator.compareLists(listactual, listexpected);
+	
+	
+    listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_ALLOW_GAP_2, user, pass,url),"MERGE_MMS");		
+	listexpected = ReadCSVFile.readExpected("45","MERGE_MMS");
+	value = ListComparator.compareLists(listactual, listexpected);
+	
+    listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_ALLOW_GAP_3, user, pass,url),"MERGE_MMS");		
+	listexpected = ReadCSVFile.readExpected("46","MERGE_MMS");
+	value = ListComparator.compareLists(listactual, listexpected);
+	
+	  listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_ALLOW_GAP_1, user, pass,url),"MERGE_MMS");		
+	  listexpected = ReadCSVFile.readExpected("44","MERGE_MMS");
+	  value = ListComparator.compareLists(listactual, listexpected);
+		
+		
+	  listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_ALLOW_GAP_2, user, pass,url),"MERGE_MMS");		
+	  listexpected = ReadCSVFile.readExpected("45","MERGE_MMS");
+	  value = ListComparator.compareLists(listactual, listexpected);
+		
+	    listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_ALLOW_GAP_3, user, pass,url),"MERGE_MMS");		
+		listexpected = ReadCSVFile.readExpected("46","MERGE_MMS");
+		value = ListComparator.compareLists(listactual, listexpected);				
 	}
 	
-	@Ignore
 	@Test(priority = 35)
-	public void test35() {
+	public void test35() throws Exception{
 		logger.info("---TEST 35 ------");
 		logger.info("Test second situation for ALLOWED GAP");
+		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_ALLOW_GAP_ENG_1, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_ALLOW_GAP_ENG_2, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_1, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_2, user, pass, url);		
+        XmlComparator.read_xml_expected(2, 19, FILEPATH_REQUEST_PROCESSOR, "test_28.xml",PATH_EXPECTED_REQUEST_PROCESSOR, "expected_32.xml", "null", 0);  		
+        XmlComparator.read_xml_expected(2, 20, FILEPATH_REQUEST_PROCESSOR, "test_29.xml",PATH_EXPECTED_REQUEST_PROCESSOR, "expected_33.xml", "null", 0);  
+	
+        listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_ALLOW_GAP_21, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("47","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    	
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_ALLOW_GAP_22, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("48","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    		
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_ALLOW_GAP_23, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("49","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    			
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_ALLOW_GAP_24, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("50","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    				
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_ALLOW_GAP_25, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("51","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    					
+        listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_ALLOW_GAP_26, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("52","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    						
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_ALLOW_GAP_27, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("53","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    	
+    	
+        listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_ALLOW_GAP_21, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("47","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    	
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_ALLOW_GAP_22, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("48","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    		
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_ALLOW_GAP_23, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("49","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    			
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_ALLOW_GAP_24, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("50","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    				
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_ALLOW_GAP_25, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("51","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    					
+        listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_ALLOW_GAP_26, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("52","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    						
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_ALLOW_GAP_27, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("53","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    							
 	}
 	
-	@Ignore
+	
 	@Test(priority = 36)
-	public void test36() {
+	public void test36() throws Exception{
 		logger.info("---TEST 36 ------");
 		logger.info("Test third situation for ALLOWED GAP");
+		
+		executeQuerryDB(CLEAN_DB_BRAND_ID, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_ALLOW_GAP_ENG_1, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_ALLOW_GAP_ENG_2, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_1, user, pass, url);
+		executeQuerryDB(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_2, user, pass, url);
+		
+        XmlComparator.read_xml_expected(2, 19, FILEPATH_REQUEST_PROCESSOR, "test_28.xml",PATH_EXPECTED_REQUEST_PROCESSOR, "expected_32.xml", "null", 0);  		
+        XmlComparator.read_xml_expected(2, 21, FILEPATH_REQUEST_PROCESSOR, "test_30.xml",PATH_EXPECTED_REQUEST_PROCESSOR, "expected_34.xml", "null", 0); 
+		
+        listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_ALLOW_GAP_31, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("54","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    	
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_ALLOW_GAP_32, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("55","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    		
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_ALLOW_GAP_33, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("56","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    			
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_ALLOW_GAP_34, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("57","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    				
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_ALLOW_GAP_35, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("58","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    	
+    	
+    	
+        listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_ALLOW_GAP_31, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("54","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    	
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_ALLOW_GAP_32, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("55","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    		
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_ALLOW_GAP_33, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("56","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    			
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_ALLOW_GAP_34, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("57","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    				
+    	listactual =getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_ALLOW_GAP_35, user, pass,url),"MERGE_MMS");		
+    	listexpected = ReadCSVFile.readExpected("58","MERGE_MMS");
+    	value = ListComparator.compareLists(listactual, listexpected);
+    	
+    	
+		
 	}
 	
-	@Ignore
+	
 	@Test(priority = 37)
 	public void test37() {
 		logger.info("---TEST 37 ------");
 		logger.info("Test will change the setting in cassandra for table RT_BRANDS_ML to NOT allow GAP");
 		cassandra_update(user_cassandra,pass_cassandra,sql_cassandra_not_allow_gap);
 	}
+	
+	@Ignore
+	@Test(priority = 38)
+	public void test38() {
+		logger.info("---TEST 38 ------");
+		logger.info("Test terminate");
+		
+	}
+	
 		
 	//mvn clean test -DproxySet=true -DproxyHost=proxy.metro.ro -DproxyPort=3128 -DtestngFile=2_testng.xml -Dvar=dev -Dvarlink=dev -DCredential_user_dev=nwe -DCredential_pass_dev=europa
 	// mvn clean test -DtestngFile=2_testng.xml -Dvar=pp -Dvarlink=pp1

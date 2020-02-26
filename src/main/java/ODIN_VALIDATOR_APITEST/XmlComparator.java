@@ -170,6 +170,21 @@ public class XmlComparator {
 	             // System.out.println("differences_validator");
 	              printDifferences(differences_request_procesor);
 	              break;
+		    } else if (version ==19) {
+		    	List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_19), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
+		    } else if (version ==20) {
+		    	List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_20), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
+		    } else if (version ==21) {
+		    	List differences_request_procesor = compareXML(ActualResults.obtainResponse_request_processor(path, actualXml,VERSION_PROCESSOR_21), strExpected); 
+	             // System.out.println("differences_validator");
+	              printDifferences(differences_request_procesor);
+	              break;
 		    }
 			 
 			 
