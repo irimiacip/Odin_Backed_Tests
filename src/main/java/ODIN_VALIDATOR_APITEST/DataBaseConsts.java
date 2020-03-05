@@ -151,11 +151,12 @@ public class DataBaseConsts {
 	public static final String dbURL_pp = "jdbc:oracle:thin:@i125serv.metro-dus.de:15125:MD01PLI";
 	// public static final String strUserID = "nwe";
 	public static String strUserID = System.getProperty("Credential_user_dev");
-	public static final String strUserID_pp = "nwe";
+	//public static final String strUserID_pp = "nwe";
+	public static String strUserID_pp = System.getProperty("Credential_user_pp");
 	// public static final String strPassword = "europa";
 	public static String strPassword = System.getProperty("Credential_pass_dev");
-	public static final String strPassword_pp = "PSC6O-3HFWOR";
-	
+	//public static final String strPassword_pp = "PSC6O-3HFWOR";
+	public static String strPassword_pp = System.getProperty("Credential_pass_pp");
 	
 	public static final String sql_cassandra_allow_gap = "INSERT INTO od_inbound_dev.additional_target_properties (target_system, namespace, table_owner, content) VALUES('MMS_HO', 'NWE', 'RT_BRANDS_ML', '{ \n\t\"writeExportRecords\":\"false\",\n\t\"exportRecordIdentifier\":\"RT\",\n\t\"tableAllowsScheduleGaps\":\"true\",\n\t\"filterKeyColumn\":\"BRAND_ID\"\n}');";
 	public static final String sql_cassandra_not_allow_gap = "INSERT INTO od_inbound_dev.additional_target_properties (target_system, namespace, table_owner, content) VALUES('MMS_HO', 'NWE', 'RT_BRANDS_ML', '{ \\\"writeExportRecords\\\":\\\"false\\\", \\\"exportRecordIdentifier\\\":\\\"RT\\\", \\\"tableAllowsScheduleGaps\\\":\\\"false\\\", \\\"filterKeyColumn\\\":\\\"BRAND_ID\\\"}');";
