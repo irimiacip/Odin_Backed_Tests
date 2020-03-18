@@ -107,6 +107,8 @@ import static ODIN_VALIDATOR_APITEST.DataBaseConsts.strPassword_pp;
 import static ODIN_VALIDATOR_APITEST.DataBaseConsts.strUserID;
 import static ODIN_VALIDATOR_APITEST.DataBaseConsts.strUserID_pp;
 import static ODIN_VALIDATOR_APITEST.DataBaseConsts.user_cassandra;
+import static ODIN_VALIDATOR_APITEST.DataBaseConsts.CREATE_TABLE;
+import static ODIN_VALIDATOR_APITEST.DataBaseConsts.DELETE_TABLE;
 /*import static ODIN_VALIDATOR_APITEST.DataBaseConsts.CLEAN_DB;
 import static ODIN_VALIDATOR_APITEST.DataBaseConsts.GET_DATA_DB;
 import static ODIN_VALIDATOR_APITEST.DataBaseConsts.INSERT_DB_1;
@@ -134,9 +136,12 @@ import org.apache.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import ODIN_VALIDATOR_APITEST.Cassandra_dbconnect;
 import ODIN_VALIDATOR_APITEST.ConnectDBMarius;
+import ODIN_VALIDATOR_APITEST.Consts;
 import ODIN_VALIDATOR_APITEST.ListComparator;
 import ODIN_VALIDATOR_APITEST.ReadBody;
 import ODIN_VALIDATOR_APITEST.ReadCSVFile;
@@ -152,34 +157,38 @@ public class RequestProcessorTestMarius {
 	String pass;
 	String url;
 	String clean;
+	String env_cassandra;
 
-	@BeforeMethod(groups = {"BG_MCC"})
-	public void startTest() throws InterruptedException, SQLException {
+	//@BeforeMethod(groups = {"BG_MCC"})
+	@BeforeTest(groups = {"BG_MCC"})
+	public void startTest() throws Exception {
 		if (environment.contains("dev")) {
 			user = strUserID;
 			pass = strPassword;
 			url = dbURL;
+			env_cassandra = "od_inbound_dev";
 		} else {
 			user = strUserID_pp;
 			pass = strPassword_pp;
 			url = dbURL_pp;
-		}
+			env_cassandra = "od_inbound_pp1";
+		}		
 		ConnectDBMarius.initConn(user, pass, url);
+		executeInsert(CREATE_TABLE);
+		
 		logger.info("=====================");
 		logger.info("autentification......");
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		RestAssured.useRelaxedHTTPSValidation();
-		// RestAssured.proxy = host("proxy.metro.ro").withPort(3128);
-	}
-
-	@AfterMethod(groups = {"BG_MCC"})
+	}	@AfterMethod(groups = {"BG_MCC"})
 	public void endTest() throws SQLException {
 		logger.info("logout....");
-		logger.info(" ");
+		logger.info("Finish TEST ");
 	}
 
-	@AfterTest
-	public void closeDB() throws SQLException {
+	@AfterTest (groups = {"BG_MCC"})
+	public void closeDB() throws SQLException, InterruptedException {
+		executeInsert(DELETE_TABLE);
 		closeDbConn();
 	}
 
@@ -189,9 +198,12 @@ public class RequestProcessorTestMarius {
 		
 		logger.info("TEST -- 1 --");
 		logger.info("test for ==>compare xml structure , content , data inserted in DB vs expected <==");
-		executeInsert(CLEAN_DB);
+		executeInsert(CLEAN_DB);		
 		// executeQuerryDB(CLEAN_6DB, strUserID, strPassword, dbURL);
-		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_1.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+				
 		XmlComparator.read_xml_expected(2, 1, FILEPATH_REQUEST_PROCESSOR, "test_1.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
 				"expected_1.xml", "null", 0);
 		
@@ -215,11 +227,17 @@ public class RequestProcessorTestMarius {
 	}
 
 	//// @Ignore
-	@Test(priority = 3)
+	@Test(priority = 3, groups = {"BG_MCC"})
 	public void test3() throws Exception {
 		logger.info("TEST -- 3 --");
 		logger.info("test for ==><sourceXMLElement><==");
 		executeInsert(CLEAN_DB);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_12.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 12, FILEPATH_REQUEST_PROCESSOR, "test_1.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_2.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -237,6 +255,12 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 4 --");
 		logger.info("test for ==><targetColumn><==");
 		executeInsert(CLEAN_DB);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_13.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 13, FILEPATH_REQUEST_PROCESSOR, "test_1.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_3.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -249,11 +273,16 @@ public class RequestProcessorTestMarius {
 	}
 
 	//// @Ignore
-	@Test(priority = 5,groups = {"BG_MCC"})
+	@Test(priority = 5)
 	public void test5() throws Exception {
 		logger.info("TEST -- 5 --");
 		logger.info("test for test for warrnig message received from validator==>");
 		executeInsert(CLEAN_DB);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_1.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
 		XmlComparator.read_xml_expected(2, 1, FILEPATH_REQUEST_PROCESSOR, "test_2.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
 				"expected_4.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -265,11 +294,17 @@ public class RequestProcessorTestMarius {
 	}
 
 	//// @Ignore
-	@Test(priority = 6,groups = {"BG_MCC"})
+	@Test(priority = 6)
 	public void test6() throws Exception {
 		logger.info("TEST -- 6 --");
 		logger.info("test for warrnig message received from validator==>");
 		executeInsert(CLEAN_DB);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_1.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 1, FILEPATH_REQUEST_PROCESSOR, "test_3.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
 				"expected_5.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -287,6 +322,12 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 7 --");
 		logger.info("test negative for check the behvior of the request processor==>");
 		executeInsert(CLEAN_DB);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_1.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 1, FILEPATH_REQUEST_PROCESSOR, "test_4.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
 				"expected_6.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -304,6 +345,12 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 8 --");
 		logger.info("Test situation for tag : SUBSTR : extract first 5 caracters starting with the first ==>");
 		executeInsert(CLEAN_DB);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_2.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 2, FILEPATH_REQUEST_PROCESSOR, "test_5.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
 				"expected_7.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -322,6 +369,12 @@ public class RequestProcessorTestMarius {
 		logger.info(
 				"Test situation for tag : SUBSTR : extract first 5 caracters starting with the first; string contain less then 5 char ==>");
 		executeInsert(CLEAN_DB);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_6.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 2, FILEPATH_REQUEST_PROCESSOR, "test_6.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
 				"expected_8.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -339,6 +392,12 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 10 --");
 		logger.info("If a tag has null value, the concatenated values from two columns will be inserted there==>");
 		executeInsert(CLEAN_DB);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_3.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 3, FILEPATH_REQUEST_PROCESSOR, "test_7.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
 				"expected_9.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -357,6 +416,12 @@ public class RequestProcessorTestMarius {
 		logger.info(
 				"If a tag has null value, the concatenated values from two columns will be inserted there(one one them is null==>");
 		executeInsert(CLEAN_DB);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_8.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 4, FILEPATH_REQUEST_PROCESSOR, "test_8.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
 				"expected_10.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -374,6 +439,12 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 12 --DE FACUT REFACTOR LA COD--");
 		logger.info("insert date SYSTIMESTAMP when a tag is missing==>");
 		executeInsert(CLEAN_DB);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_9.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 5, FILEPATH_REQUEST_PROCESSOR, "test_9.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
 				"expected_11.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -392,6 +463,12 @@ public class RequestProcessorTestMarius {
 		logger.info("test for <mappingRule>{FUNCTION:select..... ON INSERT");
 		executeInsert(CLEAN_DB);
 		executeInsert(INSERT_DB_1);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_6.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 6, FILEPATH_REQUEST_PROCESSOR, "test_10.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_12.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -409,6 +486,12 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 14 --");
 		logger.info("test for <mappingRule>{FUNCTION:select..... ON INSERT null table");
 		executeInsert(CLEAN_DB);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_6.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 6, FILEPATH_REQUEST_PROCESSOR, "test_11.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_13.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -428,6 +511,12 @@ public class RequestProcessorTestMarius {
 		executeInsert(CLEAN_DB);
 		executeInsert(INSERT_DB_1);
 		executeInsert(INSERT_DB_2);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_6.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 6, FILEPATH_REQUEST_PROCESSOR, "test_12.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_14.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -446,6 +535,12 @@ public class RequestProcessorTestMarius {
 		logger.info(
 				"test for <mappingRule>{FUNCTION:select......ON INSERT no record in table and skippline is prezent");
 		executeInsert(CLEAN_DB);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_7.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 7, FILEPATH_REQUEST_PROCESSOR, "test_13.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_15.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -464,6 +559,12 @@ public class RequestProcessorTestMarius {
 		logger.info("test for <mappingRule>{FUNCTION:select..... ON INSERT integer");
 		executeInsert(CLEAN_DB);
 		executeInsert(INSERT_DB_3);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_8.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 8, FILEPATH_REQUEST_PROCESSOR, "test_14.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_16.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -481,6 +582,11 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 18 --");
 		logger.info("test for <mappingRule>{FUNCTION:select..... ON INSERT integer null table");
 		executeInsert(CLEAN_DB);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_8.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
 		XmlComparator.read_xml_expected(2, 8, FILEPATH_REQUEST_PROCESSOR, "test_15.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_17.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -500,6 +606,12 @@ public class RequestProcessorTestMarius {
 		executeInsert(CLEAN_DB);
 		executeInsert(INSERT_DB_4);
 		executeInsert(INSERT_DB_5);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_8.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 8, FILEPATH_REQUEST_PROCESSOR, "test_16.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_18.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -518,6 +630,12 @@ public class RequestProcessorTestMarius {
 		logger.info(
 				"test for <mappingRule>{FUNCTION:select......ON INSERT integer no record in table and skippline is prezent");
 		executeInsert(CLEAN_DB);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_9.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 9, FILEPATH_REQUEST_PROCESSOR, "test_17.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_19.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -539,6 +657,12 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_6);
 		executeInsert(INSERT_DB_7);
 		executeInsert(INSERT_DB_8);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_10.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 10, FILEPATH_REQUEST_PROCESSOR, "test_18.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_20.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -560,6 +684,12 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_7);
 		executeInsert(INSERT_DB_8);
 		executeInsert(INSERT_DB_9);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_10.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 10, FILEPATH_REQUEST_PROCESSOR, "test_19.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_21.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -578,6 +708,12 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 23 --");
 		logger.info("test for <mappingRule>{FUNCTION:select......ON INSERT data no record in table ");
 		executeInsert(CLEAN_DB);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_10.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 10, FILEPATH_REQUEST_PROCESSOR, "test_20.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_22.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -596,6 +732,12 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 24 --");
 		logger.info("test for <mappingRule>{FUNCTION:select......ON INSERT data no record in table and skippline ");
 		executeInsert(CLEAN_DB);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_11.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 11, FILEPATH_REQUEST_PROCESSOR, "test_21.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_23.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -618,6 +760,13 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_BRAND_ID_MERGE__2_ENG);
 		executeInsert(INSERT_DB_BRAND_ID_MERGE__1_POL);
 		executeInsert(INSERT_DB_BRAND_ID_MERGE__2_POL);
+		
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_17.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 17, FILEPATH_REQUEST_PROCESSOR, "test_22.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_24.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -660,6 +809,12 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_BRAND_ID_MERGE__1_POL);
 		executeInsert(INSERT_DB_BRAND_ID_MERGE__2_POL);
 
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_18.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 18, FILEPATH_REQUEST_PROCESSOR, "test_23.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_25.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -701,6 +856,12 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_BRAND_ID_MERGE__1_POL);
 		executeInsert(INSERT_DB_BRAND_ID_MERGE__2_POL);
 
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_18.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 18, FILEPATH_REQUEST_PROCESSOR, "test_24.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_26.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -740,6 +901,12 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_BRAND_ID_1);
 		executeInsert(INSERT_DB_BRAND_ID_2);
 
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_25.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_27.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -768,10 +935,21 @@ public class RequestProcessorTestMarius {
 		executeInsert(CLEAN_DB_BRAND_ID);
 		executeInsert(INSERT_DB_BRAND_ID_1);
 		executeInsert(INSERT_DB_BRAND_ID_2);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_25.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_27.xml", "null", 0);
 		logger.info("interval is splitted started point");
 		logger.info("execute request for split the second interval");
+		
+		String sql_1 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_15.sql");
+		System.out.println(sql_1);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
 		XmlComparator.read_xml_expected(2, 15, FILEPATH_REQUEST_PROCESSOR, "test_25.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_28.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -816,10 +994,26 @@ public class RequestProcessorTestMarius {
 		executeInsert(CLEAN_DB_BRAND_ID);
 		executeInsert(INSERT_DB_BRAND_ID_1);
 		executeInsert(INSERT_DB_BRAND_ID_2);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+	
+		
 		XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_25.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_27.xml", "null", 0);
+		
+		String sql_1 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
+		System.out.println(sql_1);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
 		XmlComparator.read_xml_expected(2, 15, FILEPATH_REQUEST_PROCESSOR, "test_25.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_28.xml", "null", 0);
+				
+		String sql_2 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
+		System.out.println(sql_2);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
 		XmlComparator.read_xml_expected(2, 16, FILEPATH_REQUEST_PROCESSOR, "test_25.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_29.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -894,6 +1088,12 @@ public class RequestProcessorTestMarius {
 		executeInsert(CLEAN_DB_BRAND_ID);
 		executeInsert(INSERT_DB_BRAND_ID_1);
 		executeInsert(INSERT_DB_BRAND_ID_2);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_26.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_30.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -915,6 +1115,12 @@ public class RequestProcessorTestMarius {
 		executeInsert(CLEAN_DB_BRAND_ID);
 		executeInsert(INSERT_DB_BRAND_ID_1);
 		executeInsert(INSERT_DB_BRAND_ID_2);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_27.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_31.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -950,6 +1156,11 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_1);
 		executeInsert(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_2);
 
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_19.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 19, FILEPATH_REQUEST_PROCESSOR, "test_28.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_32.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -989,8 +1200,20 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_BRAND_ID_ALLOW_GAP_ENG_2);
 		executeInsert(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_1);
 		executeInsert(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_2);
+		
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_19.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 19, FILEPATH_REQUEST_PROCESSOR, "test_28.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_32.xml", "null", 0);
+		
+		String sql_1 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_20.sql");
+		System.out.println(sql_1);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
+		
 		XmlComparator.read_xml_expected(2, 20, FILEPATH_REQUEST_PROCESSOR, "test_29.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_33.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -1064,8 +1287,17 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_1);
 		executeInsert(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_2);
 
+		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_19.sql");
+		System.out.println(sql);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
 		XmlComparator.read_xml_expected(2, 19, FILEPATH_REQUEST_PROCESSOR, "test_28.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_32.xml", "null", 0);
+		
+		String sql_1 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_21.sql");
+		System.out.println(sql_1);
+		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		
 		XmlComparator.read_xml_expected(2, 21, FILEPATH_REQUEST_PROCESSOR, "test_30.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_34.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -1127,12 +1359,12 @@ public class RequestProcessorTestMarius {
 
 	}
 
-	// mvn clean test -DproxySet=true -DproxyHost=proxy.metro.ro -DproxyPort=3128
-	// -DtestngFile=2_testng.xml -Dvar=dev -Dvarlink=dev -DCredential_user_dev=nwe
-	// -DCredential_pass_dev=europa
+	// mvn clean test -DproxySet=true -DproxyHost=proxy.metro.ro -DproxyPort=3128 -DtestngFile=2_testng.xml -Dvar=dev -Dvarlink=dev -DCredential_user_dev=nwe -DCredential_pass_dev=europa
 	// mvn clean test -DtestngFile=2_testng.xml -Dvar=pp -Dvarlink=pp1
 	// mvn clean test -DtestngFile=2_testng.xml -Dvar=dev -Dvarlink=dev
 	// mvn clean test -DproxySet=true -DproxyHost=proxy.metro.ro -DproxyPort=3128
 	// -DtestngFile=2_testng.xml -Dvar=pp -Dvarlink=pp1 -DCredential_user_pp=nwe
 	// -DCredential_pass_pp=PSC6O-3HFWOR
+	
+	   //PL==>PLDEV
 }

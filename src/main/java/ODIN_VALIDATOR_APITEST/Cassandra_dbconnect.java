@@ -1,5 +1,7 @@
 package ODIN_VALIDATOR_APITEST;
 
+
+
 import java.util.List;
 
 import com.datastax.driver.core.Cluster;
@@ -21,7 +23,7 @@ public class Cassandra_dbconnect {
 		//INSERT INTO od_inbound_dev.additional_target_properties (target_system, namespace, table_owner, content) VALUES('MMS_HO', 'NWE', 'RT_BRANDS_ML', '{ "writeExportRecords":"false", "exportRecordIdentifier":"RT", "tableAllowsScheduleGaps":"false", "filterKeyColumn":"BRAND_ID"}');
 		
 		ResultSet resultSet = session.execute(sql);
-
+		
 		List<Row> results = resultSet.all();
 		for (Row row : results) {
 			//System.out.println(row.getString("target_system")); 
@@ -34,7 +36,37 @@ public class Cassandra_dbconnect {
 		return value;
 	}
 	
+	 public static String cassandra_sql(String a , String b) throws Exception {
+		 String sql = ReadBody.getBodyFromFilepath(a, b);		 
+		return sql;
+		 
+	 }
 
-	
-	
+     public static String  env_cassandra(String env) throws Exception {
+    	 
+    	 if (env.contentEquals("od_inbound_pp1")){
+    		 String a = cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_1.sql");
+    		  a = String.format(a, "od_inbound_pp1");
+    	System.out.println(a);
+    	return a;
+    	 }
+    	 else {
+    		 String a = cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_1.sql");
+   		  a = String.format(a, "od_inbound_dev");
+   	System.out.println(a);
+   	return a;
+    	 }
+		
+    		 
+     }
+	 
+	    public static void main( String[] args ) throws Exception
+	    {	
+	    	
+	    	env_cassandra("od_inbound_dev");
+	    	env_cassandra("od_inbound_pp1");
+	  
+	  cassandra_update(DataBaseConsts.user_cassandra, DataBaseConsts.pass_cassandra, env_cassandra("od_inbound_pp1"));
+	  
+	    }	
 }

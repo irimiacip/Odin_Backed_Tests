@@ -10,9 +10,12 @@
     <classes>
       <class name="ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTestMarius">
         <methods>
-          <include name="test12"/>
+          <include name="test1"/>
+          <include name="test3"/>
           <include name="startTest"/>
+          <include name="closeDB"/>
           <include name="endTest"/>
+          <include name="test2"/>
         </methods>
       </class> <!-- ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTestMarius -->
     </classes>

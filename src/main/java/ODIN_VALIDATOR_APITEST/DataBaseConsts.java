@@ -4,6 +4,8 @@ public class DataBaseConsts {
 
 	public static final String GET_DATA_DB = "select * from odin_test order by coloana1 desc";
 	public static final String CLEAN_DB = "delete from ODIN_TEST";
+	public static final String CREATE_TABLE = "CREATE TABLE odin_test (COLOANA1 NUMBER NOT NULL,COLOANA2 varchar2(50) NOT NULL,COLOANA3 varchar2(50) NOT NULL,COLOANA4 NUMBER NOT NULL)";
+	public static final String DELETE_TABLE = "DROP table odin_test";
 	public static final String CLEAN_DB_BRAND_ID = "DELETE FROM RT_BRANDS_ML WHERE BRAND_ID =33710";
 	public static final String INSERT_DB_BRAND_ID_1 = "INSERT INTO NWE.RT_BRANDS_ML\r\n" + 
 			"(BRAND_ID, LANG_CD, VALID_FROM, VALID_TO, BRAND_IS_VALID, BRAND_NAME, TECHNICAL_BRAND, CREATED_AT, CREATED_BY, CHANGED_AT, CHANGED_BY)\r\n" + 
@@ -56,20 +58,20 @@ public class DataBaseConsts {
 			"(BRAND_ID, LANG_CD, VALID_FROM, VALID_TO, BRAND_IS_VALID, BRAND_NAME, TECHNICAL_BRAND, CREATED_AT, CREATED_BY, CHANGED_AT, CHANGED_BY)\r\n" + 
 			"VALUES(33710, 'ENG', TO_DATE('2020-03-02 00:00:00','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2949-01-01 00:00:00','YYYY-MM-DD HH24:MI:SS'), 1, 'AMW', 0, TO_DATE('2017-05-23 08:05:44','YYYY-MM-DD HH24:MI:SS'), 'BDM_2017-05-23T06:03:09.804', TO_DATE('2017-05-23 08:05:44','YYYY-MM-DD HH24:MI:SS'), 'BDM_2017-05-23T06:03:09.804')";
 
-	public static final String GET_DATA_DB_BRAND_VALID_FROM__MERGE_1_ENG = "SELECT VALID_FROM , VALID_TO FROM RT_BRANDS_ML WHERE BRAND_ID =33710 AND BRAND_ID = 33710 AND LANG_CD ='ENG' AND  VALID_FROM = TO_DATE('2017-05-24 00:00:00','YYYY-MM-DD HH24:MI:SS')";
+	public static final String GET_DATA_DB_BRAND_VALID_FROM__MERGE_1_ENG = "SELECT VALID_FROM , VALID_TO FROM RT_BRANDS_ML WHERE BRAND_ID =33710 AND BRAND_ID = 33710 AND LANG_CD ='ENG' AND  VALID_FROM = TO_DATE('2020-03-02 00:00:00','YYYY-MM-DD HH24:MI:SS')";
 	
 	public static final String GET_DATA_DB_BRAND_VALID_TO__MERGE_1_ENG = "SELECT VALID_FROM , VALID_TO FROM RT_BRANDS_ML WHERE BRAND_ID =33710 AND BRAND_ID = 33710 AND LANG_CD ='ENG' AND  VALID_TO = TO_DATE('2949-01-01 00:00:00','YYYY-MM-DD HH24:MI:SS')";
 	
-	public static final String GET_DATA_DB_BRAND_VALID_FROM__MERGE_1_POL = "SELECT VALID_FROM , VALID_TO FROM RT_BRANDS_ML WHERE BRAND_ID =33710 AND BRAND_ID = 33710 AND LANG_CD ='POL' AND  VALID_FROM = TO_DATE('2017-05-24 00:00:00','YYYY-MM-DD HH24:MI:SS')";
+	public static final String GET_DATA_DB_BRAND_VALID_FROM__MERGE_1_POL = "SELECT VALID_FROM , VALID_TO FROM RT_BRANDS_ML WHERE BRAND_ID =33710 AND BRAND_ID = 33710 AND LANG_CD ='POL' AND  VALID_FROM = TO_DATE('2020-03-02 00:00:00','YYYY-MM-DD HH24:MI:SS')";
 	
 	public static final String GET_DATA_DB_BRAND_VALID_TO__MERGE_1_POL = "SELECT VALID_FROM , VALID_TO FROM RT_BRANDS_ML WHERE BRAND_ID =33710 AND BRAND_ID = 33710 AND LANG_CD ='POL' AND  VALID_TO = TO_DATE('2949-01-01 00:00:00','YYYY-MM-DD HH24:MI:SS')";
 	
 	
-    public static final String GET_DATA_DB_BRAND_VALID_FROM__MERGE_2_ENG = "SELECT VALID_FROM , VALID_TO FROM RT_BRANDS_ML WHERE BRAND_ID =33710 AND BRAND_ID = 33710 AND LANG_CD ='ENG' AND  VALID_FROM = TO_DATE('2017-05-24 00:00:00','YYYY-MM-DD HH24:MI:SS')";
+    public static final String GET_DATA_DB_BRAND_VALID_FROM__MERGE_2_ENG = "SELECT VALID_FROM , VALID_TO FROM RT_BRANDS_ML WHERE BRAND_ID =33710 AND BRAND_ID = 33710 AND LANG_CD ='ENG' AND  VALID_FROM = TO_DATE('2020-03-02 00:00:00','YYYY-MM-DD HH24:MI:SS')";
 	
 	public static final String GET_DATA_DB_BRAND_VALID_TO__MERGE_2_ENG = "SELECT VALID_FROM , VALID_TO FROM RT_BRANDS_ML WHERE BRAND_ID =33710 AND BRAND_ID = 33710 AND LANG_CD ='ENG' AND  VALID_TO = TO_DATE('2030-01-01 00:00:00','YYYY-MM-DD HH24:MI:SS')";
 	
-	public static final String GET_DATA_DB_BRAND_VALID_FROM__MERGE_2_POL = "SELECT VALID_FROM , VALID_TO FROM RT_BRANDS_ML WHERE BRAND_ID =33710 AND BRAND_ID = 33710 AND LANG_CD ='POL' AND  VALID_FROM = TO_DATE('2017-05-24 00:00:00','YYYY-MM-DD HH24:MI:SS')";
+	public static final String GET_DATA_DB_BRAND_VALID_FROM__MERGE_2_POL = "SELECT VALID_FROM , VALID_TO FROM RT_BRANDS_ML WHERE BRAND_ID =33710 AND BRAND_ID = 33710 AND LANG_CD ='POL' AND  VALID_FROM = TO_DATE('2020-03-02 00:00:00','YYYY-MM-DD HH24:MI:SS')";
 	
 	public static final String GET_DATA_DB_BRAND_VALID_TO__MERGE_2_POL = "SELECT VALID_FROM , VALID_TO FROM RT_BRANDS_ML WHERE BRAND_ID =33710 AND BRAND_ID = 33710 AND LANG_CD ='POL' AND  VALID_TO = TO_DATE('2030-01-01 00:00:00','YYYY-MM-DD HH24:MI:SS')";
 	
@@ -159,7 +161,8 @@ public class DataBaseConsts {
 	public static String strPassword_pp = System.getProperty("Credential_pass_pp");
 	
 	public static final String sql_cassandra_allow_gap = "INSERT INTO od_inbound_dev.additional_target_properties (target_system, namespace, table_owner, content) VALUES('MMS_HO', 'NWE', 'RT_BRANDS_ML', '{ \n\t\"writeExportRecords\":\"false\",\n\t\"exportRecordIdentifier\":\"RT\",\n\t\"tableAllowsScheduleGaps\":\"true\",\n\t\"filterKeyColumn\":\"BRAND_ID\"\n}');";
-	public static final String sql_cassandra_not_allow_gap = "INSERT INTO od_inbound_dev.additional_target_properties (target_system, namespace, table_owner, content) VALUES('MMS_HO', 'NWE', 'RT_BRANDS_ML', '{ \\\"writeExportRecords\\\":\\\"false\\\", \\\"exportRecordIdentifier\\\":\\\"RT\\\", \\\"tableAllowsScheduleGaps\\\":\\\"false\\\", \\\"filterKeyColumn\\\":\\\"BRAND_ID\\\"}');";
+	public static final String sql_cassandra_not_allow_gap = "INSERT INTO od_inbound_dev.additional_target_properties (target_system, namespace, table_owner, content) VALUES('MMS_HO', 'NWE', 'RT_BRANDS_ML', '{ \n\t\"writeExportRecords\":\"false\",\n\t\"exportRecordIdentifier\":\"RT\",\n\t\"tableAllowsScheduleGaps\":\"false\",\n\t\"filterKeyColumn\":\"BRAND_ID\"\n}');";
+	
 	public static final String user_cassandra = "mcc_test6";
 	public static final String pass_cassandra = "kQ9Tg50A8rVQXWfK2GMSTwdf93Bbn4";
 }

@@ -1,53 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [ODIN_API_CALL by groups]">
+  <test thread-count="5" name="GRP-BG_MCC(failed)">
+    <groups>
+      <run>
+        <include name="BG_MCC"/>
+      </run>
+    </groups>
     <classes>
       <class name="ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTestMarius">
         <methods>
-          <include name="test25"/>
-          <include name="test28"/>
-          <include name="test29"/>
-          <include name="test22"/>
-          <include name="test20"/>
-          <include name="test23"/>
-          <include name="test26"/>
-          <include name="test21"/>
-          <include name="endTest"/>
-          <include name="test24"/>
-          <include name="test27"/>
-          <include name="test7"/>
-          <include name="test3"/>
-          <include name="test8"/>
-          <include name="test9"/>
-          <include name="test6"/>
-          <include name="test4"/>
-          <include name="test5"/>
-          <include name="test2"/>
-          <include name="test19"/>
-          <include name="test14"/>
-          <include name="test36"/>
           <include name="test1"/>
-          <include name="test17"/>
-          <include name="test18"/>
-          <include name="test11"/>
-          <include name="test33"/>
-          <include name="test31"/>
-          <include name="test12"/>
-          <include name="test34"/>
-          <include name="test15"/>
-          <include name="test37"/>
+          <include name="test3"/>
           <include name="startTest"/>
-          <include name="test10"/>
-          <include name="test32"/>
-          <include name="test13"/>
-          <include name="test35"/>
-          <include name="test16"/>
-          <include name="test38"/>
-          <include name="test30"/>
           <include name="closeDB"/>
+          <include name="endTest"/>
+          <include name="test2"/>
         </methods>
       </class> <!-- ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTestMarius -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- GRP-BG_MCC(failed) -->
+</suite> <!-- Failed suite [ODIN_API_CALL by groups] -->
