@@ -209,7 +209,7 @@ public class RequestProcessorTestMarius {
 		// executeQuerryDB(CLEAN_6DB, strUserID, strPassword, dbURL);
 		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_1.sql");
 		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+	//	cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
 				
 		XmlComparator.read_xml_expected(2, 1, FILEPATH_REQUEST_PROCESSOR, "test_1.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
 				"expected_1.xml", "null", 0);
@@ -242,7 +242,7 @@ public class RequestProcessorTestMarius {
 		
 		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_12.sql");
 		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+	//	cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
 		
 		
 		XmlComparator.read_xml_expected(2, 12, FILEPATH_REQUEST_PROCESSOR, "test_1.xml",
