@@ -87,6 +87,19 @@ public class DataCalcul {
 		return zzz;			
 	}
 	
+	public static String getdaySpecial() {
+		String zzz = null;
+		Date date = new Date();
+		long ltime=date.getTime()+1*24*60*60*1000;
+		Date today1=new Date(ltime);			
+		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+		zzz = formatter.format(today1).toString().toUpperCase();
+	System.out.println(zzz);
+	return zzz;
+	}
+	
+	
+	
 	public static String data_special() throws Exception {
 		String data_special=null;
 		Date date = new Date();   // given date

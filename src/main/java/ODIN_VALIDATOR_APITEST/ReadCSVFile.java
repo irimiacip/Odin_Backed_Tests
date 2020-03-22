@@ -6,6 +6,7 @@ import static ODIN_VALIDATOR_APITEST.DataCalcul.data_special;
 import static ODIN_VALIDATOR_APITEST.DataCalcul.fomatDay;
 import static ODIN_VALIDATOR_APITEST.DataCalcul.getDay;
 import static ODIN_VALIDATOR_APITEST.DataCalcul.getDayPlus1;
+import static ODIN_VALIDATOR_APITEST.DataCalcul.*;
 
 //import static ODIN_VALIDATOR_APITEST.DataCalcul.data_special;
 import java.io.BufferedReader;
@@ -119,6 +120,8 @@ public class ReadCSVFile {
 				listexpected.set(i, data_special().toString().trim());
 			} else if (listexpected.get(i).equals("DATE")) {
 				listexpected.set(i, fomatDay(getDay()).toString());
+			}else if (listexpected.get(i).equals("DATE_SPECIAL")) {
+				listexpected.set(i, getdaySpecial());
 			}
 			i++;
 		}

@@ -6,6 +6,7 @@ import static ODIN_VALIDATOR_APITEST.ConnectDBMarius.executeInsert;
 import static ODIN_VALIDATOR_APITEST.ConnectDBMarius.executeQuerryDB;
 import static ODIN_VALIDATOR_APITEST.ConnectDBMarius.getDatafromDB;
 import static ODIN_VALIDATOR_APITEST.Consts.COUNTRY_TENANT;
+import static ODIN_VALIDATOR_APITEST.Consts.COUNTRY_TENANT_PP;
 import static ODIN_VALIDATOR_APITEST.Consts.FILEPATH_REQUEST_PROCESSOR;
 import static ODIN_VALIDATOR_APITEST.Consts.LINK_PROCESSOR;
 import static ODIN_VALIDATOR_APITEST.Consts.PATH_EXPECTED_REQUEST_PROCESSOR;
@@ -137,6 +138,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import ODIN_VALIDATOR_APITEST.Cassandra_dbconnect;
@@ -158,19 +160,24 @@ public class RequestProcessorTestMarius {
 	String url;
 	String clean;
 	String env_cassandra;
-
+    String country_tenant;
 	//@BeforeMethod(groups = {"BG_MCC"})
 	@BeforeTest(groups = {"BG_MCC"})
 	public void startTest() throws Exception {
 		if (environment.contains("dev")) {
+			country_tenant = COUNTRY_TENANT;
 			user = strUserID;
 			pass = strPassword;
 			url = dbURL;
 			env_cassandra = "od_inbound_dev";
 		} else {
-			user = strUserID_pp;
-			pass = strPassword_pp;
-			url = dbURL_pp;
+			country_tenant = COUNTRY_TENANT_PP;
+			//user = strUserID_pp;
+			//pass = strPassword_pp;
+			user = strUserID;
+			pass = strPassword;
+			//url = dbURL_pp;
+			url = dbURL;
 			env_cassandra = "od_inbound_pp1";
 		}		
 		ConnectDBMarius.initConn(user, pass, url);
@@ -193,7 +200,7 @@ public class RequestProcessorTestMarius {
 	}
 
 	//// @Ignore
-	@Test(priority = 1, groups = {"BG_MCC"})
+	@Test(priority = 1)
 	public void test1() throws Exception {
 		
 		logger.info("TEST -- 1 --");
@@ -216,7 +223,7 @@ public class RequestProcessorTestMarius {
 	}
 
 	//// @Ignore
-	@Test(priority = 2, groups = {"BG_MCC"})
+	@Test(priority = 2)
 	public void test2() throws Exception {
 		logger.info("TEST -- 2 --");
 		logger.info("test for ==> check response http status 200 <==");
@@ -227,7 +234,7 @@ public class RequestProcessorTestMarius {
 	}
 
 	//// @Ignore
-	@Test(priority = 3, groups = {"BG_MCC"})
+	@Test(priority = 3)
 	public void test3() throws Exception {
 		logger.info("TEST -- 3 --");
 		logger.info("test for ==><sourceXMLElement><==");
@@ -307,7 +314,7 @@ public class RequestProcessorTestMarius {
 		
 		XmlComparator.read_xml_expected(2, 1, FILEPATH_REQUEST_PROCESSOR, "test_3.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
 				"expected_5.xml", "null", 0);
-		// Thread.sleep(5000);
+		 //Thread.sleep(5000);
 		List<String> listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB));
 		List<String> listexpected = ReadCSVFile.readExpected("5");
 		logger.info("check data inserted in DB");
@@ -1135,16 +1142,17 @@ public class RequestProcessorTestMarius {
 		// bad request sub_brand_id=wrong
 	}
 
-	// @Ignore
+	 @Ignore
 	@Test(priority = 33)
-	public void test33() {
+	public void test33() throws InterruptedException {
 		logger.info("---- TEST 33 ----");
 		logger.info("Test will change the setting in cassandra for table RT_BRANDS_ML to allow GAP");
 		cassandra_update(user_cassandra, pass_cassandra, sql_cassandra_allow_gap);
+		Thread.sleep(5000);
 	}
 
 	// @Ignore
-	@Test(priority = 34)
+	@Test(priority = 34, groups = {"BG_MCC"})	
 
 	public void test34() throws Exception {
 		logger.info("---TEST 34 ------");
@@ -1187,11 +1195,11 @@ public class RequestProcessorTestMarius {
 		listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_POL_ALLOW_GAP_3), "MERGE_MMS");
 		listexpected = ReadCSVFile.readExpected("46", "MERGE_MMS");
 		//value = ListComparator.compareLists(listactual, listexpected);
-		assertEquals(listactual, listexpected);
+		assertEquals(listactual, listexpected);	
 	}
 
 	// @Ignore
-	@Test(priority = 35)
+	@Test(priority = 35, groups = {"BG_MCC"})
 	public void test35() throws Exception {
 		logger.info("---TEST 35 ------");
 		logger.info("Test second situation for ALLOWED GAP");
@@ -1204,19 +1212,19 @@ public class RequestProcessorTestMarius {
 		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_19.sql");
 		System.out.println(sql);
 		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
-		
+		//Thread.sleep(5000);
 		
 		XmlComparator.read_xml_expected(2, 19, FILEPATH_REQUEST_PROCESSOR, "test_28.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_32.xml", "null", 0);
-		
+		 		
 		String sql_1 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_20.sql");
 		System.out.println(sql_1);
 		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
-		
+		// Thread.sleep(5000);
 		
 		XmlComparator.read_xml_expected(2, 20, FILEPATH_REQUEST_PROCESSOR, "test_29.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_33.xml", "null", 0);
-		// Thread.sleep(5000);
+		
 		List<String> listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_BRAND_VALID_FROM_ENG_ALLOW_GAP_21), "MERGE_MMS");
 		List<String> listexpected = ReadCSVFile.readExpected("47", "MERGE_MMS");
 		//value = ListComparator.compareLists(listactual, listexpected);
@@ -1276,7 +1284,7 @@ public class RequestProcessorTestMarius {
 	}
 
 	// @Ignore
-	@Test(priority = 36)
+	@Test(priority = 36, groups = {"BG_MCC"})
 	public void test36() throws Exception {
 		logger.info("---TEST 36 ------");
 		logger.info("Test third situation for ALLOWED GAP");
@@ -1290,14 +1298,14 @@ public class RequestProcessorTestMarius {
 		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_19.sql");
 		System.out.println(sql);
 		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
-		
+		// Thread.sleep(5000);
 		XmlComparator.read_xml_expected(2, 19, FILEPATH_REQUEST_PROCESSOR, "test_28.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_32.xml", "null", 0);
 		
 		String sql_1 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_21.sql");
 		System.out.println(sql_1);
 		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
-		
+		Thread.sleep(5000);
 		XmlComparator.read_xml_expected(2, 21, FILEPATH_REQUEST_PROCESSOR, "test_30.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_34.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -1343,12 +1351,13 @@ public class RequestProcessorTestMarius {
 		assertEquals(listactual, listexpected);
 	}
 
-	// @Ignore
+	 @Ignore
 	@Test(priority = 37)
-	public void test37() {
+	public void test37() throws InterruptedException {
 		logger.info("---TEST 37 ------");
 		logger.info("Test will change the setting in cassandra for table RT_BRANDS_ML to NOT allow GAP");
 		cassandra_update(user_cassandra, pass_cassandra, sql_cassandra_not_allow_gap);
+		Thread.sleep(5000);
 	}
 
 	// @Ignore
@@ -1362,9 +1371,7 @@ public class RequestProcessorTestMarius {
 	// mvn clean test -DproxySet=true -DproxyHost=proxy.metro.ro -DproxyPort=3128 -DtestngFile=2_testng.xml -Dvar=dev -Dvarlink=dev -DCredential_user_dev=nwe -DCredential_pass_dev=europa
 	// mvn clean test -DtestngFile=2_testng.xml -Dvar=pp -Dvarlink=pp1
 	// mvn clean test -DtestngFile=2_testng.xml -Dvar=dev -Dvarlink=dev
-	// mvn clean test -DproxySet=true -DproxyHost=proxy.metro.ro -DproxyPort=3128
-	// -DtestngFile=2_testng.xml -Dvar=pp -Dvarlink=pp1 -DCredential_user_pp=nwe
-	// -DCredential_pass_pp=PSC6O-3HFWOR
+	// mvn clean test -DproxySet=true -DproxyHost=proxy.metro.ro -DproxyPort=3128 -DtestngFile=2_testng.xml -Dvar=pp -Dvarlink=pp1 -DCredential_user_pp=nwe -DCredential_pass_pp=PSC6O-3HFWOR
 	
 	   //PL==>PLDEV
 }

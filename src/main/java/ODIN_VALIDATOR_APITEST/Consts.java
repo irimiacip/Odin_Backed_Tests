@@ -41,8 +41,10 @@ public class Consts {
 	public static final String VERSION_PROCESSOR_21 = "v_2.21_0/";
 	
 	public static final String FILEPATH_VALIDATOR_CASSANDRA = "src/main/resources/process_request/process/";
-	
-	public static final String COUNTRY_TENANT = "PL/MCC/SDA";
+	public static final String COUNTRY_TENANT = System.getProperty("COUNTRY_TENANT");
+	public static final String COUNTRY_TENANT_PP = System.getProperty("COUNTRY_TENANT");
+	//public static final String COUNTRY_TENANT = "PL/MCC/SDA";
+	//public static final String COUNTRY_TENANT_2 = "PLDEV/MCC/SDA";
 	public static final String FILEPATH_VALIDATOR = "src/main/resources/validator/files/";
 	public static final String PATH_EXPECTED_VALIDATOR = "src/main/resources/validator/expected/";
 	public static final String FILEPATH_REQUEST_PROCESSOR = "src/main/resources/process_request/files/";

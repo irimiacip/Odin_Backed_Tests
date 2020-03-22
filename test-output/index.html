@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-ODIN_API_CALL_by_groups">
-              <span class="suite-name border-passed">ODIN_API_CALL by groups</span>
+              <span class="suite-name border-failed">ODIN_API_CALL by groups</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-ODIN_API_CALL_by_groups">
-                    <span>C:\Users\ciprian.irimia\AppData\Local\Temp\testng-eclipse--1785663240\testng-customsuite.xml</span>
+                    <span>C:\Users\ciprian.irimia\AppData\Local\Temp\testng-eclipse-239419049\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,26 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">3 methods, 2 failed,   1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-ODIN_API_CALL_by_groups" class="hide-methods failed suite-ODIN_API_CALL_by_groups"> (hide)</a> <!-- hide-methods failed suite-ODIN_API_CALL_by_groups -->
+                      <a href="#" panel-name="suite-ODIN_API_CALL_by_groups" class="show-methods failed suite-ODIN_API_CALL_by_groups"> (show)</a> <!-- show-methods failed suite-ODIN_API_CALL_by_groups -->
+                    </span>
+                    <div class="method-list-content failed suite-ODIN_API_CALL_by_groups">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ODIN_API_CALL_by_groups" title="ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTestMarius" hash-for-method="test35">test35</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ODIN_API_CALL_by_groups" title="ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTestMarius" hash-for-method="test36">test36</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-ODIN_API_CALL_by_groups -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,17 +121,7 @@
                     <div class="method-list-content passed suite-ODIN_API_CALL_by_groups">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-ODIN_API_CALL_by_groups" title="ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTestMarius" hash-for-method="test1">test1</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-ODIN_API_CALL_by_groups" title="ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTestMarius" hash-for-method="test2">test2</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-ODIN_API_CALL_by_groups" title="ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTestMarius" hash-for-method="test3">test3</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-ODIN_API_CALL_by_groups" title="ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTestMarius" hash-for-method="test34">test34</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-ODIN_API_CALL_by_groups -->
@@ -127,6 +136,98 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-ODIN_API_CALL_by_groups" class="panel ODIN_API_CALL_by_groups">
+          <div class="suite-ODIN_API_CALL_by_groups-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTestMarius</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="test35">
+                  </a> <!-- test35 -->
+                  <span class="method-name">test35</span>
+                  <div class="stack-trace">java.lang.AssertionError: Lists differ at element [1]: 2020-09-08 00:00:00 != 2020-10-10 00:00:00 expected [2020-09-08 00:00:00] but found [2020-10-10 00:00:00]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:831)
+	at org.testng.Assert.assertEquals(Assert.java:796)
+	at ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTestMarius.test35(RequestProcessorTestMarius.java:1247)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test36">
+                  </a> <!-- test36 -->
+                  <span class="method-name">test36</span>
+                  <div class="stack-trace">java.lang.AssertionError: lists don&apos;t have the same size expected [2] but found [4]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:652)
+	at org.testng.Assert.assertEquals(Assert.java:819)
+	at org.testng.Assert.assertEquals(Assert.java:796)
+	at ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTestMarius.test36(RequestProcessorTestMarius.java:1331)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-ODIN_API_CALL_by_groups-class-failed -->
           <div class="suite-ODIN_API_CALL_by_groups-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -135,23 +236,9 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="test1">
-                  </a> <!-- test1 -->
-                  <span class="method-name">test1</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="test2">
-                  </a> <!-- test2 -->
-                  <span class="method-name">test2</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="test3">
-                  </a> <!-- test3 -->
-                  <span class="method-name">test3</span>
+                  <a name="test34">
+                  </a> <!-- test34 -->
+                  <span class="method-name">test34</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -159,7 +246,7 @@
         </div> <!-- panel ODIN_API_CALL_by_groups -->
         <div panel-name="test-xml-ODIN_API_CALL_by_groups" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\ciprian.irimia\AppData\Local\Temp\testng-eclipse--1785663240\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\ciprian.irimia\AppData\Local\Temp\testng-eclipse-239419049\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -201,15 +288,15 @@
               <span class="test-group-name">BG_MCC</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">test1</span>
+                <span class="method-in-group-name">test34</span>
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
-                <span class="method-in-group-name">test2</span>
+                <span class="method-in-group-name">test35</span>
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
-                <span class="method-in-group-name">test3</span>
+                <span class="method-in-group-name">test36</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -231,22 +318,22 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'test1')
+data.setCell(0, 1, 'test36')
 data.setCell(0, 2, 'ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTestMarius')
-data.setCell(0, 3, 6487);
+data.setCell(0, 3, 13300);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'test2')
+data.setCell(1, 1, 'test34')
 data.setCell(1, 2, 'ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTestMarius')
-data.setCell(1, 3, 1364);
+data.setCell(1, 3, 9021);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'test3')
+data.setCell(2, 1, 'test35')
 data.setCell(2, 2, 'ODIN_REQUEST_PROCESSOR_APITEST.RequestProcessorTestMarius')
-data.setCell(2, 3, 979);
+data.setCell(2, 3, 8149);
 window.suiteTableData['ODIN_API_CALL_by_groups']= { tableData: data, tableDiv: 'times-div-ODIN_API_CALL_by_groups'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 8 seconds</span>
+              <span class="suite-total-time">Total running time: 30 seconds</span>
               <div id="times-div-ODIN_API_CALL_by_groups">
               </div> <!-- times-div-ODIN_API_CALL_by_groups -->
             </div> <!-- times-div -->
@@ -289,6 +376,8 @@ return data;
                 <br/>
                 <span class="ignored-method-name">test7</span>
                 <br/>
+                <span class="ignored-method-name">test3</span>
+                <br/>
                 <span class="ignored-method-name">test8</span>
                 <br/>
                 <span class="ignored-method-name">test9</span>
@@ -299,37 +388,35 @@ return data;
                 <br/>
                 <span class="ignored-method-name">test5</span>
                 <br/>
+                <span class="ignored-method-name">test2</span>
+                <br/>
                 <span class="ignored-method-name">test19</span>
                 <br/>
                 <span class="ignored-method-name">test14</span>
                 <br/>
-                <span class="ignored-method-name">test36</span>
+                <span class="ignored-method-name">test1</span>
                 <br/>
                 <span class="ignored-method-name">test17</span>
                 <br/>
                 <span class="ignored-method-name">test18</span>
                 <br/>
-                <span class="ignored-method-name">test11</span>
-                <br/>
                 <span class="ignored-method-name">test33</span>
+                <br/>
+                <span class="ignored-method-name">test11</span>
                 <br/>
                 <span class="ignored-method-name">test31</span>
                 <br/>
                 <span class="ignored-method-name">test12</span>
                 <br/>
-                <span class="ignored-method-name">test34</span>
+                <span class="ignored-method-name">test37</span>
                 <br/>
                 <span class="ignored-method-name">test15</span>
                 <br/>
-                <span class="ignored-method-name">test37</span>
+                <span class="ignored-method-name">test32</span>
                 <br/>
                 <span class="ignored-method-name">test10</span>
                 <br/>
-                <span class="ignored-method-name">test32</span>
-                <br/>
                 <span class="ignored-method-name">test13</span>
-                <br/>
-                <span class="ignored-method-name">test35</span>
                 <br/>
                 <span class="ignored-method-name">test16</span>
                 <br/>
@@ -353,32 +440,36 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">test1</span>
-                <span class="method-start">2493 ms</span>
+                <span class="method-name">test34</span>
+                <span class="method-start">2597 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">endTest</span>
-                <span class="method-start">8982 ms</span>
+                <span class="method-start">11622 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
-                <span class="method-name">test2</span>
-                <span class="method-start">8985 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">test35</span>
+                <span class="method-start">11625 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">endTest</span>
-                <span class="method-start">10350 ms</span>
+                <span class="method-start">19777 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
-                <span class="method-name">test3</span>
-                <span class="method-start">10352 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">test36</span>
+                <span class="method-start">19778 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">endTest</span>
-                <span class="method-start">11333 ms</span>
+                <span class="method-start">33080 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-test after">
                 <span class="method-name">closeDB</span>
-                <span class="method-start">11333 ms</span>
+                <span class="method-start">33080 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
