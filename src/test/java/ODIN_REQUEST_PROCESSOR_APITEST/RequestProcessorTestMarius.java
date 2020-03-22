@@ -155,6 +155,7 @@ public class RequestProcessorTestMarius {
 	final static Logger logger = Logger.getLogger(RequestProcessorTestMarius.class);
 	static boolean value = true;
 	String environment = System.getProperty("var");
+	String cassandra_update = System.getProperty("cassandra_update");
 	String user;
 	String pass;
 	String url;
@@ -207,6 +208,13 @@ public class RequestProcessorTestMarius {
 		logger.info("test for ==>compare xml structure , content , data inserted in DB vs expected <==");
 		executeInsert(CLEAN_DB);		
 		// executeQuerryDB(CLEAN_6DB, strUserID, strPassword, dbURL);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_1.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_1.sql");
 		System.out.println(sql);
 		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
