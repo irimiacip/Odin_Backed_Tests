@@ -1086,10 +1086,14 @@ public class RequestProcessorTestMarius {
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_27.xml", "null", 0);
 		logger.info("interval is splitted started point");
 		logger.info("execute request for split the second interval");
-		
-		String sql_1 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_15.sql");
-		System.out.println(sql_1);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql_1 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_15.sql");
+			System.out.println(sql_1);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}
+
 		
 		XmlComparator.read_xml_expected(2, 15, FILEPATH_REQUEST_PROCESSOR, "test_25.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_28.xml", "null", 0);
