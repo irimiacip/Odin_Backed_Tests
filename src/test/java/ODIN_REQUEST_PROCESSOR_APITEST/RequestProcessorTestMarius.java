@@ -155,13 +155,13 @@ public class RequestProcessorTestMarius {
 	final static Logger logger = Logger.getLogger(RequestProcessorTestMarius.class);
 	static boolean value = true;
 	String environment = System.getProperty("var");
-	String cassandra_update = System.getProperty("cassandra_update");
 	String user;
 	String pass;
 	String url;
 	String clean;
 	String env_cassandra;
     String country_tenant;
+    String cassandra_update;
 	//@BeforeMethod(groups = {"BG_MCC"})
 	@BeforeTest(groups = {"BG_MCC"})
 	public void startTest() throws Exception {
@@ -171,6 +171,7 @@ public class RequestProcessorTestMarius {
 			pass = strPassword;
 			url = dbURL;
 			env_cassandra = "od_inbound_dev";
+			cassandra_update = System.getProperty("cassandra_update");
 		} else {
 			country_tenant = COUNTRY_TENANT_PP;
 			//user = strUserID_pp;
@@ -180,6 +181,7 @@ public class RequestProcessorTestMarius {
 			//url = dbURL_pp;
 			url = dbURL;
 			env_cassandra = "od_inbound_pp1";
+			cassandra_update = System.getProperty("cassandra_update");
 		}		
 		ConnectDBMarius.initConn(user, pass, url);
 		executeInsert(CREATE_TABLE);
@@ -214,11 +216,7 @@ public class RequestProcessorTestMarius {
 			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
 		}else {
 			logger.info("no cassandra update will be done");
-		}
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_1.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
-				
+		}				
 		XmlComparator.read_xml_expected(2, 1, FILEPATH_REQUEST_PROCESSOR, "test_1.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
 				"expected_1.xml", "null", 0);
 		
@@ -247,10 +245,14 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 3 --");
 		logger.info("test for ==><sourceXMLElement><==");
 		executeInsert(CLEAN_DB);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_12.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_12.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}
+
 		
 		
 		XmlComparator.read_xml_expected(2, 12, FILEPATH_REQUEST_PROCESSOR, "test_1.xml",
@@ -270,10 +272,14 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 4 --");
 		logger.info("test for ==><targetColumn><==");
 		executeInsert(CLEAN_DB);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_13.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_13.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+			
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
 		
 		XmlComparator.read_xml_expected(2, 13, FILEPATH_REQUEST_PROCESSOR, "test_1.xml",
@@ -293,10 +299,14 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 5 --");
 		logger.info("test for test for warrnig message received from validator==>");
 		executeInsert(CLEAN_DB);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_1.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_1.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+			
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
 		XmlComparator.read_xml_expected(2, 1, FILEPATH_REQUEST_PROCESSOR, "test_2.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
 				"expected_4.xml", "null", 0);
@@ -314,10 +324,15 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 6 --");
 		logger.info("test for warrnig message received from validator==>");
 		executeInsert(CLEAN_DB);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_1.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_1.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+			
+		}else {
+			logger.info("no cassandra update will be done");
+		}
+
 		
 		
 		XmlComparator.read_xml_expected(2, 1, FILEPATH_REQUEST_PROCESSOR, "test_3.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
@@ -337,11 +352,15 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 7 --");
 		logger.info("test negative for check the behvior of the request processor==>");
 		executeInsert(CLEAN_DB);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_1.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
-		
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_1.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+
+		}else {
+			logger.info("no cassandra update will be done");
+		}
+				
 		
 		XmlComparator.read_xml_expected(2, 1, FILEPATH_REQUEST_PROCESSOR, "test_4.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
 				"expected_6.xml", "null", 0);
@@ -360,10 +379,15 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 8 --");
 		logger.info("Test situation for tag : SUBSTR : extract first 5 caracters starting with the first ==>");
 		executeInsert(CLEAN_DB);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_2.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_2.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
 		
 		
 		XmlComparator.read_xml_expected(2, 2, FILEPATH_REQUEST_PROCESSOR, "test_5.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
@@ -384,10 +408,15 @@ public class RequestProcessorTestMarius {
 		logger.info(
 				"Test situation for tag : SUBSTR : extract first 5 caracters starting with the first; string contain less then 5 char ==>");
 		executeInsert(CLEAN_DB);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_6.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_6.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
 		
 		
 		XmlComparator.read_xml_expected(2, 2, FILEPATH_REQUEST_PROCESSOR, "test_6.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
@@ -407,10 +436,15 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 10 --");
 		logger.info("If a tag has null value, the concatenated values from two columns will be inserted there==>");
 		executeInsert(CLEAN_DB);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_3.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_3.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+			
+
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
 		
 		XmlComparator.read_xml_expected(2, 3, FILEPATH_REQUEST_PROCESSOR, "test_7.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
@@ -431,10 +465,16 @@ public class RequestProcessorTestMarius {
 		logger.info(
 				"If a tag has null value, the concatenated values from two columns will be inserted there(one one them is null==>");
 		executeInsert(CLEAN_DB);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_8.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+			
+
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_8.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
 		
 		
 		XmlComparator.read_xml_expected(2, 4, FILEPATH_REQUEST_PROCESSOR, "test_8.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
@@ -454,10 +494,16 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 12 --DE FACUT REFACTOR LA COD--");
 		logger.info("insert date SYSTIMESTAMP when a tag is missing==>");
 		executeInsert(CLEAN_DB);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_9.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+			
+
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_9.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
 		
 		
 		XmlComparator.read_xml_expected(2, 5, FILEPATH_REQUEST_PROCESSOR, "test_9.xml", PATH_EXPECTED_REQUEST_PROCESSOR,
@@ -478,10 +524,16 @@ public class RequestProcessorTestMarius {
 		logger.info("test for <mappingRule>{FUNCTION:select..... ON INSERT");
 		executeInsert(CLEAN_DB);
 		executeInsert(INSERT_DB_1);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_6.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+			
+
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_6.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
 		
 		
 		XmlComparator.read_xml_expected(2, 6, FILEPATH_REQUEST_PROCESSOR, "test_10.xml",
@@ -501,10 +553,16 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 14 --");
 		logger.info("test for <mappingRule>{FUNCTION:select..... ON INSERT null table");
 		executeInsert(CLEAN_DB);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_6.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+			
+
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_6.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
 		
 		
 		XmlComparator.read_xml_expected(2, 6, FILEPATH_REQUEST_PROCESSOR, "test_11.xml",
@@ -526,10 +584,16 @@ public class RequestProcessorTestMarius {
 		executeInsert(CLEAN_DB);
 		executeInsert(INSERT_DB_1);
 		executeInsert(INSERT_DB_2);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_6.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_6.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+			
+			
+
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
 		
 		XmlComparator.read_xml_expected(2, 6, FILEPATH_REQUEST_PROCESSOR, "test_12.xml",
@@ -550,10 +614,14 @@ public class RequestProcessorTestMarius {
 		logger.info(
 				"test for <mappingRule>{FUNCTION:select......ON INSERT no record in table and skippline is prezent");
 		executeInsert(CLEAN_DB);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_7.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_7.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
 		
 		XmlComparator.read_xml_expected(2, 7, FILEPATH_REQUEST_PROCESSOR, "test_13.xml",
@@ -574,10 +642,15 @@ public class RequestProcessorTestMarius {
 		logger.info("test for <mappingRule>{FUNCTION:select..... ON INSERT integer");
 		executeInsert(CLEAN_DB);
 		executeInsert(INSERT_DB_3);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_8.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_8.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
 		
 		
 		XmlComparator.read_xml_expected(2, 8, FILEPATH_REQUEST_PROCESSOR, "test_14.xml",
@@ -597,10 +670,15 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 18 --");
 		logger.info("test for <mappingRule>{FUNCTION:select..... ON INSERT integer null table");
 		executeInsert(CLEAN_DB);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_8.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_8.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+
+		}else {
+			logger.info("no cassandra update will be done");
+		}
+
 		
 		XmlComparator.read_xml_expected(2, 8, FILEPATH_REQUEST_PROCESSOR, "test_15.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_17.xml", "null", 0);
@@ -621,10 +699,15 @@ public class RequestProcessorTestMarius {
 		executeInsert(CLEAN_DB);
 		executeInsert(INSERT_DB_4);
 		executeInsert(INSERT_DB_5);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_8.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_8.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+
+		}else {
+			logger.info("no cassandra update will be done");
+		}
+
 		
 		
 		XmlComparator.read_xml_expected(2, 8, FILEPATH_REQUEST_PROCESSOR, "test_16.xml",
@@ -645,10 +728,15 @@ public class RequestProcessorTestMarius {
 		logger.info(
 				"test for <mappingRule>{FUNCTION:select......ON INSERT integer no record in table and skippline is prezent");
 		executeInsert(CLEAN_DB);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_9.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_9.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
 		
 		
 		XmlComparator.read_xml_expected(2, 9, FILEPATH_REQUEST_PROCESSOR, "test_17.xml",
@@ -672,10 +760,15 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_6);
 		executeInsert(INSERT_DB_7);
 		executeInsert(INSERT_DB_8);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_10.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_10.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
 		
 		
 		XmlComparator.read_xml_expected(2, 10, FILEPATH_REQUEST_PROCESSOR, "test_18.xml",
@@ -699,10 +792,15 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_7);
 		executeInsert(INSERT_DB_8);
 		executeInsert(INSERT_DB_9);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_10.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_10.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+
+		}else {
+			logger.info("no cassandra update will be done");
+		}
+
 		
 		
 		XmlComparator.read_xml_expected(2, 10, FILEPATH_REQUEST_PROCESSOR, "test_19.xml",
@@ -723,10 +821,14 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 23 --");
 		logger.info("test for <mappingRule>{FUNCTION:select......ON INSERT data no record in table ");
 		executeInsert(CLEAN_DB);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_10.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_10.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}
+
 		
 		
 		XmlComparator.read_xml_expected(2, 10, FILEPATH_REQUEST_PROCESSOR, "test_20.xml",
@@ -747,10 +849,14 @@ public class RequestProcessorTestMarius {
 		logger.info("TEST -- 24 --");
 		logger.info("test for <mappingRule>{FUNCTION:select......ON INSERT data no record in table and skippline ");
 		executeInsert(CLEAN_DB);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_11.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_11.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
 		
 		
 		XmlComparator.read_xml_expected(2, 11, FILEPATH_REQUEST_PROCESSOR, "test_21.xml",
@@ -775,11 +881,15 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_BRAND_ID_MERGE__2_ENG);
 		executeInsert(INSERT_DB_BRAND_ID_MERGE__1_POL);
 		executeInsert(INSERT_DB_BRAND_ID_MERGE__2_POL);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_17.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_17.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+
 		
 		
 		XmlComparator.read_xml_expected(2, 17, FILEPATH_REQUEST_PROCESSOR, "test_22.xml",
@@ -823,11 +933,15 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_BRAND_ID_MERGE__2_ENG);
 		executeInsert(INSERT_DB_BRAND_ID_MERGE__1_POL);
 		executeInsert(INSERT_DB_BRAND_ID_MERGE__2_POL);
-
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_18.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_18.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+
 		
 		
 		XmlComparator.read_xml_expected(2, 18, FILEPATH_REQUEST_PROCESSOR, "test_23.xml",
@@ -870,11 +984,15 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_BRAND_ID_MERGE__2_ENG);
 		executeInsert(INSERT_DB_BRAND_ID_MERGE__1_POL);
 		executeInsert(INSERT_DB_BRAND_ID_MERGE__2_POL);
-
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_18.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_18.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+
 		
 		
 		XmlComparator.read_xml_expected(2, 18, FILEPATH_REQUEST_PROCESSOR, "test_24.xml",
@@ -915,11 +1033,15 @@ public class RequestProcessorTestMarius {
 		executeInsert(CLEAN_DB_BRAND_ID);
 		executeInsert(INSERT_DB_BRAND_ID_1);
 		executeInsert(INSERT_DB_BRAND_ID_2);
-
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}
 		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+
 		
 		
 		XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_25.xml",
@@ -950,10 +1072,14 @@ public class RequestProcessorTestMarius {
 		executeInsert(CLEAN_DB_BRAND_ID);
 		executeInsert(INSERT_DB_BRAND_ID_1);
 		executeInsert(INSERT_DB_BRAND_ID_2);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}
+
 		
 		
 		XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_25.xml",
@@ -1009,25 +1135,38 @@ public class RequestProcessorTestMarius {
 		executeInsert(CLEAN_DB_BRAND_ID);
 		executeInsert(INSERT_DB_BRAND_ID_1);
 		executeInsert(INSERT_DB_BRAND_ID_2);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}
+
 	
 		
 		XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_25.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_27.xml", "null", 0);
 		
-		String sql_1 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
-		System.out.println(sql_1);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql_1 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
+			System.out.println(sql_1);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}
+		
 		
 		XmlComparator.read_xml_expected(2, 15, FILEPATH_REQUEST_PROCESSOR, "test_25.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_28.xml", "null", 0);
-				
-		String sql_2 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
-		System.out.println(sql_2);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql_2 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
+			System.out.println(sql_2);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}		
+
 		
 		XmlComparator.read_xml_expected(2, 16, FILEPATH_REQUEST_PROCESSOR, "test_25.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_29.xml", "null", 0);
@@ -1103,10 +1242,14 @@ public class RequestProcessorTestMarius {
 		executeInsert(CLEAN_DB_BRAND_ID);
 		executeInsert(INSERT_DB_BRAND_ID_1);
 		executeInsert(INSERT_DB_BRAND_ID_2);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}	
+	
 		
 		
 		XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_26.xml",
@@ -1130,12 +1273,14 @@ public class RequestProcessorTestMarius {
 		executeInsert(CLEAN_DB_BRAND_ID);
 		executeInsert(INSERT_DB_BRAND_ID_1);
 		executeInsert(INSERT_DB_BRAND_ID_2);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
-		
-		
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_14.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}	
+
 		XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_27.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_31.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -1171,12 +1316,15 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_BRAND_ID_ALLOW_GAP_ENG_2);
 		executeInsert(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_1);
 		executeInsert(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_2);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_19.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}	
 
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_19.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
-		
-		
+				
 		XmlComparator.read_xml_expected(2, 19, FILEPATH_REQUEST_PROCESSOR, "test_28.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_32.xml", "null", 0);
 		// Thread.sleep(5000);
@@ -1216,19 +1364,27 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_BRAND_ID_ALLOW_GAP_ENG_2);
 		executeInsert(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_1);
 		executeInsert(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_2);
-		
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_19.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
-		//Thread.sleep(5000);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_19.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+			//Thread.sleep(5000);
+		}else {
+			logger.info("no cassandra update will be done");
+		}
+
 		
 		XmlComparator.read_xml_expected(2, 19, FILEPATH_REQUEST_PROCESSOR, "test_28.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_32.xml", "null", 0);
-		 		
-		String sql_1 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_20.sql");
-		System.out.println(sql_1);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
-		// Thread.sleep(5000);
+		if(cassandra_update.equals("true")) {
+			String sql_1 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_20.sql");
+			System.out.println(sql_1);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+			// Thread.sleep(5000);
+		}else {
+			logger.info("no cassandra update will be done");
+		}		
+
 		
 		XmlComparator.read_xml_expected(2, 20, FILEPATH_REQUEST_PROCESSOR, "test_29.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_33.xml", "null", 0);
@@ -1302,18 +1458,27 @@ public class RequestProcessorTestMarius {
 		executeInsert(INSERT_DB_BRAND_ID_ALLOW_GAP_ENG_2);
 		executeInsert(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_1);
 		executeInsert(INSERT_DB_BRAND_ID_ALLOW_GAP_POL_2);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_19.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+			// Thread.sleep(5000);
+		}else {
+			logger.info("no cassandra update will be done");
+		}	
 
-		String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_19.sql");
-		System.out.println(sql);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
 		// Thread.sleep(5000);
 		XmlComparator.read_xml_expected(2, 19, FILEPATH_REQUEST_PROCESSOR, "test_28.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_32.xml", "null", 0);
-		
-		String sql_1 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_21.sql");
-		System.out.println(sql_1);
-		cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
-		Thread.sleep(5000);
+		if(cassandra_update.equals("true")) {
+			String sql_1 = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_21.sql");
+			System.out.println(sql_1);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+			Thread.sleep(5000);
+		}else {
+			logger.info("no cassandra update will be done");
+		}	
+
 		XmlComparator.read_xml_expected(2, 21, FILEPATH_REQUEST_PROCESSOR, "test_30.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_34.xml", "null", 0);
 		// Thread.sleep(5000);
