@@ -1373,5 +1373,5 @@ public class RequestProcessorTestMarius {
 	// mvn clean test -DtestngFile=2_testng.xml -Dvar=dev -Dvarlink=dev
 	// mvn clean test -DproxySet=true -DproxyHost=proxy.metro.ro -DproxyPort=3128 -DtestngFile=2_testng.xml -Dvar=pp -Dvarlink=pp1 -DCredential_user_pp=nwe -DCredential_pass_pp=PSC6O-3HFWOR
 	
-	   //PL==>PLDEV
+	   //PL==>PLDEV  ==> env
 }
