@@ -15,48 +15,60 @@ public class ConnectDB {
 //	
 //	ConnectDB.executeQuerryDB(DataBaseConsts.GET_DATA_DB ,DataBaseConsts.strUserID, DataBaseConsts.strPassword, DataBaseConsts.dbURL);
 //	}
-	static List<String> listactual = new ArrayList<String>();
 	static Connection connection = null;
 
-	public static ResultSet executeQuerryDB(String querry, String user, String pass, String dbURL)
-			throws InterruptedException, SQLException {
-
-		ResultSet resultSet = null;
-
-		String sql = querry;
-		String dburl = dbURL;
-		String strUserID = user;
-		String strPassword = pass;
-
+	public static void initConn(String user, String pass, String dbURL) {
 		int count = 10;
 		int test_conn = 0;
 		while (connection == null && test_conn < count) {
 			try {
-				connection = DriverManager.getConnection(dbURL, strUserID, strPassword);
+				connection = DriverManager.getConnection(dbURL, user, pass);
 			} catch (SQLException e) {
 				System.out.println("afisare eroarea " + e.getMessage());
 				test_conn = test_conn + 1;
 				System.out.println("Afisare counter :" + test_conn);
 				System.out.println("Connecting failed, retrying...");
-				Thread.sleep(10000);
+				try {
+					Thread.sleep(10000);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
 			}
-
 		}
+
+		if (connection == null) {
+			System.out.println("Failed to make connection!");
+		}
+	}
+
+	public static void executeInsert(String querry) throws InterruptedException, SQLException {
 
 		if (connection != null) {
 			System.out.println("Connected to the database!");
 			Statement statement = connection.createStatement();
-			resultSet = statement.executeQuery(sql);
+			statement.executeQuery(querry);
 			System.out.println("SQL statement executed");
-
-		} else {
-			System.out.println("Failed to make connection!");
 		}
 
+	}
+
+	public static ResultSet executeQuerryDB(String querry) throws InterruptedException, SQLException {
+
+		ResultSet resultSet = null;
+
+		if (connection != null) {
+			System.out.println("Connected to the database!");
+			Statement statement = connection.createStatement();
+			resultSet = statement.executeQuery(querry);
+			System.out.println("SQL statement executed");
+
+		}
 		return resultSet;
 	}
 
 	public static List<String> getDatafromDB(ResultSet resultSet) throws SQLException {
+
+		List<String> listactual = new ArrayList<String>();
 
 		if (resultSet.next() == false) {
 			System.out.println("ResultSet in empty in Java");
@@ -74,7 +86,7 @@ public class ConnectDB {
 			String col4 = resultSet.getString("COLOANA4");
 
 			if (col3.contains("PM") || col3.contains("AM")) {
-				col3 = col3.substring(0, 12);
+				col3 = col3.substring(0, 9);
 				System.out.println("data from db :  " + col3);
 			}
 
@@ -84,11 +96,13 @@ public class ConnectDB {
 			listactual.add(col4);
 			// }
 		}
+		resultSet.close();
 		return listactual;
 	}
 
-	
-	public static List<String> getDatafromDB(ResultSet resultSet,String MERGE_TYPE) throws SQLException {
+	public static List<String> getDatafromDB(ResultSet resultSet, String MERGE_TYPE) throws SQLException {
+
+		List<String> listactual = new ArrayList<String>();
 
 		if (resultSet.next() == false) {
 			System.out.println("ResultSet in empty in Java");
@@ -103,7 +117,6 @@ public class ConnectDB {
 			String col1 = resultSet.getString("VALID_FROM");
 			String col2 = resultSet.getString("VALID_TO");
 
-
 			listactual.add(col1);
 			listactual.add(col2);
 
@@ -111,7 +124,7 @@ public class ConnectDB {
 		}
 		return listactual;
 	}
-	
+
 	public static void closeDbConn() throws SQLException {
 
 		if (connection != null) {
