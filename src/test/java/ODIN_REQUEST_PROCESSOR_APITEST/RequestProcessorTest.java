@@ -1308,8 +1308,8 @@ public class RequestProcessorTest {
 		Thread.sleep(5000);
 	}
 
-	// @Ignore
-	@Test(priority = 34, groups = {"BG_MCC"})	
+	//@Test(priority = 34, groups = {"BG_MCC"})	
+	@Test(priority = 34)	
 
 	public void test34() throws Exception {
 		logger.info("---TEST 34 ------");
@@ -1359,7 +1359,7 @@ public class RequestProcessorTest {
 	}
 
 	// @Ignore
-	@Test(priority = 35, groups = {"BG_MCC"})
+	@Test(priority = 35)
 	public void test35() throws Exception {
 		logger.info("---TEST 35 ------");
 		logger.info("Test second situation for ALLOWED GAP");
@@ -1452,7 +1452,7 @@ public class RequestProcessorTest {
 	}
 
 	// @Ignore
-	@Test(priority = 36, groups = {"BG_MCC"})
+	@Test(priority = 36)
 	public void test36() throws Exception {
 		logger.info("---TEST 36 ------");
 		logger.info("Test third situation for ALLOWED GAP");
