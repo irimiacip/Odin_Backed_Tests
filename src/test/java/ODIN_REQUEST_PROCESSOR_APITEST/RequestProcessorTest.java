@@ -1,10 +1,10 @@
 package ODIN_REQUEST_PROCESSOR_APITEST;
 
 import static ODIN_VALIDATOR_APITEST.Cassandra_dbconnect.cassandra_update;
-import static ODIN_VALIDATOR_APITEST.ConnectDBMarius.closeDbConn;
-import static ODIN_VALIDATOR_APITEST.ConnectDBMarius.executeInsert;
-import static ODIN_VALIDATOR_APITEST.ConnectDBMarius.executeQuerryDB;
-import static ODIN_VALIDATOR_APITEST.ConnectDBMarius.getDatafromDB;
+import static ODIN_VALIDATOR_APITEST.ConnectDB.closeDbConn;
+import static ODIN_VALIDATOR_APITEST.ConnectDB.executeInsert;
+import static ODIN_VALIDATOR_APITEST.ConnectDB.executeQuerryDB;
+import static ODIN_VALIDATOR_APITEST.ConnectDB.getDatafromDB;
 import static ODIN_VALIDATOR_APITEST.Consts.COUNTRY_TENANT;
 import static ODIN_VALIDATOR_APITEST.Consts.COUNTRY_TENANT_PP;
 import static ODIN_VALIDATOR_APITEST.Consts.FILEPATH_REQUEST_PROCESSOR;
@@ -142,7 +142,7 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import ODIN_VALIDATOR_APITEST.Cassandra_dbconnect;
-import ODIN_VALIDATOR_APITEST.ConnectDBMarius;
+import ODIN_VALIDATOR_APITEST.ConnectDB;
 import ODIN_VALIDATOR_APITEST.Consts;
 import ODIN_VALIDATOR_APITEST.ListComparator;
 import ODIN_VALIDATOR_APITEST.ReadBody;
@@ -183,7 +183,7 @@ public class RequestProcessorTest {
 			env_cassandra = "od_inbound_pp1";
 			cassandra_update = System.getProperty("cassandra_update");
 		}		
-		ConnectDBMarius.initConn(user, pass, url);
+		ConnectDB.initConn(user, pass, url);
 		executeInsert(CREATE_TABLE);
 		
 		logger.info("=====================");
