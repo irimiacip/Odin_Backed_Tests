@@ -162,8 +162,8 @@ public class RequestProcessorTest {
 	String env_cassandra;
     String country_tenant;
     String cassandra_update;
-	//@BeforeMethod(groups = {"BG_MCC"})
-	@BeforeTest(groups = {"BG_MCC"})
+	//@BeforeTest(groups = {"BG_MCC"})
+	@BeforeTest
 	public void startTest() throws Exception {
 		if (environment.contains("dev")) {
 			country_tenant = COUNTRY_TENANT;
@@ -190,13 +190,16 @@ public class RequestProcessorTest {
 		logger.info("autentification......");
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		RestAssured.useRelaxedHTTPSValidation();
-	}	@AfterMethod(groups = {"BG_MCC"})
+	}	
+	//@AfterMethod(groups = {"BG_MCC"})
+	@AfterMethod
 	public void endTest() throws SQLException {
 		logger.info("logout....");
 		logger.info("Finish TEST ");
 	}
 
-	@AfterTest (groups = {"BG_MCC"})
+	//@AfterTest (groups = {"BG_MCC"})
+	@AfterTest
 	public void closeDB() throws SQLException, InterruptedException {
 		executeInsert(DELETE_TABLE);
 		closeDbConn();
