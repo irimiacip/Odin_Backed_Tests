@@ -110,23 +110,12 @@ import static ODIN_VALIDATOR_APITEST.DataBaseConsts.strUserID_pp;
 import static ODIN_VALIDATOR_APITEST.DataBaseConsts.user_cassandra;
 import static ODIN_VALIDATOR_APITEST.DataBaseConsts.CREATE_TABLE;
 import static ODIN_VALIDATOR_APITEST.DataBaseConsts.DELETE_TABLE;
-/*import static ODIN_VALIDATOR_APITEST.DataBaseConsts.CLEAN_DB;
-import static ODIN_VALIDATOR_APITEST.DataBaseConsts.GET_DATA_DB;
-import static ODIN_VALIDATOR_APITEST.DataBaseConsts.INSERT_DB_1;
-import static ODIN_VALIDATOR_APITEST.DataBaseConsts.INSERT_DB_2;
-import static ODIN_VALIDATOR_APITEST.DataBaseConsts.INSERT_DB_3;
-import static ODIN_VALIDATOR_APITEST.DataBaseConsts.INSERT_DB_4;
-import static ODIN_VALIDATOR_APITEST.DataBaseConsts.INSERT_DB_5;
-import static ODIN_VALIDATOR_APITEST.DataBaseConsts.INSERT_DB_6;
-import static ODIN_VALIDATOR_APITEST.DataBaseConsts.INSERT_DB_7;
-import static ODIN_VALIDATOR_APITEST.DataBaseConsts.INSERT_DB_8;
-import static ODIN_VALIDATOR_APITEST.DataBaseConsts.INSERT_DB_9;
-import static ODIN_VALIDATOR_APITEST.DataBaseConsts.dbURL;
-import static ODIN_VALIDATOR_APITEST.DataBaseConsts.dbURL_pp;
-import static ODIN_VALIDATOR_APITEST.DataBaseConsts.strPassword;
-import static ODIN_VALIDATOR_APITEST.DataBaseConsts.strPassword_pp;
-import static ODIN_VALIDATOR_APITEST.DataBaseConsts.strUserID;
-import static ODIN_VALIDATOR_APITEST.DataBaseConsts.strUserID_pp;*/
+import static ODIN_VALIDATOR_APITEST.DataBaseConsts.INSERT_DB_MERGE_NON_SCHEDULE_1;
+import static ODIN_VALIDATOR_APITEST.DataBaseConsts.INSERT_DB_MERGE_NON_SCHEDULE_2;
+import static ODIN_VALIDATOR_APITEST.DataBaseConsts.GET_DATA_DB_NON_SCHEDULE_1;
+import static ODIN_VALIDATOR_APITEST.DataBaseConsts.GET_DATA_DB_NON_SCHEDULE_2;
+import static ODIN_VALIDATOR_APITEST.DataBaseConsts.GET_DATA_DB_NON_SCHEDULE_3;
+
 import static org.testng.Assert.assertEquals;
 
 import java.sql.SQLException;
@@ -1542,12 +1531,101 @@ public class RequestProcessorTest {
 
 	// @Ignore
 	@Test(priority = 38)
-	public void test38() {
+	public void test38() throws Exception{
 		logger.info("---TEST 38 ------");
-		logger.info("Test terminate");
+		logger.info("Test first situation for MERGE NON-SCHEDULE");
+		executeInsert(CLEAN_DB);
+		executeInsert(INSERT_DB_MERGE_NON_SCHEDULE_1);
+		executeInsert(INSERT_DB_MERGE_NON_SCHEDULE_2);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_22.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}	
+		XmlComparator.read_xml_expected(2, 22, FILEPATH_REQUEST_PROCESSOR, "test_31.xml",
+				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_35.xml", "null", 0);
+		List<String> listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_NON_SCHEDULE_1));
+		List<String> listexpected = ReadCSVFile.readExpected("59");
+		logger.info("check data inserted in DB");
+		assertEquals(listactual, listexpected);
+		logger.info("check succesfully");
+		 listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_NON_SCHEDULE_2));
+		listexpected = ReadCSVFile.readExpected("60");
+		logger.info("check data inserted in DB");
+		//value = ListComparator.compareLists(listactual, listexpected);
+		assertEquals(listactual, listexpected);		
+		logger.info("check succesfully");
 
 	}
+	
+	@Test(priority = 39)
+	public void test39() throws Exception{
+		logger.info("---TEST 39 ------");
+		logger.info("Test second situation for MERGE NON-SCHEDULE");
+		executeInsert(CLEAN_DB);
+		executeInsert(INSERT_DB_MERGE_NON_SCHEDULE_1);
+		executeInsert(INSERT_DB_MERGE_NON_SCHEDULE_2);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_22.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}	
+		XmlComparator.read_xml_expected(2, 22, FILEPATH_REQUEST_PROCESSOR, "test_31.xml",
+				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_35.xml", "null", 0);
+		XmlComparator.read_xml_expected(2, 22, FILEPATH_REQUEST_PROCESSOR, "test_32.xml",
+				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_36.xml", "null", 0);		
+		List<String> listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_NON_SCHEDULE_1));
+		List<String> listexpected = ReadCSVFile.readExpected("59");
+		logger.info("check data inserted in DB");
+		assertEquals(listactual, listexpected);
+		logger.info("check succesfully");
+		 listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_NON_SCHEDULE_2));
+		listexpected = ReadCSVFile.readExpected("60");
+		logger.info("check data inserted in DB");
+		//value = ListComparator.compareLists(listactual, listexpected);
+		assertEquals(listactual, listexpected);		
+		logger.info("check succesfully");
+		 listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_NON_SCHEDULE_3));
+		listexpected = ReadCSVFile.readExpected("61");
+			logger.info("check data inserted in DB");
+			//value = ListComparator.compareLists(listactual, listexpected);
+			assertEquals(listactual, listexpected);		
+			logger.info("check succesfully");
+	}
 
+	@Test(priority = 40)
+	public void test40() throws Exception{
+		logger.info("---TEST 40 ------");
+		logger.info("Test negatie situation for MERGE NON-SCHEDULE");
+		executeInsert(CLEAN_DB);
+		executeInsert(INSERT_DB_MERGE_NON_SCHEDULE_1);
+		executeInsert(INSERT_DB_MERGE_NON_SCHEDULE_2);
+		if(cassandra_update.equals("true")) {
+			String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_22.sql");
+			System.out.println(sql);
+			cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+		}else {
+			logger.info("no cassandra update will be done");
+		}	
+		XmlComparator.read_xml_expected(2, 22, FILEPATH_REQUEST_PROCESSOR, "test_33.xml",
+				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_37.xml", "null", 0);
+		List<String> listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_NON_SCHEDULE_1));
+		List<String> listexpected = ReadCSVFile.readExpected("62");
+		logger.info("check data inserted in DB");
+		assertEquals(listactual, listexpected);
+		logger.info("check succesfully");
+		 listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB_NON_SCHEDULE_2));
+		listexpected = ReadCSVFile.readExpected("63");
+		logger.info("check data inserted in DB");
+		//value = ListComparator.compareLists(listactual, listexpected);
+		assertEquals(listactual, listexpected);		
+		logger.info("check succesfully");
+
+	}
 	// mvn clean test -DproxySet=true -DproxyHost=proxy.metro.ro -DproxyPort=3128 -DtestngFile=2_testng.xml -Dvar=dev -Dvarlink=dev -DCredential_user_dev=nwe -DCredential_pass_dev=europa
 	// mvn clean test -DtestngFile=2_testng.xml -Dvar=pp -Dvarlink=pp1
 	// mvn clean test -DtestngFile=2_testng.xml -Dvar=dev -Dvarlink=dev

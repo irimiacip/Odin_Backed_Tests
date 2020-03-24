@@ -39,6 +39,10 @@ public class Consts {
 	public static final String VERSION_PROCESSOR_19 = "v_2.19_0/";
 	public static final String VERSION_PROCESSOR_20 = "v_2.20_0/";
 	public static final String VERSION_PROCESSOR_21 = "v_2.21_0/";
+	public static final String VERSION_PROCESSOR_22 = "v_2.22_0/";
+	
+	
+	
 	
 	public static final String FILEPATH_VALIDATOR_CASSANDRA = "src/main/resources/process_request/process/";
 	public static final String COUNTRY_TENANT = System.getProperty("COUNTRY_TENANT");

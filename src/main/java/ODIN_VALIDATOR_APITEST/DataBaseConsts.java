@@ -3,8 +3,12 @@ package ODIN_VALIDATOR_APITEST;
 public class DataBaseConsts {
 
 	public static final String GET_DATA_DB = "select * from odin_test order by coloana1 desc";
+	
+	public static final String GET_DATA_DB_NON_SCHEDULE_1 = "select * from odin_test where COLOANA1=100";
+	public static final String GET_DATA_DB_NON_SCHEDULE_2 = "select * from odin_test where COLOANA1=101";
+	public static final String GET_DATA_DB_NON_SCHEDULE_3 = "select * from odin_test where COLOANA1=102";
 	public static final String CLEAN_DB = "delete from ODIN_TEST";
-	public static final String CREATE_TABLE = "CREATE TABLE odin_test (COLOANA1 NUMBER NOT NULL,COLOANA2 varchar2(50) NOT NULL,COLOANA3 varchar2(50) NOT NULL,COLOANA4 NUMBER NOT NULL)";
+	public static final String CREATE_TABLE = "CREATE TABLE odin_test (COLOANA1 NUMBER NOT NULL PRIMARY KEY,COLOANA2 varchar2(50) NOT NULL,COLOANA3 varchar2(50) NOT NULL,COLOANA4 NUMBER NOT NULL)";
 	public static final String DELETE_TABLE = "DROP table odin_test";
 	public static final String CLEAN_DB_BRAND_ID = "DELETE FROM RT_BRANDS_ML WHERE BRAND_ID =33710";
 	public static final String INSERT_DB_BRAND_ID_1 = "INSERT INTO NWE.RT_BRANDS_ML\r\n" + 
@@ -41,6 +45,9 @@ public class DataBaseConsts {
 	public static final String GET_DATA_DB_BRAND_VALID_FROM_POL_6 = "SELECT VALID_FROM , VALID_TO FROM RT_BRANDS_ML WHERE BRAND_ID =33710 AND BRAND_ID = 33710 AND LANG_CD ='POL' AND  VALID_FROM = TO_DATE('2100-01-01 00:00:00','YYYY-MM-DD HH24:MI:SS')";
 	public static final String GET_DATA_DB_BRAND_VALID_FROM_POL_7 = "SELECT VALID_FROM , VALID_TO FROM RT_BRANDS_ML WHERE BRAND_ID =33710 AND BRAND_ID = 33710 AND LANG_CD ='POL' AND  VALID_FROM = TO_DATE('2500-01-02 00:00:00','YYYY-MM-DD HH24:MI:SS')";
 
+	
+	public static final String INSERT_DB_MERGE_NON_SCHEDULE_1 = "INSERT INTO nwe.odin_test (COLOANA1, COLOANA2, COLOANA3, COLOANA4) VALUES (100,'TEST','TEST1',1)";
+	public static final String INSERT_DB_MERGE_NON_SCHEDULE_2 = "INSERT INTO nwe.odin_test (COLOANA1, COLOANA2, COLOANA3, COLOANA4)VALUES (101,'TEST','TEST2',2)";
 	
 	public static final String INSERT_DB_BRAND_ID_MERGE__1_ENG ="INSERT INTO NWE.RT_BRANDS_ML\r\n" + 
 			"(BRAND_ID, LANG_CD, VALID_FROM, VALID_TO, BRAND_IS_VALID, BRAND_NAME, TECHNICAL_BRAND, CREATED_AT, CREATED_BY, CHANGED_AT, CHANGED_BY)\r\n" + 
