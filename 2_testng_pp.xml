@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>	
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">	
  	<suite name="Suite">	
-		<test name="Guru 99 Smoke Test Demo">	
+		<test name="ODIN PP">	
 			<groups>	
 				<run>	
    					 <exclude name="BG_MCC" />	
