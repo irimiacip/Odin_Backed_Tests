@@ -1,0 +1,42 @@
+Framework overview :
+
+@Test(priority = x)
+    public void testx() throws Exception {
+        logger.info("TEST -- x --");
+        logger.info("description of tests");
+        executeInsert(CLEAN_DB);  ==> clean the target table before test run
+        if(cassandra_update.equals("true")) {         ==> prepare the configuration for the coresponding tests that will be ececuted  (processor_xxx.sql)
+            String sql = Cassandra_dbconnect.cassandra_sql(Consts.FILEPATH_VALIDATOR_CASSANDRA, "processor_xxx.sql");
+            System.out.println(sql);
+            cassandra_update(user_cassandra, pass_cassandra, Cassandra_dbconnect.env_cassandra(env_cassandra));
+        }else {
+            logger.info("no cassandra update will be done");
+        }
+        XmlComparator.read_xml_expected(A, B, FILEPATH_REQUEST_PROCESSOR, "C",
+                PATH_EXPECTED_REQUEST_PROCESSOR, "D", "null", 0);   ==> perform the request base on rest-assured and make the comparation between expected and actual xml obtained
+        // Thread.sleep(5000);                      A= Valiadator or Request procesor (1, 2)
+
+                                                                B = version of the process that will be use by the end point (stored in cassandra)
+
+                                                                C = the xml that will be used as body for request
+
+                                                                D = the xml that is used as expeced
+        List<String> listactual = getDatafromDB(executeQuerryDB(GET_DATA_DB));  ==> the list populated with the data from DB
+        List<String> listexpected = ReadCSVFile.readExpected("24");  ==> the list populated with the data from the expected value from the csv file
+        logger.info("check data inserted in DB");
+        //value = ListComparator.compareLists(listactual, listexpected);0
+        assertEquals(listactual, listexpected);  ==> check the results between the actual and expected data inserted in DB
+        logger.info("check succesfully");
+
+    }
+
+
+Execution from the local machine (cmd)
+
+mvn clean test -DproxySet=true -DproxyHost=proxy.metro.ro -DproxyPort=3128 -DtestngFile=2_testng.xml -Dvar=dev -Dvarlink=dev -DCredential_user_dev=user for the DB MMS PL -DCredential_pass_dev=PASS for the DB MMS PL -DCOUNTRY_TENANT=PL/MCC/SDA -Dcassandra_update=false
+
+mvn clean test -DproxySet=true -DproxyHost=proxy.metro.ro -DproxyPort=3128 -DtestngFile=2_testng_pp.xml -Dvar=pp -Dvarlink=pp1 -DCredential_user_dev=user for the DB MMS PL -DCredential_pass_dev=PASS for the DB MMS PL -DCOUNTRY_TENANT=PLDEV/MCC/SDA -Dcassandra_update=false
+   
+Obs :
+
+Before run the the framework : be sure that table ODIN_TEST is droped from the MMS HO PL (DEV)

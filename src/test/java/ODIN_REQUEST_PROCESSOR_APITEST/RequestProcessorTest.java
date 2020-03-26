@@ -1034,8 +1034,6 @@ public class RequestProcessorTest {
 		}
 		
 
-		
-		
 		XmlComparator.read_xml_expected(2, 14, FILEPATH_REQUEST_PROCESSOR, "test_25.xml",
 				PATH_EXPECTED_REQUEST_PROCESSOR, "expected_27.xml", "null", 0);
 		// Thread.sleep(5000);
