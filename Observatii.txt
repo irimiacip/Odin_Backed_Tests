@@ -40,3 +40,7 @@ mvn clean test -DproxySet=true -DproxyHost=proxy.metro.ro -DproxyPort=3128 -Dtes
 Obs :
 
 Before run the the framework : be sure that table ODIN_TEST is droped from the MMS HO PL (DEV)
+
+Docker obs : 
+docker build -t docker_image_ondin_backend .
+docker run docker_image_ondin_backend
